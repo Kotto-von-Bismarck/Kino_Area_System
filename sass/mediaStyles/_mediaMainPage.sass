@@ -1,0 +1,1274 @@
+@media (max-width: 1690px) 
+    .pageup
+        right: 20px
+        width: 40px
+        height: 40px
+    .MIDDLESCREEN
+        display: block
+    .DESKTOP
+        display: none
+    .container
+        max-width: 850px
+    .subheader
+        height: 90px
+        flex-direction: column
+        align-items: flex-start
+        margin-bottom: 28px
+        &__title
+            @include forTitle
+            font-size: 40px
+        &__list
+            width: 700px
+        &__item
+            font-size: 16px
+    .header
+        padding-top: 15px
+        margin-bottom: 60px
+        height: 85px
+        align-items: flex-start
+        .nav-container
+            flex-direction: column
+        .navigation
+            align-items: flex-end
+            width: 100%
+            a
+                font-size: 13px
+        .searchButton
+            width: 100px
+            height: 42px
+            div
+                margin: 0 
+                display: flex
+                justify-content: space-evenly
+                color: $secondColor
+                font-size: 13px
+                font-weight: bold
+                .search
+                    display: block
+        .interactivElements
+            width: fit-content
+            .autorisation
+                width: 100px
+                height: 42px
+    .movieCards
+        .cardItem
+            max-width: 202px
+            width: fit-content
+            max-height: 320px
+            height: 311px
+            display: flex
+            flex-direction: column
+            justify-content: space-between
+            position: relative
+            margin-bottom: 30px
+            &__imageBox
+                &::after
+                    border-radius: 5px
+            &__rectangle
+                width: 160px
+                height: 49px
+                font-size: 14px
+            &__markItem
+                border-radius: 5px
+                width: 44px
+                height: 24px
+                margin: 10px
+                font-size: 12px
+            &__movieTitle
+                font-size: 14px
+            &__movieGanre
+                font-size: 11px
+    .cinemaNow
+        background: url(../images/page-bg/main.png) top center/105% no-repeat
+        .movieCards
+            min-height: 300px
+            .cardItem
+                display: inline-flex
+                margin: 0 5.26px 30px 5.26px
+        .buttonMore
+            width: 164px
+            height: 59px
+            font-size: 16px
+    .markBorder
+        border-radius: 10px
+        width: 38px
+        height: 38px
+        margin-left: 5px
+        .points
+            font-size: 12px
+            position: absolute
+            top: 110%
+        &:hover .fa-solid
+                font-size: 20px
+        .fa-solid
+            font-size: 15px
+    .trailer
+        margin-bottom: 33px
+        .subheader
+            margin-bottom: 33px
+            flex-direction: row
+            height: 42px
+        &__title
+            @include forTitle
+            font-size: 40px
+        &__more
+            width: 160px
+            a
+                font-size: 18px
+        &__openTrailer
+            margin-bottom: 20px
+            .player-tools
+                .fa-solid
+                    font-size: 40px
+                .progress
+                    font-size: 16px
+                    height: 20px
+                    width: 75%
+                    progress
+                        width: 90%
+                        height: 5px
+                .scrin-mod
+                    i 
+                        font-size: 20px
+                .volume-none
+                    i 
+                        font-size: 20px
+                .volume 
+                    -webkit-appearance: none !important
+                    height: 5px
+                    width: 90px
+                .volume::-webkit-slider-thumb 
+                    -webkit-appearance: none !important
+                    box-shadow: 0 0 13px 0 rgba(255, 255, 255, 0)
+                    border: 2px solid #3656cb00
+                    height: 12px
+                    width: 12px
+                .volume
+                    -mozilla-appearance: none !important
+                    height: 5px
+                    width: 90px
+                .volume::-mozilla-slider-thumb 
+                    -mozilla-appearance: none !important
+                    box-shadow: 0 0 13px 0 rgba(255, 255, 255, 0)
+                    border: 2px solid #3656cb00
+                    height: 12px
+                    width: 12px
+                &:hover .volume 
+                    -webkit-appearance: none !important
+                    background: $mainColor
+                    box-shadow: 0 0 15px 0 rgba(255,255,255,.7)
+                &:hover .volume::-webkit-slider-thumb 
+                    -webkit-appearance: none !important
+                    background: $mainColor
+                    box-shadow: 0 0 15px 0 rgba(72,113,255,.8)
+                    border: 2px solid $secondColor
+                &:hover .volume
+                    -mozilla-appearance: none !important
+                    background: $mainColor
+                    box-shadow: 0 0 15px 0 rgba(255,255,255,.7)
+                &:hover .volume::-mozilla-slider-thumb 
+                    -mozilla-appearance: none !important
+                    background: $mainColor
+                    box-shadow: 0 0 15px 0 rgba(72,113,255,.8)
+                    border: 2px solid $secondColor
+        .trailer__slider
+            margin-top: 15px
+            height: 190px
+            .s-box
+                min-width: 847px
+                &:nth-child(1)
+                    margin-right: 11px
+            &::-webkit-scrollbar
+                height: 5px
+            &::-webkit-scrollbar-thumb
+                height: 5px
+            &::-mozilla-scrollbar
+                width: 5px
+            &::-mozilla-scrollbar-thumb
+                width: 5px
+            .sliderItem
+                max-width: 203px
+            .closeTrailer
+                &::after
+                    border-radius: 5px
+                .activeCard
+                    width: 160px
+                    height: 49px
+                    font-size: 14px
+                div
+                    .fa-play
+                        font-size: 30px
+                &__title
+                    margin-top: 10px
+                    font-size: 15px
+    .trailerDescr
+        margin-bottom: 27px
+        &__title
+            @include forTitle
+            font-size: 35px
+            margin-right: 24px
+    .popular
+        .cardItem
+            margin-right: 11px
+            &__movieTitle
+                font-size: 13.5px
+                margin-bottom: 2.5px
+            &__movieGanre
+                font-size: 11px
+    .sliderClicker
+        margin: 2px auto 15px auto
+        button
+            width: 21px
+            height: 20px
+    .persons
+        margin-bottom: 25px
+        .subheader__list
+            width: 245px
+        .personsSubcontainer
+            &__Item
+                width: 264px
+                height: 264px
+                &:last-child
+                    width: 300px
+                    padding: 21px 19px
+                    .otherPlace
+                        .nameRus
+                            font-size: 14px
+                        .nameEng
+                            font-size: 11px
+                            margin-top: 1px
+                        .age
+                            font-size: 11px
+                            margin-top: 2px
+                        .placeNum
+                            font-size: 14px
+                .dataWrapper
+                    .box
+                        margin: 18px 22px
+                    .place
+                        margin: 10px 14px
+                        font-size: 12px
+                    .nameRus
+                        font-size: 20px
+                    .nameEng
+                        font-size: 15px
+                    .age
+                        font-size: 12px
+                        line-height: 133%
+                        color: $thirdColor
+                        margin-top: 2px
+    .lastNews
+        margin-bottom: 22px
+        .subheader
+            margin-bottom: 23px
+            flex-direction: row
+            align-items: center
+            height: 42px
+        .lastNewsTabs
+            flex-direction: column-reverse
+            .lastNewsSliderWindow
+                height: fit-content
+                width: inherit
+            .tabcontent
+                height: 100%
+                .box
+                    height: calc( 100% - 80px )
+                    width: calc( 100% - 46px )
+                    margin: 33px 23px
+                    &__data
+                        span
+                            font-weight: 600
+                    &__descr
+                        .title
+                            font-weight: 800
+                            font-size: 35px
+                            margin-bottom: 12px
+                            line-height: 35px
+                        .descr
+                            font-weight: 400
+                            font-size: 18px
+                            width: 750px
+            .tabcontainer
+                flex-direction: row
+                width: 100%
+                height: 200px
+                .tabItem
+                    width: 205px
+                    height: 147px
+                    &__pseudoButton
+                        width: 150px
+                        height: 49px
+                        font-size: 15px
+                    .box
+                        height: calc( 100% - 28px )
+                        width: calc( 100% - 30px )
+                        position: absolute
+                        margin: 14px 15px
+                        &__data
+                            font-size: 13px
+                            font-weight: 500
+                        &__descr
+                            font-size: 15px
+                            font-weight: 600
+    .expected
+        background: #151a26
+        min-height: 1000px
+        padding-top: 50px
+        .subheader
+            margin-bottom: 20px
+            flex-direction: row
+            align-items: center
+            height: 42px
+        .second-subheader
+            flex-direction: column
+            height: 80px
+        .second-subtitle
+            font-size: 17px
+        &__slide
+            margin-right: 11px
+        .movieCards
+            margin-bottom: 20px
+        .subheader
+            .box
+                width: 100%
+                justify-content: space-between
+            &__list
+                align-self: flex-start
+            &__title
+                margin-top: -10px
+    .subscribe
+        height: 396px
+        border-radius: 10px
+        padding: 40px 106px
+        justify-content: flex-end
+        &__content
+            height: 295px
+            width: 100%
+            justify-content: flex-end
+            .subheader
+                margin-bottom: 20px
+        &__descr
+            font-size: 17px
+        &__interactiveEl
+            height: 62px
+            input
+                height: 100%
+            .subscribeBtn
+                height: 100%
+    .filmBoxOffice
+        height: fit-content
+        justify-content: flex-start
+        margin-bottom: 16px
+        flex-wrap: wrap
+        &__item
+            margin: 10px 38.2px 31px 0
+            img
+                height: 100%
+        &__info
+            max-width: 138px
+            .title
+                font-weight: 700
+                font-size: 18px
+                color: $mainColor
+            .boxOffice
+                font-weight: 500
+                font-size: 15px
+                color: $thirdColor
+                margin-top: 12px
+            .boxOfficeOnWeek
+                margin-top: 2px
+                font-weight: 500
+                font-size: 14px
+                color: rgba(255, 255, 255, 0.41)
+    .footer
+        &__navigation
+            width: 100%
+            font-size: 15px
+@media (max-width: 999px) 
+    .pageup
+        right: 9.5px
+        width: 35px
+        height: 35px
+    .container
+        max-width: 660px
+    .subheader
+        height: 85px
+        font-size: 35px
+        &__item
+            font-size: 15px
+        &__list
+            width: 95%
+    .header
+        margin-bottom: 50px
+        height: 80px
+        .logo
+            margin-top: 7px
+        .navigation
+            width: 135%
+            a
+                font-size: 12px
+        .searchButton
+            border-radius: 5px
+            width: 93px
+            height: 38px
+            div
+                font-size: 12px
+                .search
+                    display: block
+        .interactivElements
+            .autorisation
+                font-size: 12px
+                border-radius: 5px
+                width: 93px
+                height: 38px
+    .movieCards
+        .cardItem
+            max-width: 210px
+            max-height: 330px
+            height: 325px
+            margin-bottom: 30px
+    .cinemaNow
+        .movieCards
+            .cardItem
+                display: inline-flex
+                margin: 0 5px 30px 5px
+        .buttonMore
+            width: 160px
+            height: 49px
+            font-size: 15px
+            &__box
+                height: 120px
+    .trailer
+        .subheader
+            margin-bottom: 23px
+            flex-direction: row
+            height: 32px
+        &__title
+            @include forTitle
+            font-size: 35px
+        &__more
+            width: 140px
+            img
+                width: 23px
+            a
+                font-size: 16px
+        &__openTrailer
+            .player-tools
+                .fa-solid
+                    font-size: 35px
+                .progress
+                    justify-content: space-evenly
+                    align-items: center
+                    font-size: 15px
+                    height: 20px
+                    width: 75%
+                    progress
+                        width: 85%
+                        height: 5px
+                .scrin-mod
+                    i 
+                        font-size: 18px
+                .volume-none
+                    i 
+                        font-size: 18px
+    .trailerDescr
+        margin-bottom: 25px
+        &__title
+            @include forTitle
+            font-size: 30px
+    .persons
+        .personsSubcontainer
+            flex-wrap: wrap
+            &__Item
+                width: 321px
+                height: 321px
+                &:last-child
+                    margin-top: 15px
+                    width: 661px
+                    padding: 21px 19px
+    .lastNews
+        .lastNewsTabs
+            height: 622px
+            .lastNewsSliderWindow
+                overflow-x: scroll
+                overflow-y: hidden
+                height: 350px
+                width: 100%
+                &::-webkit-scrollbar
+                    height: 5px
+                &::-webkit-scrollbar-thumb
+                    height: 5px
+                &::-mozilla-scrollbar
+                    width: 5px
+                &::-mozilla-scrollbar-thumb
+                    width: 5px
+            .tabcontent
+                .box
+                    height: 397px
+                    width: 613px
+                    margin: 21px 23px
+                    &__data
+                        span
+                            font-weight: 600
+                    &__descr
+                        .title
+                            font-size: 30px
+                        .descr
+                            font-size: 16px
+                            width: 600px
+            .tabcontainer
+                flex-direction: row
+                width: 850px
+                height: 255px
+                .tabItem
+                    width: 205px
+                    height: 147px
+                    &__pseudoButton
+                        width: 150px
+                        height: 49px
+                        font-size: 15px
+                    .box
+                        height: calc( 100% - 28px )
+                        width: calc( 100% - 30px )
+                        position: absolute
+                        margin: 14px 15px
+                        &__data
+                            font-size: 13px
+                            font-weight: 500
+                        &__descr
+                            font-size: 15px
+                            font-weight: 600
+    .expected
+        background: #151a26
+        min-height: 1000px
+        padding-top: 50px
+        .sliderClicker
+            font-size: 16px
+            margin: 2px 0 15px 0
+            button
+                width: 21px
+                height: 20px
+    .subscribe
+        height: 370px
+        padding: 36px 54px
+        &__content
+            height: 248px
+            width: 100%
+            .subheader
+                margin-bottom: 0px
+                &__title
+                    font-size: 35px
+        &__descr
+            font-size: 16px
+            margin-bottom: 20px
+        &__interactiveEl
+            width: 100%
+            height: 62px
+            input
+                width: 378px
+                font-size: 16px
+            .subscribeBtn
+                font-size: 16px
+                width: 164px
+    .filmBoxOffice
+        margin-bottom: 16px
+        &__item
+            margin: 8px 17px 23px 0
+            max-width: 203px
+            max-height: 118px
+            img
+                height: 108px
+                width: 70px
+        &__info
+            max-height: 80px
+            max-width: 120px
+            .title
+                font-size: 16px
+            .boxOffice
+                font-size: 13px
+                margin-top: 5px
+            .boxOfficeOnWeek
+                font-size: 12px
+    .footer
+        &__navigation
+            font-size: 13px
+@media (max-width: 767px) 
+    .MIDDLESCREEN
+        display: none
+    .NONEMOB
+        display: none !important
+    .MOBILE
+        display: block 
+    .container
+        max-width: 368px
+    .subheader
+        &__title 
+            font-size: 30px
+            margin-bottom: 10px
+        &__item
+            font-size: 14px
+            margin-right: 10px
+            margin-bottom: 5px
+        &__list
+            justify-content: flex-start
+            flex-wrap: wrap
+            width: 100%
+    .mobile
+        &__menu
+            left: -100%
+            opacity: 0
+            z-index: 20
+            background: rgba(30, 37, 56, 0.95)
+            padding: 10vh 0 30vh 0
+            position: absolute
+            width: 100%
+            height: 120vh
+            display: flex
+            flex-direction: column
+            justify-content: space-around
+            align-items: center
+            transition: 0.5s all
+            &_active
+                left: 0
+                opacity: 100
+        &__menu-item 
+            width: 70%
+            height: 10vh
+            a
+                width: 100%
+                height: 100%
+                padding: 15px
+                text-decoration: none
+                display: block
+                font-weight: 700
+                font-size: 13px
+                text-align: center
+                color: $mainColor
+                text-shadow: 0 0 10px rgba(255,255,255,.7)
+    .header
+        margin-bottom: 45px
+        height: 30px
+        .logo
+            margin-top: 0
+            height: 24px
+            width: 94px
+            position: relative
+            z-index: 30
+            a
+                width: 100%
+                img
+                    width: 100%
+        .headerMobile
+            width: 100%
+            height: inherit
+            display: flex
+            justify-content: space-between
+            align-items: center
+            button
+                border-radius: 5px
+                width: 28px
+                height: 28px
+                img
+                    width: 12px
+            .mobileMenuButton
+                display: flex
+                justify-content: center
+                align-items: center
+                position: relative
+                z-index: 30
+            .interactivElements
+                width: 63px
+                height: inherit
+                .autorisation
+                    font-size: 11px
+                    height: 100%
+            .hamburger
+                display: block
+                width: 14px
+                span
+                    display: block
+                    height: 1px
+                    width: 100%
+                    background: $secondColor
+                    margin-bottom: 4px
+                    border-radius: 1px
+                    transition: 0.5s all
+                    &:nth-child(3)
+                        margin-bottom: 0
+                &_active
+                    margin-bottom: 5px
+                    span
+                        margin-bottom: -1px
+                        &:nth-child(1)
+                            transform: translateY(3px) rotate(-45deg)
+                        &:nth-child(2)
+                            display: none
+                        &:nth-child(3)
+                            transform: translateY(3px) rotate(45deg)
+    .movieCards
+        .cardItem
+            max-width: 178px
+            max-height: 300px
+            height: 285px
+            margin-bottom: 30px
+    .cinemaNow
+        .movieCards
+            display: flex
+            flex-wrap: wrap
+            .cardItem
+                display: flex
+                margin: 0 0 25px 0
+                &__rectangle
+                    width: 140px
+                    height: 43px
+                    font-size: 12px
+                &__markItem
+                    border-radius: 5px
+                    width: 40px
+                    height: 20px
+                    margin: 8px
+                    font-size: 11px
+                &__movieTitle
+                    margin-top: 0
+                &__movieGanre
+                    margin-top: 0
+        .buttonMore
+            width: 150px
+            height: 45px
+            font-size: 12px
+    .markBorder
+        border-radius: 5px
+        width: 30px
+        height: 30px
+        margin-left: 5px
+        .points
+            font-size: 9px
+        &:hover .fa-solid
+            font-size: 13px
+        .fa-solid
+            font-size: 12px
+    .trailer
+        .subheader
+            flex-wrap: wrap
+            margin-bottom: 15px
+            flex-direction: column
+            height: fit-content
+            align-content: flex-start
+        &__title
+            @include forTitle
+            font-size: 30px
+            margin-bottom: 10px
+        &__more
+            align-self: flex-start
+            width: 120px
+            img
+                width: 15px
+            a
+                font-size: 14px
+        &__openTrailer
+            margin-bottom: 5px
+            .player-tools
+                .bottom-tools
+                    width: 92%
+                    bottom: 10px
+                .fa-solid
+                    font-size: 15px
+                    color: $mainColor
+                    text-shadow: 0 0 10px rgba(255,255,255,.7)
+                .progress
+                    justify-content: space-between
+                    align-items: center
+                    font-size: 11px
+                    height: 20px
+                    width: 75%
+                    color: $mainColor
+                    progress
+                        width: 85%
+                        height: 5px
+                    progress::-webkit-progress-bar 
+                        background: $mainColor
+                        box-shadow: 0 0 13px 0 rgba(255, 255, 255, 0.5)
+                        border-radius: 100px
+                    progress::-webkit-progress-value 
+                        border-radius: 100px
+                        background: $secondColor
+                        box-shadow: 0 0 13px 0 rgba(72, 112, 255, 0.7)
+                    progress::-moz-progress-bar 
+                        background: $mainColor
+                        box-shadow: 0 0 13px 0 rgba(255, 255, 255, 0.5)
+                        border-radius: 100px
+                    progress::-moz-progress-value 
+                        border-radius: 100px
+                        background: $secondColor
+                        box-shadow: 0 0 13px 0 rgba(72, 112, 255, 0.7)
+                .scrin-mod
+                    i 
+                        font-size: 14px
+                .volume-none
+                    margin-right: 0
+                    i 
+                        font-size: 14px
+                .volume 
+                    display: none
+        .trailer__slider
+            margin-top: 5px
+            height: 160px
+            .s-box
+                min-width: 735px
+                &:nth-child(1)
+                    margin-right: 7px
+            &::-webkit-scrollbar
+                height: 3.5px
+            &::-webkit-scrollbar-thumb
+                height: 3.5px
+            &::-mozilla-scrollbar
+                width: 3.5px
+            &::-mozilla-scrollbar-thumb
+                width: 3.5px
+            .sliderItem
+                max-width: 178px
+            .closeTrailer
+                &::after
+                    border-radius: 5px
+                .activeCard
+                    width: 140px
+                    height: 43px
+                    font-size: 12px
+                div
+                    .fa-play
+                        font-size: 20px
+                &__title
+                    margin-top: 4px
+                    font-size: 12px
+    .trailerDescr
+        margin-bottom: 10px
+        &__title
+            @include forTitle
+            font-size: 22px
+            margin-bottom: 7px
+        .firstFlex
+            flex-direction: column
+            align-items: flex-start
+        .trailerDescr__social div 
+            margin: 0 15px 0 0
+            i
+                font-size: 10px
+    .popular
+        .subheader
+            height: 60px
+        .subheader__list
+            width: 90%
+    .sliderClicker
+        margin: 0 auto 20px auto
+        width: 110px
+        height: 20px
+        font-size: 13px
+        button
+            width: 18px
+    .persons
+        .subheader
+            height: 60px
+        .personsSubcontainer
+            &__Item
+                width: 179px
+                height: 179px
+                img
+                    border-radius: 10px
+                &:last-child
+                    min-height: 179px
+                    height: fit-content
+                    .otherPlace
+                        height: 220px
+                        .nameRus
+                            font-size: 13px
+                        .age
+                            font-size: 10px
+                        .placeNum
+                            font-size: 13px
+                .dataWrapper
+                    .box
+                        margin: 13px 13px
+                    .place
+                        margin: 10px 14px
+                        font-size: 12px
+                    .nameRus
+                        font-size: 15px
+                    .nameEng
+                        font-size: 11px
+                    .age
+                        font-size: 11px
+    .lastNews
+        width: 100%
+        .subheader
+            flex-wrap: wrap
+            margin-bottom: 15px
+            flex-direction: column
+            height: fit-content
+            align-content: flex-start
+        &__title
+            @include forTitle
+            font-size: 30px
+            margin-bottom: 10px
+        &__more
+            align-self: flex-start
+            width: 120px
+            img
+                width: 15px
+            a
+                font-size: 14px
+        .lastNewsTabs
+            flex-direction: column
+            width: 100%
+            height: fit-content
+            .lastNewsSliderWindow
+                height: fit-content
+            .tabcontainer
+                width: 743px
+                height: 150px
+                .tabItem
+                    width: 180px
+                    height: 128px
+                    img
+                        border-radius: 10px
+                    &__pseudoButton
+                        width: 140px
+                        height: 40px
+                        font-size: 13px
+                    .box
+                        height: calc( 100% - 28px )
+                        width: calc( 100% - 30px )
+                        position: absolute
+                        margin: 14px 15px
+                        &__data
+                            font-size: 11px
+                            font-weight: 500
+                        &__descr
+                            font-size: 12px
+                            font-weight: 600                            
+            .tabcontent
+                margin-top: 20px
+                border-radius: 10px
+                background: #151a26
+                width: 100%
+                height: fit-content
+                position: static
+                .tabActiveImg
+                    position: static
+                    border-radius: 10px
+                .box
+                    display: block
+                    height: 100% 
+                    position: static
+                    width: 100% 
+                    margin: 0
+                    padding: 10px 20px 20px 20px
+                    &__data
+                        font-size: 12px
+                        margin-bottom: 20px
+                        span
+                            font-size: 12px
+                    &__descr
+                        position: static
+                        bottom: 35px
+                        .title
+                            font-weight: 500
+                            font-size: 20px
+                            margin-bottom: 10px
+                            line-height: 20px
+                        .descr
+                            font-weight: 300
+                            font-size: 13px
+                            width: 90%
+    .expected
+        .subheader
+            flex-wrap: wrap
+            margin-bottom: 15px
+            flex-direction: column
+            height: fit-content
+            align-content: flex-start
+            &__list
+                width: 65%
+                justify-content: space-between
+            .second-subtitle
+                font-size: 10.5px
+        .trailer
+            &__title
+                @include forTitle
+                font-size: 30px
+                margin-bottom: 5px
+        &__more
+            align-self: flex-start
+            width: 120px
+        .sliderClicker
+            margin: 5px 0 0 -192px
+            width: 100px
+            height: 20px
+            font-size: 13px
+            button
+                width: 18px
+                height: 16px
+                img
+                    width: 100%
+    .subscribe
+        height: 460px
+        padding: 23px
+        &__content
+            height: 100%
+            .subheader
+                width: 100%
+                &__title
+                    font-size: 20px
+        &__descr
+            font-size: 15px
+        &__interactiveEl
+            flex-direction: column
+            width: 100%
+            height: 130px
+            input
+                width: 100%
+                height: 60px
+            .subscribeBtn
+                width: 100%
+                height: 60px
+        .check
+            max-width: 80%
+            label
+                max-width: 100%
+                flex-wrap: wrap
+            .customCheck
+                font-size: 14px
+                justify-content: flex-start
+                span
+                    margin-top: -12px
+                    margin-left: 15px
+                a
+                    margin-top: -10px
+                    margin-left: 30px
+                .checkbox
+                    width: 15px
+                    height: 15px
+    .filmBoxOffice
+        &__item
+            max-width: 178px
+            margin: 6px 5px 6px 0
+            img
+                width: 70px
+                height: 105px
+        &__info
+            max-width: 100px
+            .title
+                font-size: 13px
+            .boxOffice
+                font-size: 12px
+            .boxOfficeOnWeek
+                font-size: 11px
+    .footer
+        height: 280px
+        &__navigation
+            width: 90%
+            flex-wrap: wrap
+            div
+                margin-bottom: 10px
+        &__rightsProtect
+            margin-top: 20px
+@media (max-width: 424px) 
+    .container
+        max-width: 95%
+    .cinemaNow
+        .movieCards
+            width: 92%
+            margin: 0 auto
+    .popular__slider-window
+        width: 92%
+        margin: 0 auto
+    .persons
+        .personsSubcontainer
+            &__Item
+                width: 192px
+                height: 192px
+    .expected__slider-window
+        width: 92%
+        margin: 0 auto
+    .subscribe__content
+        .subheader
+            width: fit-content !important
+            &__title
+                display: block !important
+@media (max-width: 415px)
+    .movieCards
+        .cardItem
+            max-width: 150px
+            height: fit-content
+            &__rectangle
+                width: 120px
+            &__movieTitle
+                margin-top: 3px
+            &__movieGanre
+                margin-top: 3px
+    .cinemaNow
+        .movieCards
+            width: 100%
+            margin: 0
+            justify-content: center
+            .cardItem
+                margin: 5px 
+                &__rectangle
+                    width: 120px
+                &__movieTitle
+                    margin-top: 3px
+                &__movieGanre
+                    margin-top: 3px
+    .popular
+        .movieCards
+            .cardItem
+                margin-bottom: 5px
+        &__slider-windowContainer
+            display: flex
+            justify-content: center
+        .subheader__list
+            width: 100%
+        &__slider-window
+            width: 80%
+            margin: 0 
+    .expected
+        .movieCards
+            .cardItem
+                margin-bottom: 5px
+        &__slider-windowContainer
+            display: flex
+            justify-content: center
+        &__slider-window
+            width: 80%
+            margin: 0 
+    .trailer__openTrailer 
+        .player-tools 
+            .progress 
+                progress 
+                    width: 75%
+@media (max-width: 410px)
+    .persons
+        .personsSubcontainer
+            &__Item
+                width: 185px
+                height: 185px
+    .expected
+        &__slider-window
+            width: 82%
+            margin: 0 
+    .popular
+        &__slider-window
+            width: 82%
+@media (max-width: 400px)
+    .expected
+        &__slider-window
+            width: 84%
+    .popular
+        &__slider-window
+            width: 84%
+@media (max-width: 390px)
+    .subheader__title
+        font-size: 25px !important
+    .trailer__title
+        font-size: 25px !important
+    .persons
+        .personsSubcontainer
+            &__Item
+                width: 175px
+                height: 175px
+    .expected
+        &__slider-window
+            width: 86%
+        .sliderClicker
+            margin: 5px 0 0 -140px
+    .subscribe__content
+        height: 85%
+        .subheader__title
+            font-size: 20px !important
+            align-self: center
+    .popular
+        &__slider-window
+            width: 86%
+    .filmBoxOffice
+        &__item
+            background: #1E2538
+            max-width: 100%
+            width: 100%
+            margin: 6px 5px 
+            border-radius: 5px
+        &__info
+            margin-left: 10px
+            max-width: 100%
+            width: 75%
+            .title
+                font-size: 14px
+                margin-top: 5px
+            .boxOffice
+                font-size: 13px
+                margin-top: 5px
+            .boxOfficeOnWeek
+                font-size: 13px
+                margin-top: 5px
+    .footer
+        height: 320px
+        &__navigation
+            height: fit-content
+            width: 90%
+            flex-wrap: wrap
+            justify-content: center
+            div
+                margin: 10px
+        &__rightsProtect
+            margin-top: 0px
+        &__social
+            width: 80%
+            div
+                width: 20px
+            i
+                font-size: 18px
+                &:hover
+                    font-size: 20px
+    .expected 
+        .subheader__list 
+            width: 85%
+@media (max-width: 380px)
+    .expected
+        &__slider-window
+            width: 88%
+    .popular
+        &__slider-window
+            width: 88%
+    .subscribe__content
+        .subheader
+            &__title
+                font-size: 16px !important
+@media (max-width: 370px)
+    .expected
+        &__slider-window
+            width: 90%
+    .popular
+        &__slider-window
+            width: 90%
+    .persons
+        .personsSubcontainer
+            &__Item
+                width: 168px
+                height: 168px
+@media (max-width: 365px)
+    .expected
+        &__slider-window
+            width: 92%
+    .popular
+        &__slider-window
+            width: 92%
+@media (max-width: 356px)
+    .expected
+        &__slider-window
+            width: 95%
+    .popular
+        &__slider-window
+            width: 95%
+    .persons
+        .personsSubcontainer
+            &__Item
+                width: 162px
+                height: 162px

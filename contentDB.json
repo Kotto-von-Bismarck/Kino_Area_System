@@ -1,0 +1,605 @@
+{
+  "actorsCardsData": {
+    "escape-from-pretoria": [
+      {
+        "src": "images/actors/escape-from-pretoria/DanielRadcliffe.png",
+        "RusName": "Дэниэл Рэдклифф",
+        "EngName": "Daniel Radcliffe",
+        "Role": "Тим Дженкин"
+      },
+      {
+        "src": "images/actors/escape-from-pretoria/DanielWebber.png",
+        "RusName": "Даниэль Уэббер",
+        "EngName": "Daniel Webber",
+        "Role": "Стивен Ли"
+      },
+      {
+        "src": "images/actors/escape-from-pretoria/IanHart.png",
+        "RusName": "Иэн Харт",
+        "EngName": "Ian Hart",
+        "Role": "Денис Гольдберг"
+      },
+      {
+        "src": "images/actors/escape-from-pretoria/MarkLeonardWinter.png",
+        "RusName": "Марк Леонард Винтер",
+        "EngName": "Mark Leonard Winter",
+        "Role": "Леонард Фонтейн"
+      },
+      {
+        "src": "images/actors/escape-from-pretoria/NathanPage.png",
+        "RusName": "Нэйтан Пейдж",
+        "EngName": "Nathan Page",
+        "Role": "Монго"
+      },
+      {
+        "src": "images/actors/escape-from-pretoria/RatidzoMambo.png",
+        "RusName": "Ратидзо Мамбо",
+        "EngName": "Ratidzo Mambo",
+        "Role": "Женщина"
+      },
+      {
+        "src": "images/actors/escape-from-pretoria/JeanetteCronin.png",
+        "RusName": "Жанетт Кронин",
+        "EngName": "Jeanette Cronin",
+        "Role": "Женщина"
+      },
+      {
+        "src": "images/actors/escape-from-pretoria/AdamTuominen.png",
+        "RusName": "Адам Туоминен",
+        "EngName": "Adam Tuominen",
+        "Role": "Джереми Кронин"
+      },
+      {
+        "src": "images/actors/escape-from-pretoria/AdamOvadia.png",
+        "RusName": "Адам Овадия",
+        "EngName": "Adam Ovadia",
+        "Role": "Ван Задельхофф"
+      },
+      {
+        "src": "images/actors/escape-from-pretoria/StephenHunter.png",
+        "RusName": "Стивен Хантер",
+        "EngName": "Stephen Hunter",
+        "Role": "Мужчина"
+      }
+    ],
+    "joker": [
+      {
+        "src": "images/actors/joker/hoakin-fenicks.png",
+        "RusName": "Хоакин Феникс",
+        "EngName": "Joaquin Phoenix",
+        "Role": "Артур Флек"
+      },
+      {
+        "src": "images/actors/joker/robert-de-niro.png",
+        "RusName": "Роберт Де Ниро",
+        "EngName": "Robert De Niro",
+        "Role": "Мюррей Франклин"
+      },
+      {
+        "src": "images/actors/joker/zazi-bitz.png",
+        "RusName": "Зази Битц",
+        "EngName": "Zazi Bitz",
+        "Role": "Софи Дюмон"
+      },
+      {
+        "src": "images/actors/joker/rensis-konroi.png",
+        "RusName": "Фрэнсис Конрой",
+        "EngName": "Frensis Konroi",
+        "Role": "Пенни Флек (мать Артура)"
+      },
+      {
+        "src": "images/actors/joker/brett-kallen.png",
+        "RusName": "Бретт Каллен",
+        "EngName": "Brett Kallen",
+        "Role": "Томас Уэйн"
+      },
+      {
+        "src": "images/actors/joker/shei-uigem.png",
+        "RusName": "Шей Уигэм",
+        "EngName": "Shei Uigem",
+        "Role": "детектив Берк"
+      },
+      {
+        "src": "images/actors/joker/bill-kemp.png",
+        "RusName": "Билл Кэмп",
+        "EngName": "Bill Kemp",
+        "Role": "детектив Гаррити"
+      },
+      {
+        "src": "images/actors/joker/glenn-flesher.png",
+        "RusName": "Гленн Флешлер",
+        "EngName": "Glenn Flesher",
+        "Role": "Рэндалл"
+      },
+      {
+        "src": "images/actors/joker/josh-peis.png",
+        "RusName": "Джош Пэйс",
+        "EngName": "Josh Peis",
+        "Role": "Хойт Вон"
+      },
+      {
+        "src": "images/actors/joker/li-gill.png",
+        "RusName": "Ли Гилл",
+        "EngName": "Li Gill",
+        "Role": "Гари"
+      }
+    ],
+    "star-wars": [
+      {
+        "src": "images/actors/star-wars/adam-driver.png",
+        "RusName": "Адам Драйвер",
+        "EngName": "Adam Driver",
+        "Role": "Кайло Рен"
+      },
+      {
+        "src": "images/actors/star-wars/daisy-ridly.png",
+        "RusName": "Дейзи Ридли",
+        "EngName": "Daisy Ridley",
+        "Role": "Рей"
+      },
+      {
+        "src": "images/actors/star-wars/carrie-fisher.png",
+        "RusName": "Кэрри Фишер",
+        "EngName": "Carrie Fisher",
+        "Role": "Лея Органа"
+      },
+      {
+        "src": "images/actors/star-wars/donal-gilson.png",
+        "RusName": "Донал Глисон",
+        "EngName": "Domhnall Gleeson",
+        "Role": "генерал Армитаж Хакс"
+      },
+      {
+        "src": "images/actors/star-wars/mark-hamill.png",
+        "RusName": "Марк Хэмилл",
+        "EngName": "Mark Hamill",
+        "Role": "Люк Скайуокер"
+      },
+      {
+        "src": "images/actors/star-wars/john-boega.png",
+        "RusName": "Джон Бойега",
+        "EngName": "John Boyega",
+        "Role": "Финн"
+      },
+      {
+        "src": "images/actors/star-wars/entony-daniels.png",
+        "RusName": "Энтони Дэниелс",
+        "EngName": "Anthony Daniels",
+        "Role": "C-3PO"
+      },
+      {
+        "src": "images/actors/star-wars/naomy-aki.png",
+        "RusName": "Наоми Аки",
+        "EngName": "Naomi Ackie",
+        "Role": "Джанна"
+      },
+      {
+        "src": "images/actors/star-wars/oscar-aizek.png",
+        "RusName": "Оскар Айзек",
+        "EngName": "Oscar Isaac",
+        "Role": "По Дэмерон"
+      },
+      {
+        "src": "images/actors/star-wars/richard-grand.png",
+        "RusName": "Ричард Э. Грант",
+        "EngName": "Richard E. Grant",
+        "Role": "генерал Энрик Прайд"
+      }
+    ],
+    "gentlemen": [
+      {
+        "src": "images/actors/gents/matthew-mcconaughey.png",
+        "RusName": "Мэттью Макконахи",
+        "EngName": "Mattew McConaughey",
+        "Role": "Michael Pearson"
+      },
+      {
+        "src": "images/actors/gents/charly-hannem.png",
+        "RusName": "Чарли Ханнэм",
+        "EngName": "Charlie Hunnam",
+        "Role": "Raymond Smith"
+      },
+      {
+        "src": "images/actors/gents/henry-golding.png",
+        "RusName": "Генри Голдинг",
+        "EngName": "Henry Golding",
+        "Role": "Dry Eye"
+      },
+      {
+        "src": "images/actors/gents/hugh-grand.png",
+        "RusName": "Хью Грант",
+        "EngName": "Hugh Grant",
+        "Role": "Fletcher"
+      },
+      {
+        "src": "images/actors/gents/mishel-dockery.png",
+        "RusName": "Мишель Докери",
+        "EngName": "Michelle Dockery",
+        "Role": "Rosalind Pearson"
+      },
+      {
+        "src": "images/actors/gents/jeremy-strong.png",
+        "RusName": "Джереми Стронг",
+        "EngName": "Jeremy Strong",
+        "Role": "Matthew"
+      },
+      {
+        "src": "images/actors/gents/eddy-marsan.png",
+        "RusName": "Эдди Марсан",
+        "EngName": "Eddie Marsan",
+        "Role": "Big Dave"
+      },
+      {
+        "src": "images/actors/gents/jeison-vong.png",
+        "RusName": "Джейсон Вонг",
+        "EngName": "Jason Wong",
+        "Role": "Phuc"
+      },
+      {
+        "src": "images/actors/gents/kolin-farrell.png",
+        "RusName": "Колин Фаррелл",
+        "EngName": "Colin Farrell",
+        "Role": "Coach"
+      },
+      {
+        "src": "images/actors/gents/lain-reny.png",
+        "RusName": "Лайн Рени",
+        "EngName": "Lyne Renée",
+        "Role": "Jackie"
+      }
+    ],
+    "ford-vs-ferrari": [
+      {
+        "src": "images/actors/ford-vs-ferrari/caitríona-balfe.png",
+        "RusName": "Катрина Балф",
+        "EngName": "Caitríona Balfe",
+        "Role": "Молли Майлз"
+      },
+      {
+        "src": "images/actors/ford-vs-ferrari/christian-bale.png",
+        "RusName": "Кристиан Бейл",
+        "EngName": "Christian Bale",
+        "Role": "Кен Майлз"
+      },
+      {
+        "src": "images/actors/ford-vs-ferrari/matt-damon.png",
+        "RusName": "Мэтт Дэймон",
+        "EngName": "Matt Damon",
+        "Role": "Кэрролл Шелби"
+      },
+      {
+        "src": "images/actors/ford-vs-ferrari/tracy-letts.png",
+        "RusName": "Трэйси Леттс",
+        "EngName": "Tracy Letts",
+        "Role": "Генри Форд II"
+      },
+      {
+        "src": "images/actors/ford-vs-ferrari/jon-bernthal.png",
+        "RusName": "Джон Бернтал",
+        "EngName": "Jon Bernthal",
+        "Role": "Ли Якокка"
+      },
+      {
+        "src": "images/actors/ford-vs-ferrari/noah-jupe.png",
+        "RusName": "Ноа Джуп",
+        "EngName": "Noah Jupe",
+        "Role": "Питер Майлз"
+      },
+      {
+        "src": "images/actors/ford-vs-ferrari/josh-lucas.png",
+        "RusName": "Джош Лукас",
+        "EngName": "Josh Lucas",
+        "Role": "Лео Биби"
+      },
+      {
+        "src": "images/actors/ford-vs-ferrari/remo-girone.png",
+        "RusName": "Ремо Джироне",
+        "EngName": "Remo Girone",
+        "Role": "Энцо Феррари"
+      },
+      {
+        "src": "images/actors/ford-vs-ferrari/ray-mckinnon.png",
+        "RusName": "Рэй Маккиннон",
+        "EngName": "Ray McKinnon",
+        "Role": "Фил Ремингтон"
+      },
+      {
+        "src": "images/actors/ford-vs-ferrari/jj-fild.png",
+        "RusName": "Джей Джей Филд",
+        "EngName": "JJ Feild",
+        "Role": "Рой Ланн"
+      }
+    ],
+    "3022": [
+      {
+        "src": "images/actors/3022/omar-epps.png",
+        "RusName": "Омар Эппс",
+        "EngName": "Omar Epps",
+        "Role": "John Laine"
+      },
+      {
+        "src": "images/actors/3022/kate-walsh.png",
+        "RusName": "Кейт Уолш",
+        "EngName": "Kate Walsh",
+        "Role": "Jackie Miller"
+      },
+      {
+        "src": "images/actors/3022/angus-macfadyen.png",
+        "RusName": "Энгус Макфадьен",
+        "EngName": "Angus Macfadyen",
+        "Role": "Richard Valin"
+      },
+      {
+        "RusName": "Джорджа Фокс",
+        "EngName": "Jorja Fox",
+        "Role": "Diane Ures"
+      },
+      {
+        "src": "images/actors/3022/miranda-cosgrove.png",
+        "RusName": "Миранда Косгров",
+        "EngName": "Miranda Cosgrove",
+        "Role": "Lisa Brown"
+      },
+      {
+        "src": "images/actors/3022/enver-gjokaj.png",
+        "RusName": "Энвер Гьокай",
+        "EngName": "Enver Gjokaj",
+        "Role": "Vincent Bernard"
+      },
+      {
+        "src": "images/actors/3022/haaz-sleiman.png",
+        "RusName": "Хааз Слейман",
+        "EngName": "Haaz Sleiman",
+        "Role": "Thomas Dahan"
+      },
+      {
+        "src": "images/actors/3022/sara-tomko.png",
+        "RusName": "Сара Томко",
+        "EngName": "Sara Tomko",
+        "Role": "Pangea"
+      }
+    ],
+    "inglouriousbasterds": [
+      {
+        "src": "images/actors/ing-bast/bred-pitt.png",
+        "RusName": "Брэд Питт",
+        "EngName": "Brad Pitt",
+        "Role": "Альдо Рейн"
+      },
+      {
+        "src": "images/actors/ing-bast/christoph-waltz.png",
+        "RusName": "Кристоф Вальц",
+        "EngName": "Christoph Waltz",
+        "Role": "Ганс Ланда"
+      },
+      {
+        "src": "images/actors/ing-bast/mellany-loran.png",
+        "RusName": "Мелани Лоран",
+        "EngName": "Mélanie Laurent",
+        "Role": "Шошанна Дрейфюс"
+      },
+      {
+        "src": "images/actors/ing-bast/daniel-brule.png",
+        "RusName": "Даниэль Брюль",
+        "EngName": "Daniel Brühl",
+        "Role": "Фредерик Цоллер"
+      },
+      {
+        "src": "images/actors/ing-bast/diana-kruger.png",
+        "RusName": "Диайан Крюгер",
+        "EngName": "Diane Kruger",
+        "Role": "Бриджит фон Хаммерсмарк"
+      },
+      {
+        "src": "images/actors/ing-bast/maikl-fassbender.png",
+        "RusName": "Майкл Фассбендер",
+        "EngName": "Michael Fassbender",
+        "Role": "Арчи Хикокс"
+      },
+      {
+        "src": "images/actors/ing-bast/august-diehl.png",
+        "RusName": "Август Диль",
+        "EngName": "August Diehl",
+        "Role": "Дитер Хельстром"
+      },
+      {
+        "src": "images/actors/ing-bast/eli-roth.png",
+        "RusName": "Элай Рот",
+        "EngName": "Eli Roth",
+        "Role": "Донни Доновиц"
+      },
+      {
+        "src": "images/actors/ing-bast/till-shwaiger.png",
+        "RusName": "Тиль Швайгер",
+        "EngName": "Til Schweiger",
+        "Role": "Хуго Штиглиц"
+      },
+      {
+        "src": "images/actors/ing-bast/omar-doom.png",
+        "RusName": "Омар Дум",
+        "EngName": "Omar Doom",
+        "Role": "Омар Ульмар"
+      }
+    ],
+    "django-unchained": [
+      {
+        "src": "images/actors/django/jamie-foxx.png",
+        "RusName": "Джейми Фокс",
+        "EngName": "Jamie Foxx",
+        "Role": "Джанго Фримен"
+      },
+      {
+        "src": "images/actors/ing-bast/christoph-waltz.png",
+        "RusName": "Кристоф Вальц",
+        "EngName": "Christoph Waltz",
+        "Role": "Ганс Ланда"
+      },
+      {
+        "src": "images/actors/django/leonardo-di-caprio.png",
+        "RusName": "Леонардо Ди Каприо",
+        "EngName": "Leonardo DiCaprio",
+        "Role": "Кэлвин Кэнди"
+      },
+      {
+        "src": "images/actors/django/carry-washington.png",
+        "RusName": "Керри Вашингтон",
+        "EngName": "Kerry Washington",
+        "Role": "Broomhilda von Shaft"
+      },
+      {
+        "src": "images/actors/django/samuel-l-jackson.png",
+        "RusName": "Сэмюэл Л. Джексон",
+        "EngName": "Samuel L. Jackson",
+        "Role": "Стивен"
+      },
+      {
+        "src": "images/actors/django/walton-goggins.png",
+        "RusName": "Уолтон Гоггинс",
+        "EngName": "Walton Goggins",
+        "Role": "Билли Крэш"
+      },
+      {
+        "src": "images/actors/django/dennis-kristopher.png",
+        "RusName": "Деннис Кристофер",
+        "EngName": "Dennis Christopher",
+        "Role": "Леонид Моги"
+      },
+      {
+        "src": "images/actors/django/james-remar.png",
+        "RusName": "Джеймс Ремар",
+        "EngName": "James Remar",
+        "Role": "Эйс Спек/Бутч Пух"
+      },
+      {
+        "src": "images/actors/django/don-djonson.png",
+        "RusName": "Дон Джонсон",
+        "EngName": "Don Johnson",
+        "Role": "Спенсер «Большой папа» Беннет"
+      },
+      {
+        "src": "images/actors/django/laura-cayouette.png",
+        "RusName": "Лора Кайюэтт",
+        "EngName": "Laura Cayouette",
+        "Role": "Lara-Lee Candie-Fitzwilly"
+      }
+    ],
+    "druk": [
+      {
+        "src": "images/actors/druk/mads-mikkelsen.png",
+        "RusName": "Мадс Миккельсен",
+        "EngName": "Mads Mikkelsen",
+        "Role": "Мартин"
+      },
+      {
+        "src": "images/actors/druk/thomas-bo-larsen.png",
+        "RusName": "Томас Бо Ларсен",
+        "EngName": "Thomas Bo Larsen",
+        "Role": "Томми"
+      },
+      {
+        "src": "images/actors/druk/magnus-millang.png",
+        "RusName": "Магнус Милланг",
+        "EngName": "Magnus Millang",
+        "Role": "Николай"
+      },
+      {
+        "src": "images/actors/druk/lars-ranthe.png",
+        "RusName": "Ларс Ранте",
+        "EngName": "Lars Ranthe",
+        "Role": "Петер"
+      },
+      {
+        "src": "images/actors/druk/maria-bonnevie.png",
+        "RusName": "Мария Бонневи",
+        "EngName": "Maria Bonnevie",
+        "Role": "Аника"
+      },
+      {
+        "src": "images/actors/druk/helene-reingaard-neumann.png",
+        "RusName": "Хелене Рейнгор Неуман",
+        "EngName": "Helene Reingaard Neumann",
+        "Role": "Amalie"
+      },
+      {
+        "src": "images/actors/druk/susse-wold.png",
+        "RusName": "Суссе Вольд",
+        "EngName": "Susse Wold",
+        "Role": "The Principal"
+      },
+      {
+        "src": "images/actors/druk/albert-rudbeck-lindhardt.png",
+        "RusName": "Альберт Рудбек Линдхардт",
+        "EngName": "Albert Rudbeck Lindhardt",
+        "Role": "Себастьян"
+      },
+      {
+        "src": "images/actors/druk/martin-greis.png",
+        "RusName": "Мартин Грайс",
+        "EngName": "Martin Greis",
+        "Role": "Overtjener"
+      },
+      {
+        "src": "images/actors/druk/frederik-winther.png",
+        "RusName": "Фредерик Винтер",
+        "EngName": "Frederik Winther",
+        "Role": "Мальте"
+      }
+    ]    
+  },
+  "achievementsData": {
+    "escape-from-pretoria": [
+      {"src":"icons/avards/awardOscar.png","achievement":"Оскар","nomination":"Лучшая мужская роль","year":"2020"},
+      {"src":"icons/avards/awardGoldenGlobe.png","achievement":"Золотой глобус","nomination":"Лучшая мужская роль","year":"2020"},
+      {"src":"icons/avards/achievement243.png","achievement":"Премия Гильдии актеров","nomination":"Лучший актерский состав","year":"2020"},
+      {"src":"icons/avards/brit-academ.png","achievement":"Британская академия","nomination":"Лучшая мужская роль","year":"2020"}
+    ],
+    "joker": [
+      {"src":"icons/avards/awardOscar.png","achievement":"Оскар","nomination":"Лучшая мужская роль","year":"2020"},
+      {"src":"icons/avards/awardGoldenGlobe.png","achievement":"Золотой глобус","nomination":"Лучшая мужская роль","year":"2020"},
+      {"src":"icons/avards/awardGoldenGlobe.png","achievement":"Золотой глобус","nomination":"Лучший саундтрек","year":"2020"},
+      {"src":"icons/avards/brit-academ.png","achievement":"Британская академия","nomination":"Лучший кастинг","year":"2020"}
+    ],
+    "star-wars": [
+      {"src":"icons/avards/awardGoldenGlobe.png","achievement":"Золотой глобус","nomination":"Лучшие спецэффекты","year":"2020"},
+      {"src":"icons/avards/awardGoldenGlobe.png","achievement":"Золотой глобус","nomination":"Лучшая музыка","year":"2020"},
+      {"src":"icons/avards/brit-academ.png","achievement":"Британская академия","nomination":"Лучший звук","year":"2020"},
+      {"src":"icons/avards/brit-academ.png","achievement":"Британская академия","nomination":"Лучшие визуальные эффекты","year":"2020"}
+    ],
+    "gentlemen": [
+      {"src":"icons/avards/saturn-nomination.png","achievement":"номинация на премию Сатурн","nomination":"Лучший приключенческий фильм или боевик","year":"2021"},
+      {"achievement":"--","nomination":"--","year":"--"},
+      {"achievement":"--","nomination":"--","year":"--"},
+      {"achievement":"--","nomination":"--","year":"--"}
+    ],
+    "ford-vs-ferrari": [
+      {"src":"icons/avards/awardOscar.png","achievement":"Оскар","nomination":"Лучший монтаж","year":"2020"},
+      {"src":"icons/avards/awardOscar.png","achievement":"Оскар","nomination":"Лучший монтаж звука","year":"2020"},
+      {"src":"icons/avards/awardGoldenGlobe-nomination.png","achievement":"номинация на премию Золотой глобус","nomination":"Лучшая мужская роль","year":"2020"},
+      {"src":"icons/avards/brit-academ.png","achievement":"Британская академия","nomination":"Лучший монтаж","year":"2020"}
+    ],
+    "3022": [
+      {"achievement":"--","nomination":"--","year":"--"},
+      {"achievement":"--","nomination":"--","year":"--"},
+      {"achievement":"--","nomination":"--","year":"--"},
+      {"achievement":"--","nomination":"--","year":"--"}
+    ],
+    "inglouriousbasterds": [
+      {"src":"icons/avards/awardOscar.png","achievement":"Оскар","nomination":"Лучшая мужская роль второго плана","year":"2010"},
+      {"src":"icons/avards/saturn.png","achievement":"Сатурн","nomination":"Лучший боевик или триллер","year":"2010"},
+      {"src":"icons/avards/awardGoldenGlobe.png","achievement":"Золотой глобус","nomination":"Лучшая мужская роль второго плана","year":"2010"},
+      {"src":"icons/avards/brit-academ.png","achievement":"Британская академия","nomination":"Лучшая мужская роль второго плана","year":"2010"}
+    ],
+    "django-unchained": [
+      {"src":"icons/avards/awardOscar.png","achievement":"Оскар","nomination":"Лучшая мужская роль второго плана","year":"2013"},
+      {"src":"icons/avards/saturn.png","achievement":"Сатурн","nomination":"Лучший сценарий","year":"2013"},
+      {"src":"icons/avards/awardGoldenGlobe.png","achievement":"Золотой глобус","nomination":"Лучшая мужская роль второго плана","year":"2013"},
+      {"src":"icons/avards/awardOscar.png","achievement":"Оскар","nomination":"Лучший сценарий","year":"2013"}
+    ],
+    "druk": [
+      {"src":"icons/avards/awardOscar.png","achievement":"Оскар","nomination":"Лучший фильм на иностранном языке","year":"2021"},
+      {"src":"icons/avards/brit-academ.png","achievement":"Британская академия","nomination":"Лучший фильм на иностранном языке","year":"2021"},
+      {"src":"icons/avards/awardGoldenGlobe-nomination.png","achievement":"номинация на премию Золотой глобус","nomination":"Лучший фильм на иностранном языке","year":"2021"},
+      {"src":"icons/avards/awardOscar-nomination.png","achievement":"номинация на премию Оскар","nomination":"Лучший режиссер","year":"2021"}
+    ]
+  }
+}

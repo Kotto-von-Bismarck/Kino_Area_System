@@ -1,0 +1,826 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KinoArea</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png">
+    <link rel="manifest" href="favicon_package_v0.16/site.webmanifest">
+    <link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body class="body mainPageSelector" unselectable="no">
+    <nav class="mobile__menu">
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="#cinemaNowHeaderID">
+                <div>
+                    Афиша
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="#trailerHeaderID">
+                <div>
+                    Трейлеры
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="#popularHeaderID">
+                <div>
+                    Популярные фильмы
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="#personsHeaderID">
+                <div>
+                    Персоны
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="#lastNewsHeaderID">
+                <div>
+                    Последние новости
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="#expectedHeaderID">
+                <div>
+                    Ожидаемые новинки
+                </div>
+            </a>
+        </div>
+    </nav>
+    <section id="up" class="cinemaNow">
+        <div class="container">
+            <header class="header">
+                <div class="searchElements MIDDLESCREEN">
+                    <button data-searchactive class="searchButton MIDDLESCREEN">
+                        <div>
+                            <img src="icons/searchVector.svg" alt="search">
+                            <div class="searchBTN">Поиск</div>
+                        </div>
+                    </button>
+                </div>
+                <div class="nav-container NONEMOB">
+                    <div class="logo">
+                        <a href="index.html"><img src="icons/logo.svg" alt="KinoArea"></a>
+                    </div>
+                    <nav class="navigation">
+                        <div>
+                            <a href="#cinemaNowHeaderID">Афиша</a>
+                        </div>
+                        <div>
+                            <a href="#trailerHeaderID">Трейлеры</a>
+                        </div>
+                        <div>
+                            <a href="#popularHeaderID">Популярные фильмы</a>
+                        </div>
+                        <div>
+                            <a href="#personsHeaderID">Персоны</a>
+                        </div>
+                        <div>
+                            <a href="#lastNewsHeaderID">Последние новости</a>
+                        </div>
+                        <div>
+                            <a href="#expectedHeaderID">Ожидаемые новинки</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="interactivElements NONEMOB">
+                    <button data-searchactive class="searchButton DESKTOP">
+                        <div><img src="icons/searchVector.svg" alt="search"></div>
+                    </button>
+                    <button data-modal class="autorisation">
+                        <span>Войти</span>
+                    </button>
+                </div>
+                <div class="headerMobile MOBILE">
+                    <div class="interactivElements">
+                        <button class="mobileMenuButton">
+                            <div class="hamburger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </button>
+                        <button data-searchactive class="searchButton">
+                            <div><img src="icons/searchVector.svg" alt="search"></div>
+                        </button>
+                    </div>
+                    <div class="logo">
+                        <a id="headerLogo" href="index.html"><img src="icons/logo.svg" alt="KinoArea"></a>
+                    </div>
+                    <div class="interactivElements">
+                        <button data-modal class="autorisation">
+                            <span>Войти</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+            <div class="subheader" id="cinemaNowHeaderID">
+                <h2 class="subheader__title">
+                    Сейчас в кино
+                </h2>
+                <div class="subheader__devider DESKTOP"></div>
+                <ul class="subheader__list">
+                    <li data-filter="all" class="subheader__item">Все</li>
+                    <li data-filter="actionmovie" class="subheader__item">Боевики</li>
+                    <li data-filter="adventures" class="subheader__item">Приключения</li>
+                    <li data-filter="comedy" class="subheader__item">Комедии</li>
+                    <li data-filter="fantastic" class="subheader__item">Фантастика</li>
+                    <li data-filter="thriller" class="subheader__item">Триллеры</li>
+                    <li data-filter="drama" class="subheader__item">Драма</li>
+                </ul>
+            </div>
+            <div class="movieCards">
+                <!-- данные из js -->
+            </div>
+            <div class="buttonMore__box">
+                <a href="#cinemaNowHeaderID">
+                    <button class="buttonMore">
+                        <span>Все новинки</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="trailer">
+        <div class="container">
+            <div class="subheader" id="trailerHeaderID">
+                <h2 class="trailer__title">
+                    Новые трейлеры
+                </h2>
+                <div class="trailer__more">
+                    <a href="#trailerSliderID">
+                        <div>
+                            Все трейлеры
+                        </div>
+                    </a>
+                    <img src="icons/Arrow.svg" class="trailer__arrow">
+                </div>
+            </div>
+            <div class="openTrailerBase">
+                <!-- данные из js -->
+            </div>
+            <div class="trailer__slider" id="trailerSliderID">
+                <div class="s-box firstTS-box">
+                    <!-- данные из js -->
+                </div>
+                <div class="s-box secondTS-box">
+                    <!-- данные из js -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="popular">
+        <div class="container">
+            <div class="subheader" id="popularHeaderID">
+                <h2 class="subheader__title">
+                    Популярные фильмы
+                </h2>
+                <div class="subheader__devider DESKTOP"></div>
+                <ul class="subheader__list">
+                    <li data-df="all" class="subheader__item">Всё время</li>
+                    <li data-df="2020" class="subheader__item">2020</li>
+                    <li data-df="2019" class="subheader__item">2019</li>
+                    <li data-df="2018" class="subheader__item">2018</li>
+                    <li data-df="2017" class="subheader__item">2017</li>
+                    <li data-df="2016" class="subheader__item">2016</li>
+                    <li data-df="2015" class="subheader__item">2015</li>
+                </ul>
+            </div>
+            <div class="popular__slider-windowContainer">
+                <div class="popular__slider-window">
+                    <div class="popular__slider-inner">
+                        <div class="movieCards">
+                            <!-- данные из js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sliderClicker">
+                <button class="sliderClicker__leftButton popularPrevious">
+                    <img src="icons/leftSliderArrow.svg" alt="previous">
+                </button>
+                <div class="sliderClicker__positionNum">
+                    <span class="current" id="popularCurrent">0</span>
+                    /
+                    <span class="total" id="popularTotal">0</span>
+                </div>
+                <button class="sliderClicker__rightButton popularNext">
+                    <img src="icons/rightSliderArrow.svg" alt="next">
+                </button>
+            </div>
+        </div>
+    </section>
+    <section class="persons">
+        <div class="container">
+            <div class="subheader" id="personsHeaderID">
+                <h2 class="subheader__title">
+                    Популярные персоны
+                </h2>
+                <ul class="subheader__list">
+                    <li class="subheader__item">За год</li>
+                    <li class="subheader__item">За месяц</li>
+                    <li class="subheader__item">За неделю</li>
+                </ul>
+            </div>
+            <div class="personsSubcontainer first">
+                <div class="personsSubcontainer__Item">
+                    <div class="bestPlace">
+                        <img src="images/persons/ChristophWaltz.png">
+                        <div class="dataWrapper">
+                            <div class="place">
+                                1-е место
+                            </div>
+                            <div class="box">
+                                <div class="nameRus">
+                                    Кристоф Вальц
+                                </div>
+                                <div class="nameEng">
+                                    Christoph Waltz
+                                </div>
+                                <div class="age">
+                                    67 лет
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="personsSubcontainer__Item">
+                    <div class="bestPlace">
+                        <img src="images/persons/RowanAtkinson.png">
+                        <div class="dataWrapper">
+                            <div class="place">
+                                2-е место
+                            </div>
+                            <div class="box">
+                                <div class="nameRus">
+                                    Роуэн Аткинсон
+                                </div>
+                                <div class="nameEng">
+                                    Rowan Atkinson
+                                </div>
+                                <div class="age">
+                                    69 лет
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="personsSubcontainer__Item">
+                    <div class="otherPlace">
+                        <div class="place">
+                            <div class="box">
+                                <div class="nameRus">
+                                    Тинто Брасс
+                                </div>
+                                <div class="nameEng">
+                                    Tinto Brass
+                                </div>
+                                <div class="age">
+                                    87 лет
+                                </div>
+                            </div>
+                            <div class="placeNum">
+                                3-е место
+                            </div>
+                        </div>
+                        <div class="place">
+                            <div class="box">
+                                <div class="nameRus">
+                                    Джеки Чан
+                                </div>
+                                <div class="nameEng">
+                                    Jackie Chan
+                                </div>
+                                <div class="age">
+                                    66 лет
+                                </div>
+                            </div>
+                            <div class="placeNum">
+                                4-е место
+                            </div>
+                        </div>
+                        <div class="place">
+                            <div class="box">
+                                <div class="nameRus">
+                                    Том Харди
+                                </div>
+                                <div class="nameEng">
+                                    Tom Hardy
+                                </div>
+                                <div class="age">
+                                    42 года
+                                </div>
+                            </div>
+                            <div class="placeNum">
+                                5-е место
+                            </div>
+                        </div>
+                        <div class="place">
+                            <div class="box">
+                                <div class="nameRus">
+                                    Акшай Кумар
+                                </div>
+                                <div class="nameEng">
+                                    Akshay Kumar
+                                </div>
+                                <div class="age">
+                                    52 года
+                                </div>
+                            </div>
+                            <div class="placeNum">
+                                6-е место
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="personsSubcontainer second">
+                <div class="personsSubcontainer__Item">
+                    <div class="bestPlace">
+                        <img src="images/persons/QuentinTarantino.png">
+                        <div class="dataWrapper">
+                            <div class="place">
+                                1-е место
+                            </div>
+                            <div class="box">
+                                <div class="nameRus">
+                                    Квентин Тарантино
+                                </div>
+                                <div class="nameEng">
+                                    Quentin Tarantino
+                                </div>
+                                <div class="age">
+                                    57 лет
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="personsSubcontainer__Item">
+                    <div class="bestPlace">
+                        <img src="images/persons/JasonStatham.png">
+                        <div class="dataWrapper">
+                            <div class="place">
+                                2-е место
+                            </div>
+                            <div class="box">
+                                <div class="nameRus">
+                                    Джейсон Стейтем
+                                </div>
+                                <div class="nameEng">
+                                    Jason Statham
+                                </div>
+                                <div class="age">
+                                    52 года
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="personsSubcontainer__Item">
+                    <div class="otherPlace">
+                        <div class="place">
+                            <div class="box">
+                                <div class="nameRus">
+                                    Тинто Брасс
+                                </div>
+                                <div class="nameEng">
+                                    Tinto Brass
+                                </div>
+                                <div class="age">
+                                    87 лет
+                                </div>
+                            </div>
+                            <div class="placeNum">
+                                3-е место
+                            </div>
+                        </div>
+                        <div class="place">
+                            <div class="box">
+                                <div class="nameRus">
+                                    Джеки Чан
+                                </div>
+                                <div class="nameEng">
+                                    Jackie Chan
+                                </div>
+                                <div class="age">
+                                    66 лет
+                                </div>
+                            </div>
+                            <div class="placeNum">
+                                4-е место
+                            </div>
+                        </div>
+                        <div class="place">
+                            <div class="box">
+                                <div class="nameRus">
+                                    Том Харди
+                                </div>
+                                <div class="nameEng">
+                                    Tom Hardy
+                                </div>
+                                <div class="age">
+                                    42 года
+                                </div>
+                            </div>
+                            <div class="placeNum">
+                                5-е место
+                            </div>
+                        </div>
+                        <div class="place">
+                            <div class="box">
+                                <div class="nameRus">
+                                    Акшай Кумар
+                                </div>
+                                <div class="nameEng">
+                                    Akshay Kumar
+                                </div>
+                                <div class="age">
+                                    52 года
+                                </div>
+                            </div>
+                            <div class="placeNum">
+                                6-е место
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="personsSubcontainer third">
+                <div class="personsSubcontainer__Item">
+                    <div class="bestPlace">
+                        <img src="images/persons/SamuelLJackson.png">
+                        <div class="dataWrapper">
+                            <div class="place">
+                                1-е место
+                            </div>
+                            <div class="box">
+                                <div class="nameRus">
+                                    Сэмюэл Л. Джексон
+                                </div>
+                                <div class="nameEng">
+                                    Samuel L. Jackson
+                                </div>
+                                <div class="age">
+                                    75 лет
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="personsSubcontainer__Item">
+                    <div class="bestPlace">
+                        <img src="images/persons/Tobey Maguire.png">
+                        <div class="dataWrapper">
+                            <div class="place">
+                                2-е место
+                            </div>
+                            <div class="box">
+                                <div class="nameRus">
+                                    Тоби Магуайр 
+                                </div>
+                                <div class="nameEng">
+                                    Tobey Maguire
+                                </div>
+                                <div class="age">
+                                    48 лет
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="personsSubcontainer__Item">
+                    <div class="otherPlace">
+                        <div class="place">
+                            <div class="box">
+                                <div class="nameRus">
+                                    Тинто Брасс
+                                </div>
+                                <div class="nameEng">
+                                    Tinto Brass
+                                </div>
+                                <div class="age">
+                                    87 лет
+                                </div>
+                            </div>
+                            <div class="placeNum">
+                                3-е место
+                            </div>
+                        </div>
+                        <div class="place">
+                            <div class="box">
+                                <div class="nameRus">
+                                    Джеки Чан
+                                </div>
+                                <div class="nameEng">
+                                    Jackie Chan
+                                </div>
+                                <div class="age">
+                                    66 лет
+                                </div>
+                            </div>
+                            <div class="placeNum">
+                                4-е место
+                            </div>
+                        </div>
+                        <div class="place">
+                            <div class="box">
+                                <div class="nameRus">
+                                    Том Харди
+                                </div>
+                                <div class="nameEng">
+                                    Tom Hardy
+                                </div>
+                                <div class="age">
+                                    42 года
+                                </div>
+                            </div>
+                            <div class="placeNum">
+                                5-е место
+                            </div>
+                        </div>
+                        <div class="place">
+                            <div class="box">
+                                <div class="nameRus">
+                                    Акшай Кумар
+                                </div>
+                                <div class="nameEng">
+                                    Akshay Kumar
+                                </div>
+                                <div class="age">
+                                    52 года
+                                </div>
+                            </div>
+                            <div class="placeNum">
+                                6-е место
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="lastNews">
+        <div class="container">
+            <div class="subheader" id="lastNewsHeaderID">
+                <h2 class="trailer__title">
+                    Последние новости
+                </h2>
+                <div class="trailer__more">
+                    <a href="#lastNewsHeaderID">
+                        <div>
+                            Все новости
+                        </div>
+                    </a>
+                    <img src="icons/Arrow.svg" class="trailer__arrow">
+                </div>
+            </div>
+            <div class="lastNewsTabs">
+                <!-- данные из js -->
+                <div class="lastNewsSliderWindow">
+                    <div class="tabcontainer">
+                        <!-- данные из js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="expected" id="expected">
+        <div class="container">
+            <div class="subheader" id="expectedHeaderID">
+                <h2 class="trailer__title">
+                    Ожидаемые новинки
+                </h2>
+                <div class="sliderClicker">
+                    <button class="sliderClicker__leftButton expectedPrevious">
+                        <img src="icons/leftSliderArrow.svg" alt="previous">
+                    </button>
+                    <div class="sliderClicker__positionNum">
+                        <span class="current" id="expectedCurrent">0</span>
+                        /
+                        <span class="total" id="expectedTotal">0</span>
+                    </div>
+                    <button class="sliderClicker__rightButton expectedNext">
+                        <img src="icons/rightSliderArrow.svg" alt="next">
+                    </button>
+                </div>
+            </div>
+            <div class="expected__slider-windowContainer">
+                <div class="expected__slider-window">
+                    <div class="expected__slider-inner">
+                        <div class="movieCards">
+                            <!-- данные из js -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="subheader second-subheader">
+                <div class="box">
+                    <h2 class="subheader__title">
+                        Кассовые сборы
+                    </h2>
+                    <h5 class="subheader__subtitle second-subtitle">
+                        13 марта — 15 марта
+                    </h5>
+                </div>
+                <div class="subheader__devider DESKTOP"></div>
+                <ul class="subheader__list">
+                    <li class="subheader__item">Россия</li>
+                    <li class="subheader__item">Весь мир</li>
+                    <li class="subheader__item">США и Канада</li>
+                </ul>
+            </div>
+            <div class="filmBoxOffice firstBoxOffice">
+                <!-- данные из js -->
+            </div>
+            <div class="filmBoxOffice secondBoxOffice">
+                <!-- данные из js -->
+            </div>
+            <div class="filmBoxOffice thirdBoxOffice">
+                <!-- данные из js -->
+            </div>
+            <div class="subscribe">
+                <div class="logo">
+                    <img src="icons/liteLogo.svg" alt="KinoArea">
+                </div>
+                <div class="subscribe__content">
+                    <div class="subheader">
+                        <h2 class="subheader__title">
+                            Подпишитесь на E-mail рассылку
+                        </h2>
+                    </div>
+                    <div class="subscribe__descr">
+                        Если хотите быть в курсе последних новостей и новинок кино - заполните форму ниже и оформите бесплатную E-mail рассылку! 
+                    </div>
+                    <form action="#" class="subscribe-form">
+                        <div class="subscribe__interactiveEl">
+                            <input required name="email" type="email"  placeholder="Введите свой E-mail адрес">
+                            <button class="subscribeBtn">
+                                <span>Подписаться</span>
+                            </button>
+                        </div>
+                        <div class="check">
+                            <label for="agree" class="customCheck">
+                                <input required type="checkbox" id="agree" name="agree" checked />
+                                <div class="checkbox">
+                                    <img src="icons/checkbox.svg" class="checkMark">
+                                </div>
+                                <span>Соглашаюсь на условия</span> <a href="#">политики конфиденциальности</a>
+                            </label>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container footer__con" id="socialID">
+            <div class="footer__social">
+                <div><i class="fa-brands fa-vk"></i></div>
+                <div><i class="fa-brands fa-instagram"></i></div>
+                <div><i class="fa-brands fa-facebook-f"></i></div>
+                <div><i class="fa-brands fa-twitter"></i></div>
+                <div><i class="fa-brands fa-youtube"></i></div>
+            </div>
+            <nav class="footer__navigation">
+                <div>
+                    <a href="#cinemaNowHeaderID">Афиша</a>
+                </div>
+                <div>
+                    <a href="#trailerHeaderID">Трейлеры</a>
+                </div>
+                <div>
+                    <a href="#popularHeaderID">Популярные фильмы</a>
+                </div>
+                <div>
+                    <a href="#personsHeaderID">Персоны</a>
+                </div>
+                <div>
+                    <a href="#lastNewsHeaderID">Последние новости</a>
+                </div>
+                <div>
+                    <a href="#expectedHeaderID">Ожидаемые новинки</a>
+                </div>
+            </nav>
+            <div class="footer__rightsProtect">
+                2020 © Kinoarea.  Все права защищены
+            </div>
+            <div>
+                <a class="footer__politic" href="#">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="search hide">
+        <div class="search__container">
+            <div data-sc class="search__close">
+                <img src="icons/VectorClose.svg" alt="&times;">
+            </div>
+            <div class="search__content">
+                <div class="search__window">
+                    <input placeholder="Название фильма" type="text" class="search__input">
+                    <div class="search__yellowIcon">
+                        <img src="icons/darckSearchVector.svg" alt="search">
+                    </div>
+                </div>
+                <div class="search__varList">
+                    <!-- данные из js -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal hide">
+        <div class="modal__dialog">
+            <div class="modal__content">
+                <div>
+                    <div data-close class="modal__close">
+                        <img src="icons/VectorClose.svg" alt="&times;">
+                    </div>
+                    <div class="modal__inputWrapper">
+                        <div class="modal__formContainer hide registrationForm">
+                            <form action="#">
+                                <div class="modal__title">Зарегистрироваться</div>
+                                <input required placeholder="Имя" name="name" type="text" class="modal__input">
+
+                                <input required placeholder="Фамилия" name="surname" type="text" class="modal__input">
+
+                                <input required placeholder="Придумайте логин" name="nickname" type="text" class="modal__input">
+
+                                <input required placeholder="Придумайте пароль" name="password" type="number" class="modal__input">
+
+                                <input required placeholder="Повторите пароль" name="repeatpassword" type="number" class="modal__input">
+
+                                <input required placeholder="E-mail" name="email" type="email" class="modal__input">
+
+                                <div class="check">
+                                    <label for="politicagree" class="customCheck">
+                                        <input required type="checkbox" id="politicagree" name="politicagree" checked />
+                                        <div class="checkbox">
+                                            <img src="icons/checkbox.svg" class="checkMark">
+                                        </div>
+                                        <span>Соглашаюсь на условия</span> <a href="#">политики конфиденциальности</a>
+                                    </label>
+                                </div>
+
+                                <div class="check">
+                                    <label for="personalagree" class="customCheck">
+                                        <input required type="checkbox" id="personalagree" name="personalagree" checked />
+                                        <div class="checkbox">
+                                            <img src="icons/checkbox.svg" class="checkMark">
+                                        </div>
+                                        <span>Соглашаюсь на обработку персональных данных</span>
+                                    </label>
+                                </div>
+
+                                <button class="btn btn_yellow">
+                                    <span>Зарегистрироваться</span>
+                                </button>
+                            </form>
+                        </div>
+                        <div class="modal__formContainer autorisationForm">
+                            <form action="#">
+                                <div class="modal__title">Войти</div>
+                                <input required placeholder="Логин" name="nickname" type="text" class="modal__input">
+
+                                <input required placeholder="Пароль" name="password" type="number" class="modal__input">
+
+                                <button class="btn btn_yellow">
+                                    <span>Войти</span>
+                                </button>
+
+                                <button id="toRegistration" type="button" class="btn btn_dark">
+                                    <span>Зарегистрироваться</span>
+                                </button>
+                                <div class="footer__social">
+                                    <div><i class="fa-brands fa-vk"></i></div>
+                                    <div><i class="fa-brands fa-facebook-f"></i></div>
+                                    <div><i class="fa-brands fa-twitter"></i></div>
+                                    <i class="fa-brands fa-google"></i>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <a href="#up" class="pageup"><img src="icons/up.svg" alt="up"></a>
+
+    <script type="module" src="js/bundle.js"></script>
+    <script type="module" src="https://kit.fontawesome.com/66e8b232e1.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,73 @@
+@import "fonts.scss"
+@import "helpStyles.scss"
+
+// переменные
+$mainColor: #fff
+$secondColor: #3657cb
+$thirdColor: #f2f60f
+$darkColor: #191e2eb4
+// миксины
+@mixin forTitle
+    font-weight: 900
+    font-size: 65px
+    color: $mainColor
+// items
+.bad
+    background: #CB3F36
+.notbad
+    background:#CB6C36
+.good
+    background: #89cb36
+.verygood
+    background: #4BCB36
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+    border: none
+    font-family: 'Qanelas'
+    user-select: none
+    -webkit-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    &::-webkit-scrollbar
+        background: #1b2133
+        width: 7px
+        height: 7px
+    &::-webkit-scrollbar-thumb
+        background: $secondColor
+        border-radius: 10px
+        width: 7px
+        height: 7px
+    &::-mozilla-scrollbar
+        background: #1b2133
+        width: 7px
+        height: 7px
+    &::-mozilla-scrollbar-thumb
+        background: $secondColor
+        border-radius: 10px
+        width: 7px
+        height: 7px
+.body
+    background: #1e2538
+    overflow-x: hidden 
+    &_active
+        overflow-y: hidden 
+button
+    cursor: pointer
+
+// main page styles
+@import "pagesStyles/mainPage.sass"
+// movie pages styles
+@import "pagesStyles/moviePages.sass"
+
+// modal windows styles
+@import "modalWindowsAndSearch.scss"
+
+// media for main page 
+@import "mediaStyles/mediaMainPage.sass"
+// media for movie pages
+@import "mediaStyles/mediaMoviePages.sass"
+
+// media for modal windows
+@import "mediaStyles/mediaModalWindowsAndSearch.sass"
