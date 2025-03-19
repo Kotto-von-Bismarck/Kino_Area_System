@@ -96,6 +96,133 @@ app.post('/api/getActorsList', (req, res) => {
     .catch(e => console.log(`error: ${e}`));
 });
 
+// маршрут на получение всех достижений кинокартины
+app.post('/api/getFilmAchievements', (req, res) => {
+    const {filmName} = req.body;
+    let awards = [];
+
+    Oscar.findAll({
+        raw:true, 
+        attributes: ['nomination', 'year'],
+        where: { film: { [Op.substring] : filmName } }
+    })
+    .then(achievs => {
+        let shortAchievsInfo = achievs.map(item =>
+            Object.assign( item, 
+                { 
+                    awardName: 'Премия Оскар',
+                    imgPath: 'icons/avards/awardOscar.png'
+                }
+            )
+        );
+        awards.push([...shortAchievsInfo]);
+    })
+    .then(() => {
+        BritishAcademy.findAll({
+            raw:true, 
+            attributes: ['nomination', 'year'],
+            where: { film: { [Op.substring] : filmName } }
+        })
+        .then(achievs => {
+            let shortAchievsInfo = achievs.map(item =>
+                Object.assign( item, 
+                    { 
+                        awardName: 'Премия Британской Киноакадемии',
+                        imgPath: 'icons/avards/brit-academ.png'
+                    }
+                )
+            );
+            awards.push([...shortAchievsInfo]);
+        })
+        .then(() => {
+            SAG.findAll({
+                raw:true, 
+                attributes: ['nomination', 'year'],
+                where: { film: { [Op.substring] : filmName } }
+            })
+            .then(achievs => {
+                let shortAchievsInfo = achievs.map(item =>
+                    Object.assign( item, 
+                        { 
+                            awardName: 'Премия Гильдии Актёров',
+                            imgPath: 'icons/avards/achievement243.png'
+                        }
+                    )
+                );
+                awards.push([...shortAchievsInfo]);
+            })
+            .then(() => {
+                Saturn.findAll({
+                    raw:true, 
+                    attributes: ['nomination', 'year'],
+                    where: { film: { [Op.substring] : filmName } }
+                })
+                .then(achievs => {
+                    let shortAchievsInfo = achievs.map(item =>
+                        Object.assign( item, 
+                            { 
+                                awardName: 'Премия Сатурн',
+                                imgPath: 'icons/avards/saturn.png'
+                            }
+                        )
+                    );
+                    awards.push([...shortAchievsInfo]);
+                })
+                .then(() => {
+                    NominationOnAward.findAll({
+                        raw:true, 
+                        attributes: ['nomination', 'year', 'award'],
+
+                        where: { film: { [Op.substring] : filmName } }
+                    })
+                    .then(achievs => {
+                        let shortAchievsInfo = achievs.map(item =>
+                            Object.assign( item, 
+                                { 
+                                    awardName: 'Премия?',
+                                    imgPath: 'icons/avards/awardGoldenGlobe.png'
+                                }
+                            )
+                        );
+                        awards.push([...shortAchievsInfo]);
+                        // awards.push(['номинация на премию', ...achievs]);
+                    })
+                    .then(() => {
+                        GoldenGlobes.findAll({
+                            raw:true, 
+                            attributes: ['nomination', 'year'],
+                            where: { film: { [Op.substring] : filmName } }
+                        })
+                        .then(achievs => {
+                            let shortAchievsInfo = achievs.map(item =>
+                                Object.assign( item, 
+                                    { 
+                                        awardName: 'Премия Золотой Глобус',
+                                        imgPath: 'icons/avards/awardGoldenGlobe.png'
+                                    }
+                                )
+                            );
+                            awards.push([...shortAchievsInfo]);
+                        })
+                        .then(() => {
+                            let allAwards = [];
+                            awards.forEach(award => {
+                                if (award.length > 1) {
+                                    award.forEach(obj => allAwards.push(obj))
+                                } else if (award.length > 0 && award.length < 2) {
+                                    allAwards.push(...award)
+                                }
+                            })
+                            res.send(allAwards);
+                        })
+                    })
+                })
+            })
+        })
+    })
+    .catch(e => console.log(`error: ${e}`));
+});
+
 const Actor = sequelize.define(
     'Actor',
     {

@@ -38,7 +38,7 @@ function actors() {
 
     const thisFilmPage = document.querySelector('.body'),
           thisFilmName = thisFilmPage.getAttribute('id')
-        constructComponent('/api/getActorsList', thisFilmName, ActorsSpumer);
+    constructComponent('/api/getActorsList', thisFilmName, ActorsSpumer);
 };
 
 export default actors;

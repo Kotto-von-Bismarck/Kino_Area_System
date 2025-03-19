@@ -4,8 +4,8 @@ function achievements() {
 
     class AchievementSpumer {
         constructor(data) {
-            this.src = data.src;
-            this.achievement = data.achievement;
+            this.src = data.imgPath;
+            this.achievement = data.awardName;
             this.nomination = data.nomination;
             this.year = data.year;
             this.parent = document.querySelector('.achievement .achievement__contant');
@@ -33,7 +33,9 @@ function achievements() {
             this.parent.append(element);
         }
     };
-    // constructComponent('http://localhost:3000/achievementsData', AchievementSpumer);
+    const thisFilmPage = document.querySelector('.body'),
+          thisFilmName = thisFilmPage.getAttribute('id')
+    constructComponent('/api/getFilmAchievements', thisFilmName, AchievementSpumer);
 };
 
 export default achievements;

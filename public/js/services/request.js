@@ -7,9 +7,7 @@ const constructComponent = function(url, film, constructorName) {
         async function getData(url, film) {            
             const res = await fetch(url, {
                 method: 'POST',
-                headers: {
-                    'Content-type': 'application/json',
-                },
+                headers: {'Content-type': 'application/json'},
                 body: JSON.stringify({ filmName: `${film}` })
             })
             if(!res.ok) {
@@ -19,20 +17,21 @@ const constructComponent = function(url, film, constructorName) {
         } 
 
         if (url == '/api/getActorsList') {
-
             getData(url, film).then(data => {
-
                 let newData = [];
-
                 data.forEach(actor => {
-
                     let allrolesOfThisActor = actor.roleInFilm.split(';').filter(el => el != '').map(i => i.split(',').map(i => i.trim()));
-
-                    actor.roleInFilm = allrolesOfThisActor.filter(el => el[1] == film)
-
-                    newData.push(actor)
+                    actor.roleInFilm = allrolesOfThisActor.filter(el => el[1] == film);
+                    newData.push(actor);
                 })
-                newData.forEach(item => new constructorName (item).render())
+                newData.forEach(item => new constructorName(item).render())
+            });
+        } else if (url == '/api/getFilmAchievements') {
+            getData(url, film).then(data => {
+                console.log(data);
+                data.forEach(item => {
+                    new constructorName(item).render()
+                })
             });
         }
 
