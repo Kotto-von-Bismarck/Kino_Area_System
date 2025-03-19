@@ -3,14 +3,14 @@ import constructComponent from "../services/request";
 function actors() {
 
     class ActorsSpumer {
-        constructor(data) {
-            this.src = data.src;
-            this.RusName = data.RusName;
-            this.EngName = data.EngName;
-            this.Role = data.Role;
+        constructor(data) {            
+            this.src = data.imgPath;
+            this.RusName = data.nameRus;
+            this.EngName = data.nameEng;
+            this.Role = data.roleInFilm[0][0];
             this.parent = document.querySelector('.actorsWindow .actors-area');
         }
-        render() {
+        render() {          
             const element = document.createElement('div');
             element.classList.add('actor-item');
 
@@ -35,7 +35,10 @@ function actors() {
             this.parent.append(element);
         }
     };
-    constructComponent('http://localhost:3000/actorsCardsData', ActorsSpumer);
+
+    const thisFilmPage = document.querySelector('.body'),
+          thisFilmName = thisFilmPage.getAttribute('id')
+        constructComponent('/api/getActorsList', thisFilmName, ActorsSpumer);
 };
 
 export default actors;

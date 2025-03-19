@@ -33,7 +33,7 @@ function achievements() {
             this.parent.append(element);
         }
     };
-    constructComponent('http://localhost:3000/achievementsData', AchievementSpumer);
+    // constructComponent('http://localhost:3000/achievementsData', AchievementSpumer);
 };
 
 export default achievements;

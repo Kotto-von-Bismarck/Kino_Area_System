@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { Sequelize, DataTypes } from "sequelize";
+import { Sequelize, DataTypes, Op } from "sequelize";
 // import jwt from 'jsonwebtoken';
 
 // import http from "http";
@@ -83,6 +83,18 @@ try {
 //       freezeTableName: true,
 //     }
 // )
+
+// маршрут на получение всех актёров
+app.post('/api/getActorsList', (req, res) => {
+    const {filmName} = req.body;
+    Actor.findAll({raw:true, 
+        where: { roleInFilm: { [Op.substring] : filmName } }  
+    })
+    .then(actors => {        
+        res.send(actors);
+    })
+    .catch(e => console.log(`error: ${e}`));
+});
 
 const Actor = sequelize.define(
     'Actor',
@@ -386,17 +398,6 @@ const GoldenGlobes = sequelize.define(
 //     })
 //     .catch(e => console.log(`error: ${e}`));
 // });
-
-// // маршрут на получение всех клиентов
-// app.get('/api/customerData', (req, res) => {
-//     Customer.findAll({raw:true})
-//     .then(сustomer => {
-//         res.send(сustomer);
-//     })
-//     .catch(e => console.log(`error: ${e}`));
-// });
-
-
 
 // // маршрут на удаление элемента по id
 // app.post('/api/deleteData', async (req, res) => {
