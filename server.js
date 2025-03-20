@@ -176,16 +176,34 @@ app.post('/api/getFilmAchievements', (req, res) => {
                         where: { film: { [Op.substring] : filmName } }
                     })
                     .then(achievs => {
-                        let shortAchievsInfo = achievs.map(item =>
-                            Object.assign( item, 
+                        let shortAchievsInfo = achievs.map(item => {
+                            let src = 'icons/avards/';
+                            switch (item.award) {
+                                case 'Сатурн':
+                                    src += 'saturn-nomination.png';
+                                    break;
+                                case 'Золотой глобус':
+                                    src += 'awardGoldenGlobe-nomination.png';
+                                    break;
+                                case 'Оскар':
+                                    src += 'awardOscar-nomination.png';
+                                    break;
+                                case 'Британская академия':
+                                    src += 'brit-academ-nomination.png';
+                                    break;
+                                case 'Эмми':
+                                    src += 'emmi-nomination.png';
+                                    break;
+                            }
+                            return Object.assign( item, 
                                 { 
-                                    awardName: 'Премия?',
-                                    imgPath: 'icons/avards/awardGoldenGlobe.png'
+                                    awardName: `Номинация на премию ${item.award}`,
+                                    imgPath: `${src}`
                                 }
                             )
-                        );
+                        });
+                        console.log(shortAchievsInfo);
                         awards.push([...shortAchievsInfo]);
-                        // awards.push(['номинация на премию', ...achievs]);
                     })
                     .then(() => {
                         GoldenGlobes.findAll({

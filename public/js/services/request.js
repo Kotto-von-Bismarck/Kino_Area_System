@@ -28,8 +28,20 @@ const constructComponent = function(url, film, constructorName) {
             });
         } else if (url == '/api/getFilmAchievements') {
             getData(url, film).then(data => {
-                console.log(data);
-                data.forEach(item => {
+                let finalData = data;
+                while (finalData.length < 4) {
+                    const emptyObj = {
+                        imgPath: 'icons/avards/none-award.png',
+                        awardName: 'Информация отсутствует',
+                        nomination: '--',
+                        year: '--'
+                    };
+                    finalData.push(emptyObj)
+                }
+
+                console.log(finalData);
+
+                finalData.forEach(item => {
                     new constructorName(item).render()
                 })
             });
