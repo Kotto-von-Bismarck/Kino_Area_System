@@ -1,7 +1,7 @@
 import express from "express";
 import cors from "cors";
 import { Sequelize, DataTypes, Op } from "sequelize";
-// import jwt from 'jsonwebtoken';
+import jwt from 'jsonwebtoken';
 
 // import http from "http";
 // import path from "path";
@@ -83,6 +83,41 @@ try {
 //       freezeTableName: true,
 //     }
 // )
+
+const User = sequelize.define(
+    'User',
+    {
+        userID: { 
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4
+        },
+        firstname: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        surname: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        nickname: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        password: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+    },
+    {
+      freezeTableName: true,
+    }
+)
 
 // маршрут на получение всех актёров
 app.post('/api/getActorsList', (req, res) => {
@@ -578,41 +613,64 @@ const GoldenGlobes = sequelize.define(
 //     }
 // );
 
-// // маршрут на авторизацию администратора
-// app.post('/login', async (request, response) => {
-//     if (request.body.jsonWtoken) {
-//         jwt.verify(request.body.jsonWtoken, "2315", (err, decoded) => {
-//             if (err) {
-//                 response.send( {res: 'Время сессии истекло, войдите ещё раз!'} )
-//             } else if (decoded) {
-//                 response.send( {res: 'Добро пожаловать, администратор!'} )
-//             }
-            
-//         })
-        
-//     } else {
-//         const { nickname, password } = request.body
+// маршрут на авторизацию
+app.post('/login', async (request, response) => {
+    if (request.body.jsonWtoken) {
+        jwt.verify(request.body.jsonWtoken, "2315", (err, decoded) => {
+            if (err) {
+                response.send( {res: 'Время сессии истекло, войдите ещё раз!'} )
+            } else if (decoded) {
+                response.send( {res: 'Добро пожаловать!'} )
+            }
+        })
+    } else {
+        const { nickname, password } = request.body
 
-//         let admin = await Admin.findOne( {where: {nickname: nickname}} )
+        console.log(request.body);
 
-//         if(admin == null){
-//             return response.sendStatus(404)
-//         }
-//         if(admin.password != password){
-//             return response.sendStatus(400)
-//         }
+        let user = await User.findOne( {where: {nickname: nickname}} )
 
-//         let token = jwt.sign( { nickname: nickname }, "2315", { expiresIn: "30m" } )
-//         response.send( { token } )
-//     }
-// })
+        if(user == null){
+            return response.sendStatus(404)
+        }
+        if(user.password != password){
+            return response.sendStatus(400)
+        }
+
+        let token = jwt.sign( { nickname: nickname }, "2315", { expiresIn: "10m" } )
+        response.send( { token } )
+    }
+})
+
+
+app.post('/regist', async (request, response) => {
+    const { firstname, surname, nickname, password, email } = request.body;
+
+    let data = request.body;
+
+    let user = await User.findOne( {where: {nickname: nickname}} );
+    if(user != null){
+        data = { error: '401' };
+        return response.sendStatus(401)
+    }
+    user = await User.findOne( {where: {email: email}} );
+    if(user != null){
+        data = { error: '402' };
+        return response.sendStatus(402)
+    }
+
+    User.create( { firstname: firstname, password: password, surname: surname, nickname: nickname, email: email} );
+
+    response.send( data )
+})
+
 
 sequelize.sync()
 app.listen(3000, () => {
     console.log('Сервер запущен')
 })
 
-// Admin.create( { nickname: 'Dmitry_admin123', password: 'Ya@Dmin' } )
+// User.create( { firstname: 'Оксана', password: '123', surname: 'Литвиненко', nickname: 'OxanaSun', email: 'oxana123@gmail.com'} )
 
 // await Order.destroy({
 //     truncate: true,

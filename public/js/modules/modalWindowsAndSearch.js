@@ -1,5 +1,4 @@
 function modalWindows()  {
-
     class Modal {
         constructor(data) {
             this.modalTrigger = data.modalTrigger;

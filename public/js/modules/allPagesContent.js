@@ -715,9 +715,9 @@ function pagesContent () {
                             </div>
                             <div class="modal__inputWrapper">
                                 <div class="modal__formContainer hide registrationForm">
-                                    <form action="#">
+                                    <form name="reg" action="#">
                                         <div class="modal__title">Зарегистрироваться</div>
-                                        <input required placeholder="Имя" name="name" type="text" class="modal__input">
+                                        <input required placeholder="Имя" name="firstname" type="text" class="modal__input">
 
                                         <input required placeholder="Фамилия" name="surname" type="text" class="modal__input">
 
@@ -749,19 +749,19 @@ function pagesContent () {
                                             </label>
                                         </div>
 
-                                        <button class="btn btn_yellow">
+                                        <button type="submit" class="btn btn_yellow">
                                             <span>Зарегистрироваться</span>
                                         </button>
                                     </form>
                                 </div>
                                 <div class="modal__formContainer autorisationForm">
-                                    <form action="#">
+                                    <form name="auth" action="#">
                                         <div class="modal__title">Войти</div>
                                         <input required placeholder="Логин" name="nickname" type="text" class="modal__input">
 
                                         <input required placeholder="Пароль" name="password" type="number" class="modal__input">
 
-                                        <button class="btn btn_yellow">
+                                        <button type="submit" class="btn btn_yellow">
                                             <span>Войти</span>
                                         </button>
 

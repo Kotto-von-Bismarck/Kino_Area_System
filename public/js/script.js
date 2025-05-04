@@ -4,6 +4,7 @@ import achievements from './modules/achievementsConstructor';
 import reviews from './modules/ReviewCards';
 
 import modalWindows from './modules/modalWindowsAndSearch';
+import postFormData from './modules/forms'
 import searchItems from './modules/searchItemsConstructor';
 import search from './modules/search';
 import mobileMenu from './modules/mobileMenu';
@@ -20,6 +21,7 @@ import upElement from './modules/up';
 window.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('.body').classList.contains('mainPageSelector')) {
         modalWindows();
+        postFormData();
         searchItems();
         search();
         mobileMenu();
@@ -38,6 +40,7 @@ window.addEventListener('DOMContentLoaded', () => {
         achievements();
         reviews();
         modalWindows();
+        postFormData();
         searchItems();
         search();
         mobileMenu();
