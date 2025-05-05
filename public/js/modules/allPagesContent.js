@@ -1134,7 +1134,7 @@ function pagesContent () {
             secondMovieQuoteAuthor: 'Кинг Шульц'
         }).PageSpumerMechanism();
 
-    } else if(document.querySelector('.body').classList.contains('druk')) {
+    } else if (document.querySelector('.body').classList.contains('druk')) {
 
         // druk page
 

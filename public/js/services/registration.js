@@ -1,26 +1,7 @@
 const sign_In_Up = function(account, verifyType) {
 
     let jsonWtoken = localStorage.getItem('token');
-
-    setInterval(() => { if (jsonWtoken) {
-        fetch('/login', {
-            method: "POST",
-            body: JSON.stringify({jsonWtoken}),
-            headers: {
-                "Content-Type": 'application/json'
-            }
-        }).then(res => {
-            return res.json()
-        }).then(res => {
-            if (res.res != 'Добро пожаловать!') {
-                setTimeout(() => {
-                    window.location.replace("http://localhost:3000/index.html")
-                },1000)
-                return alert(`${ res.res }`)
-            }
-        })
-    } },1500)
-
+    
     async function postData(url, body) {            
         const response = await fetch(url, {
             method: 'POST',

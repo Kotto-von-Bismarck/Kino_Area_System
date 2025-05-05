@@ -637,7 +637,7 @@ app.post('/login', async (request, response) => {
             return response.sendStatus(400)
         }
 
-        let token = jwt.sign( { nickname: nickname }, "2315", { expiresIn: "10m" } )
+        let token = jwt.sign( { nickname: nickname }, "2315", { expiresIn: "1m" } )
         response.send( { token } )
     }
 })

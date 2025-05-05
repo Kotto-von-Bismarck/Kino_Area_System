@@ -4,7 +4,8 @@ import achievements from './modules/achievementsConstructor';
 import reviews from './modules/ReviewCards';
 
 import modalWindows from './modules/modalWindowsAndSearch';
-import postFormData from './modules/forms'
+import postFormData from './modules/forms';
+import tokenVerification from './modules/tokenVerification';
 import searchItems from './modules/searchItemsConstructor';
 import search from './modules/search';
 import mobileMenu from './modules/mobileMenu';
@@ -20,6 +21,7 @@ import upElement from './modules/up';
 
 window.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('.body').classList.contains('mainPageSelector')) {
+        tokenVerification();
         modalWindows();
         postFormData();
         searchItems();
@@ -35,6 +37,7 @@ window.addEventListener('DOMContentLoaded', () => {
         sliders();
         upElement();
     } else {
+        tokenVerification();
         pagesContent();
         actors();
         achievements();
