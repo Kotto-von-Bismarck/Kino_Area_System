@@ -6,6 +6,7 @@ $mainColor: #fff
 $secondColor: #3657cb
 $thirdColor: #f2f60f
 $darkColor: #191e2eb4
+$bodyColor: #1e2538
 // миксины
 @mixin forTitle
     font-weight: 900
@@ -49,7 +50,7 @@ $darkColor: #191e2eb4
         width: 7px
         height: 7px
 .body
-    background: #1e2538
+    background: $bodyColor
     overflow-x: hidden 
     &_active
         overflow-y: hidden 
@@ -60,6 +61,8 @@ button
 @import "pagesStyles/mainPage.sass"
 // movie pages styles
 @import "pagesStyles/moviePages.sass"
+// profile page styles
+@import "pagesStyles/_profilePage.sass"
 
 // modal windows styles
 @import "modalWindowsAndSearch.scss"

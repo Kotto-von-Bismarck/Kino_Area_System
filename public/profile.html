@@ -10,13 +10,360 @@
     <link rel="manifest" href="favicon_package_v0.16/site.webmanifest">
     <link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5">
     <meta name="msapplication-TileColor" content="#da532c">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="theme-color" content="#ffffff"> 
     <link rel="stylesheet" href="css/style.min.css">
 </head>
 <body class="body profilePageSelector" unselectable="no">
-    <h1>PROFILE</h1>
+    <nav class="mobile__menu">
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="index.html#cinemaNowHeaderID">
+                <div>
+                    Афиша
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="index.html#trailerHeaderID">
+                <div>
+                    Трейлеры
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="index.html#popularHeaderID">
+                <div>
+                    Популярные фильмы
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="index.html#personsHeaderID">
+                <div>
+                    Персоны
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="index.html#lastNewsHeaderID">
+                <div>
+                    Последние новости
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="index.html#expectedHeaderID">
+                <div>
+                    Ожидаемые новинки
+                </div>
+            </a>
+        </div>
+    </nav>
+    <section id="up" class="mainItem">
+        <div class="container">
+            <header class="header">
+                <div class="searchElements MIDDLESCREEN">
+                    <button data-searchactive class="searchButton MIDDLESCREEN">
+                        <div>
+                            <img src="icons/searchVector.svg" alt="search">
+                            <div class="searchBTN">Поиск</div>
+                        </div>
+                    </button>
+                </div>
+                <div class="nav-container NONEMOB">
+                    <div class="logo">
+                        <a href="index.html"><img src="icons/logo.svg" alt="KinoArea"></a>
+                    </div>
+                    <nav class="navigation">
+                        <div>
+                            <a href="index.html#cinemaNowHeaderID">Афиша</a>
+                        </div>
+                        <div>
+                            <a href="index.html#trailerHeaderID">Трейлеры</a>
+                        </div>
+                        <div>
+                            <a href="index.html#popularHeaderID">Популярные фильмы</a>
+                        </div>
+                        <div>
+                            <a href="index.html#personsHeaderID">Персоны</a>
+                        </div>
+                        <div>
+                            <a href="index.html#lastNewsHeaderID">Последние новости</a>
+                        </div>
+                        <div>
+                            <a href="index.html#expectedHeaderID">Ожидаемые новинки</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="interactivElements NONEMOB">
+                    <button data-searchactive class="searchButton DESKTOP">
+                        <div><img src="icons/searchVector.svg" alt="search"></div>
+                    </button>
+                    <button data-modal class="autorisation forLogOut">
+                        <span>Выйти</span>
+                    </button>
+                </div>
+                <div class="headerMobile MOBILE">
+                    <div class="interactivElements">
+                        <button class="mobileMenuButton">
+                            <div class="hamburger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </button>
+                        <button data-searchactive class="searchButton">
+                            <div><img src="icons/searchVector.svg" alt="search"></div>
+                        </button>
+                    </div>
+                    <div class="logo">
+                        <a id="headerLogo" href="index.html"><img src="icons/logo.svg" alt="KinoArea"></a>
+                    </div>
+                    <div class="interactivElements">
+                        <button data-modal class="forLogOut autorisation">
+                            <span>Выйти</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <div class="profileContainer">
+                <div class="profileTabList">
+                    <div class="profileTabItem">
+                        <img src="icons/profileIcons/homeRunVector.svg" alt="profile">
+                    </div>
+                    <div class="profileTabItem">
+                        <img src="icons/profileIcons/friendVector.svg" alt="friends">
+                    </div>
+                    <div class="profileTabItem">
+                        <img src="icons/profileIcons/reviewVector.svg" alt="reviews">
+                    </div>
+                    <div class="profileTabItem">
+                        <img src="icons/profileIcons/marksVector.svg" alt="marks">
+                    </div>
+                    <div class="profileTabItem">
+                        <img src="icons/profileIcons/filmVector.svg" alt="movies">
+                    </div>
+                </div>
+
+                <div class="profileContentBox">
+                    <!-- main fraim -->
+                    <div class="profileMainBox fade">
+                        <div class="profileContentBox__header">
+                            <h2 class="profileTitle">
+                                Ваш профиль
+                            </h2>
+                            <button class="profileSettings">
+                                <img src="icons/profileIcons/settingsNut.svg">
+                                <span>Настройки</span>
+                            </button>
+                        </div>
+
+                        <!-- <div class="profileContentBox__header">
+                            <h2 class="profileTitle">
+                                Ваш профиль
+                            </h2>
+                            <button class="profileSettings">
+                                <img src="icons/profileIcons/settingsNut.svg">
+                                <span>Настройки</span>
+                            </button>
+                        </div>
+                        <div class="profileContentBox__body">
+                            <div class="avatarBox">
+                                <img src="images/users-avatars/universal-avatar-max.svg" alt="avatar" class="avatar">
+                            </div>
+                            <div class="profileDescr">
+                                <h1 class="userName">OxanaSun</h1>
+                                <p class="userBio">
+                                    Учитывая ключевые сценарии поведения, базовый вектор развития, а также свежий взгляд на привычные вещи - безусловно открывает новые горизонты для поставленных обществом задач.
+                                </p>
+                                <div class="userParams">
+                                    <div class="userParams__title">Фамилия</div>
+                                    <div class="userParams__data">Литвиненко</div>
+
+                                    <div class="userParams__title">Имя</div>
+                                    <div class="userParams__data">Оксана</div>
+
+                                    <div class="userParams__title">E-mail</div>
+                                    <div class="userParams__data">oxana123@gmail.com</div>
+
+                                    <div class="userParams__title">Пол:</div>
+                                    <div class="userParams__data">Женский</div>
+
+                                    <div class="userParams__title">День рождения:</div>
+                                    <div class="userParams__data">18 февраля 1975 г.</div>
+
+                                    <div class="userParams__title">Город:</div>
+                                    <div class="userParams__data">Оренбург</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="profileContentBox__footer">
+                            <div class="countItem">
+                                <span class="countItem__quantity">0</span>
+                                <span class="countItem__title">Друзья</span>
+                            </div>
+                            <div class="countItem">
+                                <span class="countItem__quantity">0</span>
+                                <span class="countItem__title">Избранное</span>
+                            </div>
+                            <div class="countItem">
+                                <span class="countItem__quantity">0</span>
+                                <span class="countItem__title">Рецензии</span>
+                            </div>
+                            <div class="countItem">
+                                <span class="countItem__quantity">0</span>
+                                <span class="countItem__title">Ожидаемые фильмы</span>
+                            </div>
+                            <div class="countItem">
+                                <span class="countItem__quantity">0</span>
+                                <span class="countItem__title">Комментарии</span>
+                            </div>
+                        </div> -->
+                    </div>
+
+                    <!-- settings -->
+                    <div class="profileSettingsBox fade hide">
+                        <div class="profileContentBox__header">
+                            <h2 class="profileTitle">
+                                Настройки профиля
+                            </h2>
+                            <button class="profileSettings">
+                                <img src="icons/profileIcons/closeVector.svg">
+                                <span>Закрыть</span>
+                            </button>
+                        </div>
+                        <div class="profileContentBox__settings">
+                            <form class="editProfileForm" name="requestForEditProfile" method="post" enctype="multipart/editProfileForm" action="/upload">
+                                <div class="input-file-row avatarBox">
+                                    <div class="input-file-list">
+                                        <img src="images/users-avatars/universal-avatar-max.svg" alt="avatar" class="avatar">
+                                    </div>
+                                    <label class="input-file">
+                                        <span>Загрузить фото профиля</span>
+                                        <input oninput="this.parentElement.lastElementChild.innerHTML = `... ${this.files[0].name.slice(-12)}`"
+                                               type="file"
+                                               name="file"
+                                               accept="image/png, image/jpeg">
+                                        <p>имя файла</p>
+                                    </label>
+                                </div>
+                                <div class="profileDescr">
+                                    <label class="labelFirstName" for="firstname">Ваше имя</label>
+                                    <input class="inputFirstName" required placeholder="текущее" name="firstname" type="text">
+
+                                    <label class="labelSurname" for="surname">Ваша фамилия</label>
+                                    <input class="inputSurname" required placeholder="текущее" name="surname" type="text">
+
+                                    <label class="labelGender" for="gender">Ваш пол</label>
+                                    <select class="selectGender" name="gender">
+                                        <option value="male">мужской</option>
+                                        <option value="female">женский</option>
+                                    </select>
+
+                                    <label class="labelBirthday" for="birthday">Ваша дата рождения</label>
+                                    <input class="inputBirthday" required type="date" name="birthday">
+
+                                    <label class="labelEmail" for="email">Ваш E-mail</label>
+                                    <input class="inputEmail" required name="email" type="email" placeholder="текущий js">
+
+                                    <label class="labelNickname" for="nickname">Ваш логин</label>
+                                    <input class="inputNickname" required name="nickname" type="text" placeholder="текущий js">
+
+                                    <label class="labelCity" for="city">Ваш город</label>
+                                    <select class="selectCity" name="city">
+                                        <option value="virtualCity">Моего города нет в списке</option>
+                                        <option value="Новосибирск">Новосибирск</option>
+                                        <option value="Оренбург">Оренбург</option>
+                                        <option value="Самара">Самара</option>
+                                        <option value="Казань">Казань</option>
+                                        <option value="Уфа">Уфа</option>
+                                        <option value="Екатеринбург">Екатеринбург</option>
+                                        <option value="Тольятти">Тольятти</option>
+                                        <option value="Сызрань">Сызрань</option>
+                                        <option value="Саратов">Саратов</option>
+                                        <option value="Орск">Орск</option>
+                                        <option value="Нижнекамск">Нижнекамск</option>
+                                    </select>
+
+                                    <textarea maxlength="200" class="userBio" name="userBio" placeholder="Обо мне (не более 200 символов)" type="text"></textarea>
+
+                                    <input class="submitData" name="userSub" type="submit" value="ㅤСохранить">
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>                
+            </div>
+
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="container footer__con" id="socialID">
+            <div class="footer__social">
+                <div><i class="fa-brands fa-vk"></i></div>
+                <div><i class="fa-brands fa-instagram"></i></div>
+                <div><i class="fa-brands fa-facebook-f"></i></div>
+                <div><i class="fa-brands fa-twitter"></i></div>
+                <div><i class="fa-brands fa-youtube"></i></div>
+            </div>
+            <nav class="footer__navigation">
+                <div>
+                    <a href="index.html#cinemaNowHeaderID">Афиша</a>
+                </div>
+                <div>
+                    <a href="index.html#trailerHeaderID">Трейлеры</a>
+                </div>
+                <div>
+                    <a href="index.html#popularHeaderID">Популярные фильмы</a>
+                </div>
+                <div>
+                    <a href="index.html#personsHeaderID">Персоны</a>
+                </div>
+                <div>
+                    <a href="index.html#lastNewsHeaderID">Последние новости</a>
+                </div>
+                <div>
+                    <a href="index.html#expectedHeaderID">Ожидаемые новинки</a>
+                </div>
+            </nav>
+            <div class="footer__rightsProtect">
+                2020 © Kinoarea.  Все права защищены
+            </div>
+            <div>
+                <a class="footer__politic" href="#">Политика конфиденциальности</a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="search hide">
+        <div class="search__container">
+            <div data-sc class="search__close">
+                <img src="icons/VectorClose.svg" alt="&times;">
+            </div>
+            <div class="search__content">
+                <div class="search__window">
+                    <input placeholder="Название фильма" type="text" class="search__input">
+                    <div class="search__yellowIcon">
+                        <img src="icons/darckSearchVector.svg" alt="search">
+                    </div>
+                </div>
+                <div class="search__varList">
+                    <!-- данные из js -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <a href="#up" class="pageup"><img src="icons/up.svg" alt="up"></a>
+
+    <script>
+        document.querySelectorAll('.profileSettings').forEach(button => {
+            button.addEventListener('click', () => {
+                document.querySelector('.profileMainBox').classList.toggle('hide');
+                document.querySelector('.profileSettingsBox').classList.toggle('hide');
+            })
+        })        
+    </script>
 
     <script type="module" src="js/bundle.js"></script>
     <script type="module" src="https://kit.fontawesome.com/66e8b232e1.js" crossorigin="anonymous"></script>

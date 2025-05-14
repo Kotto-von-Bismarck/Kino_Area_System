@@ -23,7 +23,7 @@ function tokenVerification () {
                     }
                 })
             } 
-        },1500)
+        },1200)
     } else if (bodySelector == 'mainPageSelector' || bodySelector == 'moviePageBody') {
         setInterval(() => {
             if (jsonWtoken) {
@@ -39,22 +39,20 @@ function tokenVerification () {
                     if (res.res == 'Добро пожаловать!') {
                         const signButtons = document.querySelectorAll('.autorisation');
                         const accIco = document.createElement('div');
-                        accIco.innerHTML = '<a href="profile.html"><img src="icons/testAva.svg" alt="avatar"></a>';
+                        accIco.innerHTML = '<a class="alterButtonOnP" href="profile.html"><span>Профиль</span></a>';
 
-                        let bigTablet = window.matchMedia("(min-width: 768px)");
+                        let bigTablet = window.matchMedia("(max-width: 768px)");
 
                         if (bigTablet.matches == true && signButtons.length > 0) {
-                            console.log(signButtons);
-                            
                             signButtons[0].replaceWith(accIco);
                         } else if (bigTablet.matches == false && signButtons.length > 0) {
-                            signButtons[1].replaceWith(accIco);
+                            signButtons[0].replaceWith(accIco);
                         }
                        
                     }
                 })
             } 
-        },1500)
+        },1200)
     }
     
 }

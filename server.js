@@ -119,6 +119,25 @@ const User = sequelize.define(
     }
 )
 
+// маршрут на получение данных пользователя
+app.post('/api/getProfileData', async (req, res) => {
+    const {token} = req.body;
+
+    let nickname = 'undefined';
+
+    jwt.verify(token, "2315", (err, decoded) => {
+        if (decoded) {
+            nickname = decoded.nickname
+        }
+    })    
+
+    let user = await User.findOne( {where: {nickname: nickname}} );
+    
+    const data = { username: user.firstname, surname: user.surname, nickname: user.nickname, email: user.email};
+
+    res.send( data )
+});
+
 // маршрут на получение всех актёров
 app.post('/api/getActorsList', (req, res) => {
     const {filmName} = req.body;
@@ -637,7 +656,7 @@ app.post('/login', async (request, response) => {
             return response.sendStatus(400)
         }
 
-        let token = jwt.sign( { nickname: nickname }, "2315", { expiresIn: "1m" } )
+        let token = jwt.sign( { nickname: nickname }, "2315", { expiresIn: "120m" } )
         response.send( { token } )
     }
 })

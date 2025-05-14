@@ -64,14 +64,16 @@ function modalWindows()  {
         }
     };
 
-    new Modal({
-        modalTrigger: document.querySelectorAll('[data-modal]'),
-        modalWindow: document.querySelector('.modal'),
-        modalCloseBtn: document.querySelector('[data-close]'),
-        buttonReg: document.querySelector('#toRegistration'),
-        autorisationForm: document.querySelector('.autorisationForm'),
-        registrationForm: document.querySelector('.registrationForm')
-    }).ModalMechanism();
+    if (!document.querySelector('.body').classList.contains('profilePageSelector')) {
+        new Modal({
+            modalTrigger: document.querySelectorAll('[data-modal]'),
+            modalWindow: document.querySelector('.modal'),
+            modalCloseBtn: document.querySelector('[data-close]'),
+            buttonReg: document.querySelector('#toRegistration'),
+            autorisationForm: document.querySelector('.autorisationForm'),
+            registrationForm: document.querySelector('.registrationForm')
+        }).ModalMechanism();
+    }
 
     new Modal({
         modalTrigger: document.querySelectorAll('[data-searchactive]'),

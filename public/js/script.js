@@ -6,6 +6,7 @@ import reviews from './modules/ReviewCards';
 import modalWindows from './modules/modalWindowsAndSearch';
 import postFormData from './modules/forms';
 import tokenVerification from './modules/tokenVerification';
+import profileGenerator from './modules/profileGenerator';
 import searchItems from './modules/searchItemsConstructor';
 import search from './modules/search';
 import mobileMenu from './modules/mobileMenu';
@@ -36,6 +37,14 @@ window.addEventListener('DOMContentLoaded', () => {
         tabs()
         sliders();
         upElement();
+    } else if (document.querySelector('.body').classList.contains('profilePageSelector')) {
+        tokenVerification();
+        modalWindows();
+        searchItems();
+        search();
+        mobileMenu();
+        upElement();
+        profileGenerator();
     } else {
         tokenVerification();
         pagesContent();

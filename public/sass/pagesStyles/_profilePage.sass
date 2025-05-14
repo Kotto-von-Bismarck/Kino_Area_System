@@ -1,0 +1,271 @@
+.testClassSass 
+    font-size: 30px
+    color: #fff
+    text-transform: uppercase
+.alterButtonOnP
+    text-decoration: none
+    display: flex
+    align-items: center
+    justify-content: center
+    border-radius: 10px
+    width: 138px
+    height: 53px
+    -webkit-box-shadow: 0 0 15px 0 rgba(72, 113, 255, .8)
+    box-shadow: 0 0 15px 0 rgba(72, 113, 255, .8)
+    background: #3657cb
+    color: #fff
+    font-weight: bold
+.forLogOut
+    background: rgba(206, 35, 35, .5) !important
+    box-shadow: none !important
+    transition: 0.5s all
+    &:hover
+        background: #ce2323 !important
+        transition: 0.5s all
+        -webkit-box-shadow: 0 0 15px 0 rgba(206, 35, 35, .5) !important
+        box-shadow: 0 0 15px 0 rgba(206, 35, 35, .5) !important
+
+.profileContainer
+    display: flex
+    gap: 7px
+    width: 100%
+    height: fit-content
+    margin-bottom: 50px
+    .profileTabList
+        display: flex
+        flex-direction: column
+        width: fit-content
+        gap: 7px
+        .profileTabItem
+            display: flex
+            justify-content: center
+            align-items: center
+            border-radius: 10px
+            width: 107px
+            height: 104px
+            background: $darkColor
+    .profileContentBox
+        border-radius: 10px
+        height: fit-content
+        background: $darkColor
+        padding: 31px 43px
+        &__header
+            display: flex
+            justify-content: space-between
+            color: $mainColor
+            margin-bottom: 18px
+            .profileTitle
+                font-weight: 900
+                font-size: 30px
+            .profileSettings
+                border-radius: 10px
+                width: 147px
+                height: 51px
+                display: flex
+                justify-content: space-evenly
+                align-items: center
+                background: $bodyColor
+                font-weight: 500
+                font-size: 14px
+                color: $mainColor
+        &__body
+            display: flex
+            gap: 45px
+            justify-content: space-between
+            align-items: center
+            margin-bottom: 50px
+            .avatarBox
+                min-width: 475px
+                max-height: 478px
+                max-width: 478px
+                img
+                    width: 100%
+                    height: 100%
+            .profileDescr
+                color: $mainColor
+                .userName
+                    margin-bottom: 20px
+                    font-weight: 900
+                    font-size: 50px
+                .userBio
+                    font-weight: 300
+                    font-size: 18px
+                    line-height: 25px
+                    text-align: justify
+                    margin-bottom: 25px
+            .userParams
+                display: grid
+                width: 700px
+                grid-template-columns: 160px 1fr
+                grid-template-areas: "userParams__title userParams__data"
+                font-size: 18px
+                gap: 20px 10px
+                &__title
+                    font-weight: 600
+                    color: rgba(255, 255, 255, 0.8)
+                &__data
+                    font-weight: 300
+                    color: $thirdColor
+        &__footer
+            display: flex
+            justify-content: space-evenly
+            align-items: center
+            height: 72px
+            width: 100%
+            .countItem
+                width: fit-content
+                height: 100%
+                display: flex
+                flex-direction: column
+                justify-content: space-between
+                align-items: center
+                color: #3e4768
+                transition: 0.5s all
+                cursor: pointer
+                &__title
+                    font-weight: 700
+                    font-size: 21px
+                &__quantity
+                    font-weight: 500
+                    font-size: 35px
+                &:hover
+                    color: $mainColor
+                    transition: 0.5s all
+                    text-shadow: 0 0 10px rgba(255,255,255,.7)
+    .profileSettingsBox
+        width: 1230px
+        .editProfileForm
+            display: flex
+            gap: 30px
+        .input-file
+            position: relative
+            display: flex
+            border-radius: 10px
+            height: 54px
+            background: $bodyColor
+            font-weight: 400
+            font-size: 18px
+            line-height: 167%
+            color: rgba(255, 255, 255, 0.6)
+            margin-top: 15px
+            span
+                position: relative
+                display: inline-block
+                cursor: pointer
+                outline: none
+                text-decoration: none
+                vertical-align: middle
+                text-align: center
+                font-weight: 600
+                border-radius: 10px
+                color: $mainColor
+                background-color: $secondColor
+                height: 100%
+                padding: 12px 20px
+                border: none
+                margin: 0
+            input
+                display: none
+            p
+                position: relative
+                display: inline-block
+                vertical-align: middle
+                text-align: center
+                height: 100%
+                padding: 12px 20px
+        .profileDescr
+            display: grid
+            grid-template-areas: "labelFirstName labelSurname" "inputFirstName inputSurname" "labelGender labelBirthday" "selectGender inputBirthday" "labelEmail labelNickname" "inputEmail inputNickname" "inputEmail inputNickname" "labelCity ." "selectCity ." "userBio ." "submitData ." 
+            font-size: 18px
+            gap: 20px
+            color: rgba(255, 255, 255, 0.6)
+            input, select
+                padding: 0 26px
+                font-size: 18px
+                border-radius: 10px
+                height: 54px
+                background: $bodyColor
+                outline: none
+                color: $mainColor
+            input
+                width: 350px
+            select
+                cursor: pointer
+                -webkit-appearance: none
+                -moz-appearance: none
+                appearance: none
+                background: url('../icons/profileIcons/selectArrow.svg') right 26px bottom 50% no-repeat $bodyColor
+            select::-ms-expand
+                display: none
+            ::-webkit-calendar-picker-indicator
+                background: url('../icons/profileIcons/calendaric.svg') center center/cover no-repeat
+                cursor: pointer
+            
+            .labelFirstName
+                grid-area: labelFirstName
+            .inputFirstName
+                grid-area: inputFirstName
+            .labelSurname
+                grid-area: labelSurname
+            .inputSurname
+                grid-area: inputSurname
+            .labelGender
+                grid-area: labelGender
+            .selectGender
+                grid-area: selectGender
+            .labelBirthday
+                grid-area: labelBirthday  
+            .inputBirthday
+                grid-area: inputBirthday 
+            .labelEmail
+                grid-area: labelEmail
+            .inputEmail
+                grid-area: inputEmail
+            .labelNickname
+                grid-area: labelNickname
+            .inputNickname
+                grid-area: inputNickname
+            .labelCity
+                grid-area: labelCity
+                grid-column: span 2
+            .selectCity
+                grid-area: selectCity
+                grid-column: span 2
+            .userBio
+                padding: 26px
+                font-size: 18px
+                border-radius: 10px
+                background: $bodyColor
+                outline: none
+                color: $mainColor
+                grid-area: userBio
+                grid-column: span 2
+                height: 150px
+                resize: none
+            .submitData
+                grid-area: submitData
+                grid-column: span 2 
+                width: 100%
+                cursor: pointer
+                background: url('../icons/profileIcons/saveCheck.svg') left 40% bottom 50% no-repeat $bodyColor
+
+
+
+
+@media (max-width: 1690px) 
+    .alterButtonOnP
+        width: 100px
+        height: 42px
+        font-size: 13px
+
+@media (max-width: 999px)
+    .alterButtonOnP
+        font-size: 12px
+        border-radius: 5px
+        height: 38px
+
+@media (max-width: 767px) 
+    .alterButtonOnP
+        font-size: 11px
+        height: 28px
+        width: 63px
