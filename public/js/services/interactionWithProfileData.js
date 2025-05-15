@@ -14,6 +14,8 @@ const interactionWithProfileData = function(url, token, constructorName) {
 
     if (url == '/api/getProfileData') {
         getProfileData(url, token).then(data => {
+            console.log(data);
+            
             new constructorName(data).render()
         });
     } 

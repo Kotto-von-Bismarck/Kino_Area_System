@@ -21,3 +21,30 @@
         opacity:1;
     }
 }
+.loading {
+    position: relative;
+    width: fit-content;
+    height: 275px;
+    margin: 105px auto;
+    .logobottom {
+        max-height: 100%;
+        position: relative;
+    }
+    .logotop {
+        position: absolute;
+        max-height: 45%;
+        left: 50%;
+        top: 12%;
+        animation: loadSpiner 2s infinite;
+    }
+}
+@keyframes loadSpiner {
+    from {
+        transform: translateX(-50%) rotate(0deg);
+        animation-timing-function: linear;
+    } 
+    to {
+        transform: translateX(-50%) rotate(-360deg);
+        animation-timing-function: linear;
+    }
+}

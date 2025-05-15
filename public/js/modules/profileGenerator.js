@@ -7,20 +7,28 @@ function profileGenerator() {
             this.src = data.imgPath;
             this.nickname = data.nickname;
             this.username = data.username;
-            this.userbio = data.userbio;
+            this.userbio = data.userbio ? data.userbio : 'Добавьте пару слов о себе';
             this.surname = data.surname;
             this.email = data.email;
-            this.gender = data.gender;
-            this.usercity = data.usercity;
-            this.userbirthday = data.userbirthday;
+            this.gender = data.gender ? data.gender : 'не указан';
+            this.usercity = data.usercity ? data.usercity : 'не указан';
+            this.userbirthday = data.userbirthday ? data.userbirthday : 'не указан';
             this.parent = document.querySelector('.profileContentBox .profileMainBox');
         }
         render() {
-            const element = document.createElement('div');
-            if (this.src == undefined) {
+            if (!this.src) {
                 this.src = 'images/users-avatars/universal-avatar-max.svg';
             }
-            element.innerHTML = `
+            this.parent.innerHTML = `
+                <div class="profileContentBox__header">
+                    <h2 class="profileTitle">
+                        Ваш профиль
+                    </h2>
+                    <button class="profileSettings" onclick="document.querySelector('.profileMainBox').classList.toggle('hide'); document.querySelector('.profileSettingsBox').classList.toggle('hide');">
+                        <img src="icons/profileIcons/settingsNut.svg">
+                        <span>Настройки</span>
+                    </button>
+                </div>
                 <div class="profileContentBox__body">
                     <div class="avatarBox">
                         <img src=${this.src} alt="avatar" class="avatar">
@@ -74,7 +82,6 @@ function profileGenerator() {
                     </div>
                 </div>
             `;
-            this.parent.append(element);
         }
     };
 

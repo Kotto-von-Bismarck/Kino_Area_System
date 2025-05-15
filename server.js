@@ -113,6 +113,26 @@ const User = sequelize.define(
             type: DataTypes.STRING,
             allowNull: false
         },
+        gender: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        birthday: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        avatar: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        userBio: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },        
     },
     {
       freezeTableName: true,
@@ -133,7 +153,7 @@ app.post('/api/getProfileData', async (req, res) => {
 
     let user = await User.findOne( {where: {nickname: nickname}} );
     
-    const data = { username: user.firstname, surname: user.surname, nickname: user.nickname, email: user.email};
+    const data = { username: user.firstname, surname: user.surname, nickname: user.nickname, email: user.email, gender: user.gender, userbirthday: user.birthday, usercity: user.city, userbio: user.userBio};
 
     res.send( data )
 });
@@ -678,7 +698,7 @@ app.post('/regist', async (request, response) => {
         return response.sendStatus(402)
     }
 
-    User.create( { firstname: firstname, password: password, surname: surname, nickname: nickname, email: email} );
+    User.create( { firstname: firstname, password: password, surname: surname, nickname: nickname, email: email, gender: null, birthday: null, city: null, avatar: null, userBio: null} );
 
     response.send( data )
 })
@@ -691,6 +711,8 @@ app.listen(3000, () => {
 
 // User.create( { firstname: 'Оксана', password: '123', surname: 'Литвиненко', nickname: 'OxanaSun', email: 'oxana123@gmail.com'} )
 
-// await Order.destroy({
+// await User.destroy({
 //     truncate: true,
 //   })
+
+// await User.drop()

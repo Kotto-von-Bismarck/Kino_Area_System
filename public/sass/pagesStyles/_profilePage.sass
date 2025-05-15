@@ -24,7 +24,14 @@
         transition: 0.5s all
         -webkit-box-shadow: 0 0 15px 0 rgba(206, 35, 35, .5) !important
         box-shadow: 0 0 15px 0 rgba(206, 35, 35, .5) !important
-
+html, .profilePageSelector
+    height: 100% 
+    .profileWrapper
+        min-height: 100%
+        display: flex
+        flex-direction: column
+    .mainItem
+        flex: 1 1 auto
 .profileContainer
     display: flex
     gap: 7px
@@ -49,6 +56,7 @@
         height: fit-content
         background: $darkColor
         padding: 31px 43px
+        width: 100%
         &__header
             display: flex
             justify-content: space-between
