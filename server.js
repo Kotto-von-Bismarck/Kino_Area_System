@@ -143,19 +143,30 @@ const User = sequelize.define(
 app.post('/api/getProfileData', async (req, res) => {
     const {token} = req.body;
 
-    let nickname = 'undefined';
+    let user;
 
-    jwt.verify(token, "2315", (err, decoded) => {
-        if (decoded) {
-            nickname = decoded.nickname
+    jwt.verify(token, "2315", async (err, decoded) => {
+        if (err) {
+            res.send( {res: 'Время сессии истекло или пользователь не авторизован, войдите ещё раз!'} )
+        } else if (decoded) {
+            user = await User.findOne(
+                {where: {nickname: decoded.nickname}}
+            );
+
+            const data = { 
+                username: user.firstname,
+                surname: user.surname,
+                nickname: user.nickname,
+                email: user.email, 
+                gender: user.gender, 
+                userbirthday: user.birthday, 
+                usercity: user.city, 
+                userbio: user.userBio
+            };
+
+            res.send( data )
         }
     })    
-
-    let user = await User.findOne( {where: {nickname: nickname}} );
-    
-    const data = { username: user.firstname, surname: user.surname, nickname: user.nickname, email: user.email, gender: user.gender, userbirthday: user.birthday, usercity: user.city, userbio: user.userBio};
-
-    res.send( data )
 });
 
 // маршрут на получение всех актёров
@@ -664,24 +675,27 @@ app.post('/login', async (request, response) => {
         })
     } else {
         const { nickname, password } = request.body
+        if (nickname) {
+            console.log(request.body);
 
-        console.log(request.body);
+            let user = await User.findOne( {where: {nickname: nickname}} )
 
-        let user = await User.findOne( {where: {nickname: nickname}} )
+            if(user == null){
+                return response.sendStatus(404)
+            }
+            if(user.password != password){
+                return response.sendStatus(400)
+            }
 
-        if(user == null){
-            return response.sendStatus(404)
+            let token = jwt.sign( { nickname: nickname }, "2315", { expiresIn: "15m" } )
+            response.send( { token } )
+        } else {
+            response.send( {res: 'Время сессии истекло, войдите ещё раз!'} )
         }
-        if(user.password != password){
-            return response.sendStatus(400)
-        }
-
-        let token = jwt.sign( { nickname: nickname }, "2315", { expiresIn: "120m" } )
-        response.send( { token } )
     }
 })
 
-
+// маршрут на регистрацию
 app.post('/regist', async (request, response) => {
     const { firstname, surname, nickname, password, email } = request.body;
 

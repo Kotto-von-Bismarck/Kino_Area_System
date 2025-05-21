@@ -73,6 +73,20 @@ function modalWindows()  {
             autorisationForm: document.querySelector('.autorisationForm'),
             registrationForm: document.querySelector('.registrationForm')
         }).ModalMechanism();
+    } else {
+        new Modal({
+            modalTrigger: document.querySelectorAll('[data-modal]'),
+            modalWindow: document.querySelector('.modal'),
+            modalCloseBtn: document.querySelector('[data-close]'),
+            autorisationForm: document.querySelector('.logOut')
+        }).ModalMechanism();
+
+        const logOutBtn = document.querySelector('[data-logout]');
+
+        logOutBtn.addEventListener('click', () => {
+            localStorage.removeItem('token');
+            window.location.replace("http://localhost:3000/index.html")
+        })
     }
 
     new Modal({

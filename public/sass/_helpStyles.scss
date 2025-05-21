@@ -28,6 +28,7 @@
     margin: 105px auto;
     .logobottom {
         max-height: 100%;
+        width: auto !important;
         position: relative;
     }
     .logotop {
@@ -38,6 +39,21 @@
         animation: loadSpiner 2s infinite;
     }
 }
+button {
+    .loading {
+        height: 100%;
+        margin: 0 auto;
+        .logotop {
+            position: absolute;
+            max-height: 45%;
+            left: 50%;
+            top: 50%;
+            animation: loadMiniSpiner 2s infinite;
+        }
+    }
+}
+
+
 @keyframes loadSpiner {
     from {
         transform: translateX(-50%) rotate(0deg);
@@ -45,6 +61,17 @@
     } 
     to {
         transform: translateX(-50%) rotate(-360deg);
+        animation-timing-function: linear;
+    }
+}
+
+@keyframes loadMiniSpiner {
+    from {
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+        animation-timing-function: linear;
+    } 
+    to {
+        transform: translateX(-50%) translateY(-50%) rotate(-360deg);
         animation-timing-function: linear;
     }
 }

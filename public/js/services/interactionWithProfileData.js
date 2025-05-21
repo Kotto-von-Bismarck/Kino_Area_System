@@ -15,8 +15,14 @@ const interactionWithProfileData = function(url, token, constructorName) {
     if (url == '/api/getProfileData') {
         getProfileData(url, token).then(data => {
             console.log(data);
-            
-            new constructorName(data).render()
+            if (Object.keys(data).length > 1) {
+                new constructorName(data).render()
+            } else {
+                setTimeout(() => {
+                    window.location.replace("http://localhost:3000/index.html")
+                },1000);
+                return alert(`${data.res}`);
+            }
         });
     } 
     // else if (url == '/api/getFilmAchievements') {
