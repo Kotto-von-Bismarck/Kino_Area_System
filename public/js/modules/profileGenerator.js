@@ -4,21 +4,84 @@ function profileGenerator() {
 
     class ProfileGenerator {
         constructor(data) {
-            this.src = data.imgPath;
+            this.src = data.avatar;
             this.nickname = data.nickname;
             this.username = data.username;
             this.userbio = data.userbio ? data.userbio : 'Добавьте пару слов о себе';
             this.surname = data.surname;
             this.email = data.email;
-            this.gender = data.gender ? data.gender : 'не указан';
+            this.gender = data.gender;
             this.usercity = data.usercity ? data.usercity : 'не указан';
-            this.userbirthday = data.userbirthday ? data.userbirthday : 'не указан';
+            this.userbirthday = data.userbirthday;
             this.parent = document.querySelector('.profileContentBox .profileMainBox');
         }
-        render() {
+        render() {            
             if (!this.src) {
                 this.src = 'images/users-avatars/universal-avatar-max.svg';
+            } else {
+                this.src = 'uploadedAvatars/' + this.src;
             }
+
+            let birthday = this.userbirthday ? this.userbirthday.slice(5,7) : null;
+
+            switch (birthday) {
+                case '01':
+                    birthday = 'января'
+                    break;
+                case '02':
+                    birthday = 'февраля'
+                    break;
+                case '03':
+                    birthday = 'марта'
+                    break;
+                case '04':
+                    birthday = 'апреля'
+                    break;
+                case '05':
+                    birthday = 'мая'
+                    break;
+                case '06':
+                    birthday = 'июня'
+                    break;
+                case '07':
+                    birthday = 'июля'
+                    break;
+                case '08':
+                    birthday = 'августа'
+                    break;
+                case '09':
+                    birthday = 'сентября'
+                    break;
+                case '10':
+                    birthday = 'октября'
+                    break;
+                case '11':
+                    birthday = 'ноября'
+                    break;
+                case '12':
+                    birthday = 'декабря'
+                    break;
+                default:
+                    birthday = 'не указан'
+                    break;
+            }
+
+            if (birthday != 'не указан') {
+                birthday = `${this.userbirthday.slice(-2)} ${birthday} ${this.userbirthday.slice(0,4)}`;
+            }
+
+            switch (this.gender) {
+                case 'male':
+                    this.gender = 'мужской'
+                    break;
+                case 'female':
+                    this.gender = 'женский'
+                    break;
+                default:
+                    this.gender = 'не указан'
+                    break;
+            }
+
             this.parent.innerHTML = `
                 <div class="profileContentBox__header">
                     <h2 class="profileTitle">
@@ -52,7 +115,7 @@ function profileGenerator() {
                             <div class="userParams__data">${this.gender}</div>
 
                             <div class="userParams__title">День рождения:</div>
-                            <div class="userParams__data">${this.userbirthday}</div>
+                            <div class="userParams__data">${birthday}</div>
 
                             <div class="userParams__title">Город:</div>
                             <div class="userParams__data">${this.usercity}</div>

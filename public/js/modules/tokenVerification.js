@@ -3,26 +3,24 @@ function tokenVerification () {
 
     const bodySelector = document.querySelector('.body').classList[1];
 
-    if (bodySelector == 'profilePageSelector') {
+    if (bodySelector == 'profilePageSelector' && jsonWtoken) {
         setInterval(() => { 
-            if (jsonWtoken) {
-                fetch('/login', {
-                    method: "POST",
-                    body: JSON.stringify({jsonWtoken}),
-                    headers: {
-                        "Content-Type": 'application/json'
-                    }
-                }).then(res => {
-                    return res.json()
-                }).then(res => {
-                    if (res.res != 'Добро пожаловать!') {
-                        setTimeout(() => {
-                            window.location.replace("http://localhost:3000/index.html")
-                        },1000)
-                        return alert(`${ res.res }`)
-                    }
-                })
-            } 
+            fetch('/login', {
+                method: "POST",
+                body: JSON.stringify({jsonWtoken}),
+                headers: {
+                    "Content-Type": 'application/json'
+                }
+            }).then(res => {
+                return res.json()
+            }).then(res => {
+                if (res.res != 'Добро пожаловать!') {
+                    setTimeout(() => {
+                        window.location.replace("http://localhost:3000/index.html")
+                    },1000)
+                    return alert(`${ res.res }`)
+                }
+            })
         },1200)
     } else if (bodySelector == 'mainPageSelector' || bodySelector == 'moviePageBody') {
         setInterval(() => {

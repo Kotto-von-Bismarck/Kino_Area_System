@@ -163,32 +163,29 @@
                                 <h2 class="profileTitle">
                                     Настройки профиля
                                 </h2>
-                                <button class="profileSettings">
+                                <button class="profileSettings" onclick="document.querySelector('.profileMainBox').classList.toggle('hide'); document.querySelector('.profileSettingsBox').classList.toggle('hide');">
                                     <img src="icons/profileIcons/closeVector.svg">
                                     <span>Закрыть</span>
                                 </button>
                             </div>
                             <div class="profileContentBox__settings">
-                                <form class="editProfileForm" name="requestForEditProfile" method="post" enctype="multipart/editProfileForm" action="/upload">
+                                <form class="editProfileForm" name="requestForEditProfile" method="post" enctype="multipart/form-data" action="/upload">
                                     <div class="input-file-row avatarBox">
-                                        <div class="input-file-list">
+                                        <div class="avatarImgBox">
                                             <img src="images/users-avatars/universal-avatar-max.svg" alt="avatar" class="avatar">
                                         </div>
                                         <label class="input-file">
-                                            <span>Загрузить фото профиля</span>
-                                            <input oninput="this.parentElement.lastElementChild.innerHTML = `... ${this.files[0].name.slice(-12)}`"
-                                                type="file"
-                                                name="file"
-                                                accept="image/png, image/jpeg">
+                                            <span>Загрузить аватар</span>
+                                            <input type="file" name="file" accept="image/png">
                                             <p>имя файла</p>
                                         </label>
                                     </div>
                                     <div class="profileDescr">
                                         <label class="labelFirstName" for="firstname">Ваше имя</label>
-                                        <input class="inputFirstName" required placeholder="текущее" name="firstname" type="text">
+                                        <input maxlength="30" class="inputFirstName" required placeholder="текущее" name="firstname" type="text">
 
                                         <label class="labelSurname" for="surname">Ваша фамилия</label>
-                                        <input class="inputSurname" required placeholder="текущее" name="surname" type="text">
+                                        <input maxlength="30" class="inputSurname" required placeholder="текущее" name="surname" type="text">
 
                                         <label class="labelGender" for="gender">Ваш пол</label>
                                         <select class="selectGender" name="gender">
@@ -200,10 +197,10 @@
                                         <input class="inputBirthday" required type="date" name="birthday">
 
                                         <label class="labelEmail" for="email">Ваш E-mail</label>
-                                        <input class="inputEmail" required name="email" type="email" placeholder="текущий js">
+                                        <input maxlength="35" class="inputEmail" required name="email" type="email" placeholder="текущий js">
 
                                         <label class="labelNickname" for="nickname">Ваш логин</label>
-                                        <input class="inputNickname" required name="nickname" type="text" placeholder="текущий js">
+                                        <input maxlength="20" class="inputNickname" required name="nickname" type="text" placeholder="текущий js">
 
                                         <label class="labelCity" for="city">Ваш город</label>
                                         <select class="selectCity" name="city">
@@ -222,6 +219,8 @@
                                         </select>
 
                                         <textarea maxlength="200" class="userBio" name="userBio" placeholder="Обо мне (не более 200 символов)" type="text"></textarea>
+
+                                        <input id="tokenInput" style="display: none" name="token" type="text">
 
                                         <input class="submitData" name="userSub" type="submit" value="ㅤСохранить">
                                     </div>
@@ -319,5 +318,45 @@
     <script type="module" src="js/bundle.js"></script>
     <script type="module" src="https://kit.fontawesome.com/66e8b232e1.js" crossorigin="anonymous"></script>
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const tokenInput = document.querySelector('#tokenInput');
+            let JWT = localStorage.getItem('token');
+            tokenInput.value = JWT
+        })
+
+        let uploadImageForm;
+        if (document.querySelector('.input-file input[type=file]')) {
+            let dt = new DataTransfer();
+            document.querySelector('.input-file input[type=file]').addEventListener('change', function () {
+                if(this.files[0].size > 2097152) {
+                    alert("Размер файла слишком большой (максимум 2 МБ)");
+                    this.value = "";
+                } else {
+                    document.querySelector('.input-file').lastElementChild.innerHTML = `... ${this.files[0].name.slice(-28)}`
+                    uploadImageForm = document.forms.requestForPostCatalogItem;
+
+                    const avatarImgBox = document.querySelector('.avatarImgBox');
+                
+                    for ( let i = 0; i < this.files.length; i++ ){
+                        let file = this.files.item(i);
+                        dt.items.add(file);    
+                
+                        let reader = new FileReader();
+                        reader.readAsDataURL(file);
+
+                        reader.onloadend = function() {
+                            avatarImgBox.innerHTML = `
+                                <img alt="avatar" class="avatar" src="${reader.result}">
+                            `;
+                        }
+                    };
+                    this.files = dt.files;
+                }
+            });
+        }
+    </script>
 </body>
 </html> 

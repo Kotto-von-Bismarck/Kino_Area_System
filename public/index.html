@@ -758,17 +758,17 @@
                         <div class="modal__formContainer hide registrationForm">
                             <form name="reg" action="#">
                                 <div class="modal__title">Зарегистрироваться</div>
-                                <input required placeholder="Имя" name="firstname" type="text" class="modal__input">
+                                <input maxlength="30" required placeholder="Имя" name="firstname" type="text" class="modal__input">
 
-                                <input required placeholder="Фамилия" name="surname" type="text" class="modal__input">
+                                <input maxlength="30" required placeholder="Фамилия" name="surname" type="text" class="modal__input">
 
-                                <input required placeholder="Придумайте логин" name="nickname" type="text" class="modal__input">
+                                <input maxlength="20" required placeholder="Придумайте логин" name="nickname" type="text" class="modal__input">
 
-                                <input required placeholder="Придумайте пароль" name="password" type="number" class="modal__input">
+                                <input maxlength="20" required placeholder="Придумайте пароль" name="password" type="password" class="modal__input">
 
-                                <input required placeholder="Повторите пароль" name="repeatpassword" type="number" class="modal__input">
+                                <input maxlength="20" required placeholder="Повторите пароль" name="repeatpassword" type="password" class="modal__input">
 
-                                <input required placeholder="E-mail" name="email" type="email" class="modal__input">
+                                <input maxlength="35" required placeholder="E-mail" name="email" type="email" class="modal__input">
 
                                 <div class="check">
                                     <label for="politicagree" class="customCheck">
@@ -800,7 +800,7 @@
                                 <div class="modal__title">Войти</div>
                                 <input required placeholder="Логин" name="nickname" type="text" class="modal__input">
 
-                                <input required placeholder="Пароль" name="password" type="number" class="modal__input">
+                                <input required placeholder="Пароль" name="password" type="password" class="modal__input">
 
                                 <button type="submit" class="btn btn_yellow">
                                     <span>Войти</span>

@@ -23,7 +23,8 @@ const sign_In_Up = function(account, verifyType) {
         return await response.json()
     } 
 
-    const registrationForm = document.querySelector('.registrationForm');
+    const registrationForm = document.querySelector('.registrationForm'),
+          autorisationForm = document.querySelector('.autorisationForm');
     
     if (verifyType == 'reg') {
         postData('/regist', account).then(data => {
@@ -34,9 +35,6 @@ const sign_In_Up = function(account, verifyType) {
                         Успешная регистрация!
                     </h2>
                 `;
-                setTimeout(() => {
-                    location.reload();
-                },3000)
             } else {
                 console.log(data);
             }
@@ -59,8 +57,15 @@ const sign_In_Up = function(account, verifyType) {
             }).then(res => {
                 return res.json()
             }).then(res => {
-                location.reload();
-                return alert(`${ res.res }`)
+                autorisationForm.innerHTML = `
+                    <img src="icons/logo.svg" alt="KinoArea" style="display: block; margin: 0 auto;">
+                    <h3 class="subheader__item subheader__item_active" style="display: block; margin: 30px">
+                        ${ res.res }
+                    </h2>
+                `;
+                setTimeout(() => {
+                    location.reload();
+                },2000)
             })
             
         })
