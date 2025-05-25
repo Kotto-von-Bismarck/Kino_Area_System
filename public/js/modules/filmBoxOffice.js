@@ -95,7 +95,7 @@ function boxOffice() {
 
     new boxOfficeCard(
         'images/filmBoxOffice/invisibleMan.png',
-        '3. Человек -невидимка',
+        '3. Человек - невидимка',
         '$6.2 млн',
         '$58.3 млн за 3 недели',
         '.expected .secondBoxOffice'

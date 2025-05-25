@@ -174,7 +174,7 @@ function pagesContent () {
                         </div>
                         <div class="nav-container NONEMOB">
                             <div class="logo">
-                                <a href="index.html"><img src="icons/logo.svg" alt="KinoArea"></a>
+                                <a href="index.html"><img src="icons/logo.svg" alt="Movie zone"></a>
                             </div>
                             <nav class="navigation">
                                 <div>
@@ -207,8 +207,11 @@ function pagesContent () {
                             <button data-searchactive class="searchButton DESKTOP">
                                 <div><img src="icons/searchVector.svg" alt="search"></div>
                             </button>
-                            <button data-modal class="autorisation">
-                                <span>Войти</span>
+                            <button data-modal class="autorisation" style="pointer-events: none">
+                                <div class="loading">
+                                    <img class="logobottom" src="icons/forLoading/loadingLogoMini.svg">
+                                    <img class="logotop" src="icons/forLoading/loadingDots.svg">
+                                </div>
                             </button>
                         </div>
                         <div class="headerMobile MOBILE">
@@ -225,11 +228,14 @@ function pagesContent () {
                                 </button>
                             </div>
                             <div class="logo">
-                                <a id="headerLogo" href="index.html"><img src="icons/logo.svg" alt="KinoArea"></a>
+                                <a id="headerLogo" href="index.html"><img src="icons/logo.svg" alt="Movie zone"></a>
                             </div>
                             <div class="interactivElements">
-                                <button data-modal class="autorisation">
-                                    <span>Войти</span>
+                                <button data-modal class="autorisation" style="pointer-events: none">
+                                    <div class="loading">
+                                        <img class="logobottom" src="icons/forLoading/loadingLogoMini.svg">
+                                        <img class="logotop" src="icons/forLoading/loadingDots.svg">
+                                    </div>
                                 </button>
                             </div>
                         </div>
@@ -251,7 +257,7 @@ function pagesContent () {
                                         <div class="numMark" style=${this.KinoareaMarkBG}>
                                             <i>${this.KinoareaMark}</i>
                                         </div>
-                                        <span>Kinoarea</span>
+                                        <span>Movie zone</span>
                                     </div>
                                     <div class="mark">
                                         <div class="numMark" style=${this.IMDbMarkBG}>
@@ -613,7 +619,7 @@ function pagesContent () {
                 <div class="container">
                     <div class="subscribe">
                         <div class="logo">
-                            <img src="icons/liteLogo.svg" alt="KinoArea">
+                            <img src="icons/liteLogo.svg" alt="Movie zone">
                         </div>
                         <div class="subscribe__content">
                             <div class="subheader">
@@ -681,7 +687,7 @@ function pagesContent () {
                         </div>
                     </nav>
                     <div class="footer__rightsProtect">
-                        2020 © Kinoarea.  Все права защищены
+                        2025 © Movie zone.  Все права защищены
                     </div>
                     <div>
                         <a class="footer__politic" href="#">Политика конфиденциальности</a>

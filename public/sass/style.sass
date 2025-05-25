@@ -2,25 +2,21 @@
 @import "helpStyles.scss"
 
 // переменные
-$mainColor: #fff
-$secondColor: #145B7E
-$thirdColor: #F3BF0B
-$darkColor: #132931
+$linksColor: #F3BF0B
+$transparentLinkColor: #3b646b
+$mainColorWhite: #fff
+$bodyLightColor: #145B7E
 $bodyColor: #1B333F
+$bodyDarkColor: #132931
+$footerColor: #09222B
+$footerDarkColor: #051B24
+$bodyTransparentColor : rgba(29, 125, 160, 0.7)
+
 // миксины
 @mixin forTitle
     font-weight: 900
     font-size: 65px
-    color: $mainColor
-// items
-.bad
-    background: #CB3F36
-.notbad
-    background:#CB6C36
-.good
-    background: #89cb36
-.verygood
-    background: #4BCB36
+    color: $mainColorWhite
 *
     margin: 0
     padding: 0
@@ -32,20 +28,22 @@ $bodyColor: #1B333F
     -moz-user-select: none
     -ms-user-select: none
     &::-webkit-scrollbar
-        background: #1b2133
+        background: $bodyDarkColor
+        border-radius: 10px
         width: 7px
         height: 7px
     &::-webkit-scrollbar-thumb
-        background: $secondColor
+        background: $bodyLightColor
         border-radius: 10px
         width: 7px
         height: 7px
     &::-mozilla-scrollbar
-        background: #1b2133
+        background: $bodyDarkColor
+        border-radius: 10px
         width: 7px
         height: 7px
     &::-mozilla-scrollbar-thumb
-        background: $secondColor
+        background: $bodyLightColor
         border-radius: 10px
         width: 7px
         height: 7px
@@ -56,6 +54,8 @@ $bodyColor: #1B333F
         overflow-y: hidden 
 button
     cursor: pointer
+h1, .trailer__title, .subheader__title
+    font-family: 'Magneto'
 
 // main page styles
 @import "pagesStyles/mainPage.sass"

@@ -1,6 +1,6 @@
 .testClassSass 
     font-size: 30px
-    color: #fff
+    color: $mainColorWhite
     text-transform: uppercase
 .alterButtonOnP
     text-decoration: none
@@ -10,17 +10,17 @@
     border-radius: 10px
     width: 138px
     height: 53px
-    -webkit-box-shadow: 0 0 15px 0 rgba(72, 113, 255, .8)
-    box-shadow: 0 0 15px 0 rgba(72, 113, 255, .8)
-    background: #3657cb
-    color: #fff
+    -webkit-box-shadow: 0 0 15px 0 rgba(243, 193, 11, 0.8)
+    box-shadow: 0 0 15px 0 rgba(243, 193, 11, 0.8)
+    background: $linksColor
+    color: $mainColorWhite
     font-weight: bold
 .forLogOut
-    background: rgba(206, 35, 35, .5) !important
+    background: rgb(143, 10, 10, 0.8) !important
     box-shadow: none !important
     transition: 0.5s all
     &:hover
-        background: #ce2323 !important
+        background: #8f0a0a !important
         transition: 0.5s all
         -webkit-box-shadow: 0 0 15px 0 rgba(206, 35, 35, .5) !important
         box-shadow: 0 0 15px 0 rgba(206, 35, 35, .5) !important
@@ -60,17 +60,17 @@ html, .profilePageSelector
             border-radius: 10px
             width: 107px
             height: 104px
-            background: $darkColor
+            background: $bodyDarkColor
     .profileContentBox
         border-radius: 10px
         height: fit-content
-        background: $darkColor
+        background: $bodyDarkColor
         padding: 31px 43px
         width: 100%
         &__header
             display: flex
             justify-content: space-between
-            color: $mainColor
+            color: $mainColorWhite
             margin-bottom: 18px
             .profileTitle
                 font-weight: 900
@@ -85,7 +85,7 @@ html, .profilePageSelector
                 background: $bodyColor
                 font-weight: 500
                 font-size: 14px
-                color: $mainColor
+                color: $mainColorWhite
         &__body
             display: flex
             gap: 45px
@@ -93,7 +93,7 @@ html, .profilePageSelector
             align-items: center
             margin-bottom: 50px
             .profileDescr
-                color: $mainColor
+                color: $mainColorWhite
                 .userName
                     margin-bottom: 20px
                     font-weight: 900
@@ -116,7 +116,7 @@ html, .profilePageSelector
                     color: rgba(255, 255, 255, 0.8)
                 &__data
                     font-weight: 300
-                    color: $thirdColor
+                    color: $linksColor
         &__footer
             display: flex
             justify-content: space-evenly
@@ -130,7 +130,7 @@ html, .profilePageSelector
                 flex-direction: column
                 justify-content: space-between
                 align-items: center
-                color: #3e4768
+                color: $transparentLinkColor
                 transition: 0.5s all
                 cursor: pointer
                 &__title
@@ -140,7 +140,7 @@ html, .profilePageSelector
                     font-weight: 500
                     font-size: 35px
                 &:hover
-                    color: $mainColor
+                    color: $mainColorWhite
                     transition: 0.5s all
                     text-shadow: 0 0 10px rgba(255,255,255,.7)
     .profileSettingsBox
@@ -169,8 +169,8 @@ html, .profilePageSelector
                 text-align: center
                 font-weight: 600
                 border-radius: 10px
-                color: $mainColor
-                background-color: $secondColor
+                color: $mainColorWhite
+                background-color: $bodyLightColor
                 height: 100%
                 padding: 12px 20px
                 border: none
@@ -197,7 +197,7 @@ html, .profilePageSelector
                 height: 54px
                 background: $bodyColor
                 outline: none
-                color: $mainColor
+                color: $mainColorWhite
             input
                 width: 350px
             select
@@ -248,7 +248,7 @@ html, .profilePageSelector
                 border-radius: 10px
                 background: $bodyColor
                 outline: none
-                color: $mainColor
+                color: $mainColorWhite
                 grid-area: userBio
                 grid-column: span 2
                 height: 150px

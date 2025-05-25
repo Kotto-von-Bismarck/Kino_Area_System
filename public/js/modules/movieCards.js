@@ -25,15 +25,28 @@ function movieCards() {
             }
 
             // painting items
-            if (this.mark <= 5) {
-                this.itemColor = 'bad';
+
+            if (this.mark > 0 && this.mark <= 1) {
+                this.markItem = '1.svg';
+            } else if (this.mark > 1 && this.mark <= 2) {
+                this.markItem = '2.svg';
+            } else if (this.mark > 2 && this.mark <= 3) {
+                this.markItem = '3.svg';
+            } else if (this.mark > 3 && this.mark <= 4) {
+                this.markItem = '4.svg';
+            } else if (this.mark > 4 && this.mark <= 5) {
+                this.markItem = '5.svg';
             } else if (this.mark > 5 && this.mark <= 6) {
-                this.itemColor = 'notbad';
+                this.markItem = '6.svg';
             } else if (this.mark > 6 && this.mark <= 7) {
-                this.itemColor = 'good';
-            } else if (this.mark > 7) {
-                this.itemColor = 'verygood';
-            }
+                this.markItem = '7.svg';
+            } else if (this.mark > 7 && this.mark <= 8) {
+                this.markItem = '8.svg';
+            } else if (this.mark > 8 && this.mark <= 9) {
+                this.markItem = '9.svg';
+            } else if (this.mark > 9) {
+                this.markItem = '10.svg';
+            } 
 
             // detection of the genre
             const genres = this.ganre.toLowerCase().split(', '),
@@ -73,10 +86,13 @@ function movieCards() {
             
             element.innerHTML = `
                 <div class="cardItem__imageBox">
+                    <div class="cardItem__markItem">
+                        <img src="icons/moviePagesMarks/${this.markItem}">
+                        <span>${this.mark}</span>
+                    </div>
                     <img src=${this.src} class="cardItem__image">
                     <a href=${this.href} class="cardItem__rectangle"><div>Узнать больше</div></a>
                 </div>
-                <div class="cardItem__markItem ${this.itemColor}"><div>${this.mark}</div></div>
                 <h4 class="cardItem__movieTitle ${dateClass}">
                     ${this.title}
                 </h4>

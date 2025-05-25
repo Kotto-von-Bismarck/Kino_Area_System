@@ -2,7 +2,7 @@
     &__nameRus
         font-weight: 600
         font-size: 18px
-        color: $mainColor
+        color: $mainColorWhite
     &__nameEng
         font-weight: 400
         font-size: 14px
@@ -11,7 +11,7 @@
     &__position
         font-weight: 400
         font-size: 16px
-        color: $thirdColor
+        color: $linksColor
         margin-top: 5px
 .achievementBOX
     max-width: 160px
@@ -75,12 +75,12 @@
         .descr
             grid-area: "descr"
             font-weight: 200
-            text-decoration: underline
-            color: $thirdColor
+            text-decoration: none
+            color: $linksColor
         .title
             grid-area: "title"
             font-weight: 600
-            color: $mainColor
+            color: $mainColorWhite
     &__thirdFlexBox
         height: fit-content
         background: rgba(54, 87, 203, 0.3)
@@ -100,7 +100,7 @@
             display: flex
             flex-direction: column
             &__title
-                color: $mainColor
+                color: $mainColorWhite
                 font-weight: 600
                 font-size: 18px
                 line-height: 28px
@@ -108,10 +108,10 @@
                 display: flex
                 flex-direction: column
                 font-weight: 200
-                color: $thirdColor 
+                color: $linksColor 
                 line-height: 28px
 .markElipsoids
-    color: $mainColor
+    color: $mainColorWhite
     display: flex
     .mark
         display: flex
@@ -128,7 +128,7 @@
             width: 52px
             height: 52px
 .paragraph
-    color: $mainColor
+    color: $mainColorWhite
     font-weight: 500
     font-size: 20px
     line-height: 167%
@@ -138,20 +138,20 @@
     justify-content: flex-start
     align-items: center
     &__button
-        border: 2px solid $mainColor
+        border: 2px solid $mainColorWhite
         border-radius: 10px
         background: none
         width: 260px
         height: 70px
-        color: $mainColor
+        color: $mainColorWhite
         font-weight: 700
         font-size: 18px
         line-height: 167%
         margin-right: 30px
         transition: 0.3s all
         &:hover
-            background: $mainColor
-            color: $secondColor
+            background: $mainColorWhite
+            color: $bodyLightColor
             box-shadow: 0 0 10px rgba(255,255,255,.7)
         i
             font-size: 21px
@@ -168,7 +168,7 @@
             cursor: pointer
             &:hover
                 font-size: 23px
-                color: $mainColor
+                color: $mainColorWhite
                 text-shadow: 0 0 10px rgba(255,255,255,.7)
     &__social > div
         width: 30px
@@ -238,12 +238,12 @@
     margin-bottom: 50px
     &__text
         margin-top: 40px
-        color: $mainColor
+        color: $mainColorWhite
         width: 100%
         border-radius: 10px
         height: fit-content
         padding: 56px 56px 46px 56px
-        background: $darkColor
+        background: $bodyDarkColor
         position: relative
         img
             position: absolute
@@ -252,7 +252,7 @@
         font-style: italic
         font-weight: 400
         font-size: 17px
-        color: $mainColor
+        color: $mainColorWhite
     &__author
         font-weight: 600
         font-size: 18px
@@ -261,14 +261,14 @@
     width: 214px
     height: 63px
     box-shadow: 0 0 15px 0 rgba(72, 113, 255, 0.8)
-    background: $secondColor
-    color: $mainColor
+    background: $bodyLightColor
+    color: $mainColorWhite
     font-weight: bold
     font-size: 16px
 .subscribeToUs
     margin-top: 50px
     padding-top: 70px
-    background: #151a26
+    background: $footerColor
 .movieReview
     .ReviewFilterTabs
         width: 100% 
@@ -293,29 +293,29 @@
                 &.ReviewFilterTabs__item_active
                     background: rgba(54, 87, 203, 1)
                     box-shadow: 0 0 15px 0 rgba(54, 87, 203, 0.3)
-                    color: $mainColor
+                    color: $mainColorWhite
             &[data-rf="goodReviews"]
                 background: rgba(87, 208, 67, 0.38)
                 &.ReviewFilterTabs__item_active
                     background: #57d043
                     box-shadow: 0 0 15px 0 rgba(87, 208, 67, 0.38)
-                    color: $mainColor
+                    color: $mainColorWhite
             &[data-rf="neutralReviews"]
                 background: rgba(255, 240, 101, 0.3)
                 &.ReviewFilterTabs__item_active
                     background: #fff065d5
                     box-shadow: 0 0 15px 0 rgba(255, 240, 101, 0.3)
-                    color: $mainColor
+                    color: $mainColorWhite
             &[data-rf="badReviews"]
                 background: #ce232386
                 &.ReviewFilterTabs__item_active
                     background: #ce2323
                     box-shadow: 0 0 15px 0 #ce232386
-                    color: $mainColor      
+                    color: $mainColorWhite      
 .ReviewContent
-    color: $mainColor
+    color: $mainColorWhite
     .ReviewElement
-        background: $darkColor
+        background: $bodyDarkColor
         border-radius: 10px
         margin: 48px 0
         padding: 45px 40px
@@ -329,7 +329,7 @@
         border: 5px solid #fff065d5
     .ReviewElement
         a
-            color: $mainColor
+            color: $mainColorWhite
             text-decoration: none
             font-weight: 500
             font-size: 18px
@@ -339,7 +339,7 @@
             font-size: 20px
             span
                 margin-left: 5px
-                border-bottom: 1px solid $mainColor
+                border-bottom: 1px solid $mainColorWhite
         .paragraph
             font-weight: 400
             font-size: 20px

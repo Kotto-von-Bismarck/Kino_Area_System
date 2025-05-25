@@ -40,7 +40,7 @@
                 margin: 0 
                 display: flex
                 justify-content: space-evenly
-                color: $secondColor
+                color: $bodyLightColor
                 font-size: 13px
                 font-weight: bold
                 .search
@@ -70,8 +70,8 @@
                 font-size: 14px
             &__markItem
                 border-radius: 5px
-                width: 44px
-                height: 24px
+                width: 40px
+                height: 40px
                 margin: 10px
                 font-size: 12px
             &__movieTitle
@@ -79,7 +79,6 @@
             &__movieGanre
                 font-size: 11px
     .cinemaNow
-        background: url(../images/page-bg/main.png) top center/105% no-repeat
         .movieCards
             min-height: 300px
             .cardItem
@@ -155,22 +154,22 @@
                     width: 12px
                 &:hover .volume 
                     -webkit-appearance: none !important
-                    background: $mainColor
+                    background: $mainColorWhite
                     box-shadow: 0 0 15px 0 rgba(255,255,255,.7)
                 &:hover .volume::-webkit-slider-thumb 
                     -webkit-appearance: none !important
-                    background: $mainColor
+                    background: $mainColorWhite
                     box-shadow: 0 0 15px 0 rgba(72,113,255,.8)
-                    border: 2px solid $secondColor
+                    border: 2px solid $bodyLightColor
                 &:hover .volume
                     -mozilla-appearance: none !important
-                    background: $mainColor
+                    background: $mainColorWhite
                     box-shadow: 0 0 15px 0 rgba(255,255,255,.7)
                 &:hover .volume::-mozilla-slider-thumb 
                     -mozilla-appearance: none !important
-                    background: $mainColor
+                    background: $mainColorWhite
                     box-shadow: 0 0 15px 0 rgba(72,113,255,.8)
-                    border: 2px solid $secondColor
+                    border: 2px solid $bodyLightColor
         .trailer__slider
             margin-top: 15px
             height: 190px
@@ -255,7 +254,7 @@
                     .age
                         font-size: 12px
                         line-height: 133%
-                        color: $thirdColor
+                        color: $linksColor
                         margin-top: 2px
     .lastNews
         margin-bottom: 22px
@@ -369,11 +368,11 @@
             .title
                 font-weight: 700
                 font-size: 18px
-                color: $mainColor
+                color: $mainColorWhite
             .boxOffice
                 font-weight: 500
                 font-size: 15px
-                color: $thirdColor
+                color: $linksColor
                 margin-top: 12px
             .boxOfficeOnWeek
                 margin-top: 2px
@@ -643,7 +642,7 @@
                 font-weight: 700
                 font-size: 13px
                 text-align: center
-                color: $mainColor
+                color: $mainColorWhite
                 text-shadow: 0 0 10px rgba(255,255,255,.7)
     .header
         margin-bottom: 45px
@@ -689,7 +688,7 @@
                     display: block
                     height: 1px
                     width: 100%
-                    background: $secondColor
+                    background: $bodyLightColor
                     margin-bottom: 4px
                     border-radius: 1px
                     transition: 0.5s all
@@ -724,8 +723,8 @@
                     font-size: 12px
                 &__markItem
                     border-radius: 5px
-                    width: 40px
-                    height: 20px
+                    width: 30px
+                    height: 30px
                     margin: 8px
                     font-size: 11px
                 &__movieTitle
@@ -773,7 +772,7 @@
                     bottom: 10px
                 .fa-solid
                     font-size: 15px
-                    color: $mainColor
+                    color: $mainColorWhite
                     text-shadow: 0 0 10px rgba(255,255,255,.7)
                 .progress
                     justify-content: space-between
@@ -781,25 +780,25 @@
                     font-size: 11px
                     height: 20px
                     width: 75%
-                    color: $mainColor
+                    color: $mainColorWhite
                     progress
                         width: 85%
                         height: 5px
                     progress::-webkit-progress-bar 
-                        background: $mainColor
+                        background: $mainColorWhite
                         box-shadow: 0 0 13px 0 rgba(255, 255, 255, 0.5)
                         border-radius: 100px
                     progress::-webkit-progress-value 
                         border-radius: 100px
-                        background: $secondColor
+                        background: $bodyLightColor
                         box-shadow: 0 0 13px 0 rgba(72, 112, 255, 0.7)
                     progress::-moz-progress-bar 
-                        background: $mainColor
+                        background: $mainColorWhite
                         box-shadow: 0 0 13px 0 rgba(255, 255, 255, 0.5)
                         border-radius: 100px
                     progress::-moz-progress-value 
                         border-radius: 100px
-                        background: $secondColor
+                        background: $bodyLightColor
                         box-shadow: 0 0 13px 0 rgba(72, 112, 255, 0.7)
                 .scrin-mod
                     i 

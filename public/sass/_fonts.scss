@@ -1,4 +1,14 @@
 @font-face {
+    font-family: "Magneto";
+    src: url("../fonts/Magneto.otf") format('otf'),
+         url("../fonts/Magneto.ttf") format('ttf'),
+         url("../fonts/Magneto.woff") format('woff');
+    font-weight: 400;
+    font-style: normal;
+    display: swap;
+}
+
+@font-face {
     font-family: 'Qanelas';
     src: url('../fonts/Qanelas-UltraLightItalic.eot');
     src: local('Qanelas UltraLight Italic'), local('Qanelas-UltraLightItalic'),

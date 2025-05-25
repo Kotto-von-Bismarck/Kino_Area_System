@@ -42,38 +42,37 @@ function lastNews() {
 
     new TabItem(
         'images/tabs/s-tab.png',
-        '15 Апр 2020',
+        '15 Апр 2025',
         'Как изменили Соника с последнего анонса',
         '.lastNews .tabcontainer'
     ).convert();
 
     new TabItem(
         'images/tabs/007-tab.png',
-        '15 Апр 2020',
+        '15 Апр 2025',
         'Не время умирать. Перенос релиза фильма',
         '.lastNews .tabcontainer'
     ).convert();
 
     new TabItem(
         'images/tabs/third-tab.png',
-        '15 Апр 2020',
+        '15 Апр 2025',
         'От этой новости вы будете шокированы до завтра',
         '.lastNews .tabcontainer'
     ).convert();
 
     new TabItem(
         'images/tabs/d-tab.png',
-        '13 Апр 2020',
+        '13 Апр 2025',
         'Вот это, конечно, да!',
         '.lastNews .tabcontainer'
     ).convert();
 
     // Последние новости (контент табов)
     class TabActive extends TabItem {
-        constructor(src, data, view, comments, title, descr, parentSelector, ...classes) {
+        constructor(src, data, view, title, descr, parentSelector, ...classes) {
             super(src, data, title, parentSelector, ...classes);
             this.view = view;
-            this.comments = comments;
             this.descr = descr;
         }
         render() {
@@ -92,8 +91,6 @@ function lastNews() {
                         <span>${this.data}</span>
                         <div class="i"><i class="fa-regular fa-eye"></i></div>
                         <span>${this.view}</span>
-                        <div class="i"><i class="fa-regular fa-comment"></i></div>
-                        <span>${this.comments}</span>
                     </div>
                     <div class="box__descr">
                         <div class="title">
@@ -111,9 +108,8 @@ function lastNews() {
 
     new TabActive(
         'images/tabs/tab-active1.png',
-        '15 Апр 2020',
+        '15 Апр 2025',
         '152',
-        '12',
         'Как изменили Соника с последнего анонса',
         'В мае этого года вышел первый трейлер фильма «Соник в кино». И зрителей слегка испугал внешний вид главного персонажа. А кого-то и вовсе поверг в ужас. Потому что далее поднялась бурная волна негодования и критики в адрес героя киноленты.',
         '.lastNews .lastNewsTabs'
@@ -121,9 +117,8 @@ function lastNews() {
 
     new TabActive(
         'images/tabs/tab-active2.png',
-        '15 Апр 2020',
+        '15 Апр 2025',
         '242',
-        '14',
         'Не время умирать. Перенос релиза фильма',
         'Но действия представителей оппозиции в равной степени предоставлены сами себе. В рамках спецификации современных стандартов, стремящиеся вытеснить традиционное производство, нанотехнологии указаны как претенденты на роль ключевых факторов.',
         '.lastNews .lastNewsTabs'
@@ -131,9 +126,8 @@ function lastNews() {
 
     new TabActive(
         'images/tabs/tab-active3.png',
-        '13 Апр 2020',
+        '13 Апр 2025',
         '98',
-        '5',
         'От этой новости вы будете шокированы до завтра',
         'Создатель лучших игр в виртуальной реальности уверен, что контролирует всё в своей жизни. Но случайная встреча с молодой активисткой открывает ему глаза на то, что мир намного шире и сложнее его представлений.',
         '.lastNews .lastNewsTabs'
@@ -141,9 +135,8 @@ function lastNews() {
 
     new TabActive(
         'images/tabs/tab-active4.png',
-        '13 Апр 2020',
+        '13 Апр 2025',
         '54',
-        '6',
         'Вот это, конечно, да!',
         'Наследник знаменитого дома Атрейдесов Пол отправляется вместе с семьей на одну из самых опасных планет во Вселенной — Арракис. Здесь нет ничего, кроме песка, палящего солнца, гигантских чудовищ и основной причины межгалактических конфликтов — невероятно ценного ресурса, который называется меланж. В результате захвата власти Пол вынужден бежать и скрываться, и это становится началом его эпического путешествия. Враждебный мир Арракиса приготовил для него множество тяжелых испытаний, но только тот, кто готов взглянуть в глаза своему страху, достоин стать избранным.',
         '.lastNews .lastNewsTabs'

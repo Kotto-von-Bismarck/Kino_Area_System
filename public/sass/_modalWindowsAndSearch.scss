@@ -7,7 +7,7 @@
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: rgba(7, 10, 17, 0.85);
+    background-color: rgba(7, 14, 17, 0.85);
     transition: 0.5s all;
 }
 
@@ -36,7 +36,7 @@
         padding: 40px;
         border-radius: 10px;
         width: 815px;
-        background: #191e2e;
+        background: $bodyDarkColor;
     }
     &__close {
         position: absolute;
@@ -51,12 +51,13 @@
         }
     }
     &__title {
+        font-family: 'Magneto';
         font-weight: 800;
         font-size: 40px;
-        color: $mainColor;
+        color: $mainColorWhite;
         text-align: center;
         margin-bottom: 27px;
-        width: 422px;
+        width: 460px;
     }
     &__inputWrapper {
         display: flex;
@@ -80,10 +81,10 @@
         height: 67px;
         padding: 0 25px;
         outline: none;
-        background: #1e2538;
+        background: $bodyColor;
         font-weight: 400;
         font-size: 17px;
-        color: $mainColor;
+        color: $mainColorWhite;
     }
     .btn {
         margin-top: 8px;
@@ -91,17 +92,17 @@
         border-radius: 10px;
         width: 100%;
         height: 55px;
-        background: $thirdColor;
+        background: $linksColor;
         font-weight: 600;
         font-size: 17px;
         &_yellow {
-            background: $thirdColor;
-            color: #151a26;
+            background: $linksColor;
+            color: $footerDarkColor;
         }
         &_dark {
             font-weight: 400;
-            background: #1e2538;
-            color: $mainColor;
+            background: $footerColor;
+            color: $mainColorWhite;
         }
     }
 }
@@ -127,7 +128,7 @@
         border-radius: 10px;
         width: 100%;
         height: 71px;
-        background: $mainColor;
+        background: $mainColorWhite;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -149,7 +150,7 @@
         justify-content: center;
         align-items: center;
         border-radius: 10px;
-        background: $thirdColor;
+        background: $linksColor;
     }
     &__varList {
         width: 100%;
@@ -196,7 +197,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: $mainColor;
+            color: $mainColorWhite;
         }
     }
 }

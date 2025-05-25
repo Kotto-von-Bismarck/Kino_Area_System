@@ -4,10 +4,12 @@
     width: 100%
 .subheader
     width: 100%
-    height: 83px
+    height: 200px
     display: flex
+    flex-direction: column
     justify-content: space-between
     align-items: center
+    padding-top: 50px
     margin-bottom: 63px
     &__title
         @include forTitle
@@ -15,7 +17,7 @@
         display: block
         width: 52px
         height: 1px
-        background-color: $mainColor
+        background-color: $mainColorWhite
     &__list
         width: 800px
         height: fit-content
@@ -30,12 +32,15 @@
         cursor: pointer
         transition: 0.2s all
         &_active
-            color: $mainColor
+            color: $mainColorWhite
             text-shadow: 0 0 10px rgba(255,255,255,.7)
     &__subtitle
         font-weight: 500
-        color: $mainColor
+        color: $mainColorWhite
         font-size: 25px
+.mainPageSelector
+    .subheader__title
+        line-height: 50px
 .movieCards
     display: flex
     flex-wrap: wrap
@@ -54,7 +59,6 @@
             height: fit-content
             display: flex
             justify-content: center
-            align-items: center
             position: relative
             cursor: pointer
             &::after
@@ -64,7 +68,7 @@
                 height: 100%
                 width: 100%
                 opacity: 0
-                background: rgba(54, 87, 203, 0.65)
+                background: $bodyTransparentColor
                 transition: 0.5s all
             &:hover
                 &::after
@@ -82,8 +86,8 @@
             border-radius: 10px
             width: 224px
             height: 71px
-            box-shadow: 0 0 10px 0 rgba(55, 94, 232, 0.4)
-            background: $mainColor
+            box-shadow: 0 0 10px 0 $mainColorWhite
+            background: $mainColorWhite
             display: flex
             justify-content: center
             align-items: center
@@ -91,34 +95,45 @@
             font-size: 18px
             line-height: 167%
             z-index: 2
-            color: $secondColor
+            color: $bodyLightColor
             transition: 0.5s all
         &__image
             width: 100%
             height: auto
         &__markItem
-            display: flex
             position: absolute
             right: 0
+            bottom: 0
             border-radius: 5px
-            width: 62px
-            height: 33px
+            width: 52px
+            height: 52px
             margin: 13px
             justify-content: center
             align-items: center
-            color: $mainColor
+            color: $mainColorWhite
             font-weight: bold
+            img
+                position: absolute
+                width: 100%
+                height: 100%
+            span
+                position: absolute
+                top: 50%
+                left: 50%
+                transform: translateX(-50%) translateY(-50%)
         &__movieTitle
             font-weight: bold
             font-size: 18px
-            color: $mainColor 
+            color: $mainColorWhite 
             margin-top: 3px
+            text-align: center
         &__movieGanre
             font-weight: 400
             font-size: 15px
-            color: $thirdColor     
+            color: $linksColor 
+            text-align: center    
 .cinemaNow
-    background: url(../images/page-bg/main.png) top center/105% no-repeat
+    background: url(../images/page-bg/jurassic-world.png) top center/105% no-repeat
     width: 100%
     position: relative
     .movieCards
@@ -137,22 +152,22 @@
         border-radius: 10px
         width: 200px
         height: 71px
-        border: 2px solid $mainColor
+        border: 2px solid $mainColorWhite
         background: none
-        color: $mainColor
+        color: $mainColorWhite
         font-weight: bold
         font-size: 18px
         line-height: 167%
         opacity: 100
         transition: 0.3s all
         &:hover
-            color: $secondColor
-            background: $mainColor
+            color: $bodyLightColor
+            background: $mainColorWhite
             box-shadow: 0 0 15px 0 rgba(255, 255, 255, 0.7)
         &__box
             position: relative
             z-index: 1
-            height: 175px
+            height: 100px
             width: 100%
             display: flex
             justify-content: center
@@ -165,7 +180,6 @@
     display: flex
     justify-content: space-between
     align-items: center
-    margin-bottom: 20px
     .nav-container
         display: flex
         justify-content: space-between
@@ -178,7 +192,7 @@
         justify-content: space-between
         align-items: center
         a
-            color: $mainColor
+            color: $mainColorWhite
             text-decoration: none
             font-weight: bold
             text-shadow: 0 0 10px rgba(255,255,255,.7)
@@ -201,27 +215,30 @@
             border-radius: 10px
             width: 138px
             height: 53px
-            box-shadow: 0 0 15px 0 rgba(72, 113, 255, 0.8)
-            background: $secondColor
-            color: $mainColor
+            background: $linksColor
+            color: $mainColorWhite
             font-weight: bold
+            transition: 0.5s all
+            &:hover
+                box-shadow: 0 0 15px 0 $linksColor
+                transition: 0.5s all
 .markBorder
     border-radius: 10px
     width: 58px
     height: 58px
-    background: #1b2133
+    background: $footerColor
     display: flex
     justify-content: center
     align-items: center
     cursor: pointer
     margin-left: 8px
     position: relative
-    color: $mainColor
+    color: $mainColorWhite
     .points
         position: absolute
         top: 110%
     &:hover:nth-child(1)
-        text-shadow: 0 0 10px rgba(72,113,255,.8)
+        text-shadow: 0 0 10px rgba(72, 188, 255, 0.8)
         .points
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5)
     &:hover:nth-child(2)
@@ -230,7 +247,7 @@
             text-shadow: 0 0 10px rgba(255, 255, 255, 0.5)
     &:hover .fa-solid
         font-size: 22px
-        color: $mainColor
+        color: $mainColorWhite
         transition: 0.3s all
     .fa-solid
         font-size: 20px
@@ -244,7 +261,8 @@
         display: flex
         justify-content: space-between
         align-items: center
-        margin-bottom: 65px
+        height: fit-content
+        margin-bottom: 55px
     &__title
         @include forTitle
     &__more
@@ -257,7 +275,7 @@
             text-decoration: none
             font-weight: bold
             font-size: 22px
-            color: $mainColor
+            color: $mainColorWhite
     &__video
         width: 100%
         border-radius: 10px
@@ -294,7 +312,7 @@
                 cursor: pointer
                 transition: 0.3s all
                 &:hover
-                    color: $mainColor
+                    color: $mainColorWhite
                     text-shadow: 0 0 10px rgba(255,255,255,.7)
             .play-pause
                 height: 90%
@@ -345,23 +363,23 @@
                     transition: 0.3s all
                 
             &:hover .progress
-                color: $mainColor
+                color: $mainColorWhite
                 progress::-webkit-progress-bar 
-                    background: $mainColor
+                    background: $mainColorWhite
                     box-shadow: 0 0 13px 0 rgba(255, 255, 255, 0.5)
                     border-radius: 100px
                 progress::-webkit-progress-value 
                     border-radius: 100px
-                    background: $secondColor
-                    box-shadow: 0 0 13px 0 rgba(72, 112, 255, 0.7)
+                    background: $bodyLightColor
+                    box-shadow: 0 0 13px 0 $bodyTransparentColor
                 progress::-moz-progress-bar 
-                    background: $mainColor
+                    background: $mainColorWhite
                     box-shadow: 0 0 13px 0 rgba(255, 255, 255, 0.5)
                     border-radius: 100px
                 progress::-moz-progress-value 
                     border-radius: 100px
-                    background: $secondColor
-                    box-shadow: 0 0 13px 0 rgba(72, 112, 255, 0.7)
+                    background: $bodyLightColor
+                    box-shadow: 0 0 13px 0 $bodyTransparentColor
             .scrin-mod
                 i 
                     font-size: 25px
@@ -411,27 +429,27 @@
                 transition: 0.3s all
             &:hover .volume 
                 -webkit-appearance: none !important
-                background: $mainColor
+                background: $mainColorWhite
                 box-shadow: 0 0 15px 0 rgba(255,255,255,.7)
             &:hover .volume::-webkit-slider-thumb 
                 -webkit-appearance: none !important
-                background: $mainColor
-                box-shadow: 0 0 15px 0 rgba(72,113,255,.8)
-                border: 3.5px solid $secondColor
+                background: $mainColorWhite
+                box-shadow: 0 0 15px 0 $bodyTransparentColor
+                border: 3.5px solid $bodyLightColor
             &:hover .volume
                 -mozilla-appearance: none !important
-                background: $mainColor
+                background: $mainColorWhite
                 box-shadow: 0 0 15px 0 rgba(255,255,255,.7)
             &:hover .volume::-mozilla-slider-thumb 
                 -mozilla-appearance: none !important
-                background: $mainColor
-                box-shadow: 0 0 15px 0 rgba(72,113,255,.8)
-                border: 3.5px solid $secondColor
+                background: $mainColorWhite
+                box-shadow: 0 0 15px 0 $bodyTransparentColor
+                border: 3.5px solid $bodyLightColor
     &__scrollDewider
         border-radius: 10px
         width: 1430px
         height: 7px
-        background: #1b2133
+        background: $bodyColor
         margin-bottom: 23px
     .trailer__slider
         margin-top: 23px
@@ -473,9 +491,9 @@
                 height: 100%
                 width: 100%
                 opacity: 0
-                background: rgba(54, 86, 203, 0.445)
+                background: $bodyTransparentColor
             .activeCard
-                background: $mainColor
+                background: $mainColorWhite
                 border-radius: 10px
                 width: 210px
                 height: 65px
@@ -484,7 +502,7 @@
                 font-size: 18px
                 line-height: 167%
                 text-align: center
-                color: $secondColor
+                color: $bodyLightColor
                 pointer-events: none
                 opacity: 0
                 display: flex
@@ -521,12 +539,12 @@
                 height: 100%
                 .fa-play
                     font-size: 40px
-                    color: $mainColor
+                    color: $mainColorWhite
             &__title
                 margin-top: 17px
                 font-weight: bold
                 font-size: 20px
-                color: $mainColor
+                color: $mainColorWhite
 .trailerDescr
     width: 100%
     display: flex
@@ -551,14 +569,14 @@
         display: inline-block
         margin: 0 8px
         font-size: 15px
-        color: #6d7792
+        color: #6d8b92
         cursor: pointer
         transition: 0.3s all
         &:hover
             transition: 0.3s all
             font-size: 16px
             margin: 0 7px
-            color: $mainColor
+            color: $mainColorWhite
         &:nth-child(5)
             margin: 0 72px
     .secondFlex
@@ -586,7 +604,7 @@
     display: flex
     justify-content: space-between
     align-items: center
-    color: $mainColor
+    color: $mainColorWhite
     button
         width: 25px
         height: 24px
@@ -606,7 +624,7 @@
             height: 444px
             cursor: pointer
             &:last-child
-                background: #1b2133
+                background: $bodyDarkColor
                 border-radius: 10px
                 width: 497px
                 padding: 29px 34px
@@ -625,20 +643,20 @@
                     .nameRus
                         font-weight: 700
                         font-size: 20px
-                        color: $mainColor
+                        color: $mainColorWhite
                     .nameEng
                         font-weight: 600
                         font-size: 15px
-                        color: #3b486b
+                        color: $transparentLinkColor
                         margin-top: 5px
                     .age
                         font-size: 14px
-                        color: $thirdColor
+                        color: $linksColor
                         margin-top: 10px
                     .placeNum
                         font-weight: 600
                         font-size: 15px
-                        color: $thirdColor
+                        color: $linksColor
             .bestPlace
                 width: 100%
                 height: 100%
@@ -659,11 +677,11 @@
                     margin: 12px 16px
                     font-size: 15px
                     line-height: 133%
-                    color: $thirdColor
+                    color: $linksColor
                 .nameRus
                     font-weight: bold
                     font-size: 27px
-                    color: #fff
+                    color: $mainColorWhite
                 .nameEng
                     font-weight: 600
                     font-size: 20px
@@ -671,15 +689,17 @@
                 .age
                     font-size: 15px
                     line-height: 133%
-                    color: $thirdColor
+                    color: $linksColor
                     margin-top: 9px
 .lastNews
     margin-bottom: 82px
+    .subheader
+        height: fit-content
     .lastNewsTabs
         width: 100%
         height: 772px
         display: flex
-        flex-direction: row-reverse
+        flex-direction: row
         justify-content: space-between
         align-items: center
         .lastNewsSliderWindow
@@ -700,7 +720,7 @@
                 display: flex
                 flex-direction: column
                 justify-content: space-between
-                color: $mainColor
+                color: $mainColorWhite
                 &__data
                     .i
                         display: inline-block
@@ -728,7 +748,7 @@
             width: 255px
             height: 100%
             .tabItem
-                color: $mainColor
+                color: $mainColorWhite
                 font-weight: bold
                 position: relative
                 width: 255px
@@ -740,7 +760,7 @@
                     top: 50%
                     left: 50%
                     transform: translateX(-50%) translateY(-50%)
-                    border: 2px solid $mainColor
+                    border: 2px solid $mainColorWhite
                     border-radius: 10px
                     width: 180px
                     height: 53px
@@ -766,7 +786,7 @@
                     height: 100%
                     width: 100%
                     opacity: 0
-                    background: rgba(54, 86, 203, 0.445)
+                    background: $bodyTransparentColor
                 &:hover
                     &::after
                         opacity: 100
@@ -783,14 +803,14 @@
                     .box
                         opacity: 0
                     .tabItem__pseudoButton
-                        color: $secondColor
-                        background: $mainColor
+                        color: $bodyLightColor
+                        background: $mainColorWhite
                         opacity: 100
                 img
                     position: absolute
                     width: 100%
 .expected
-    background: #151a26
+    background: $footerColor
     min-height: 1500px
     padding-top: 50px
     &__slider-window
@@ -804,17 +824,21 @@
         margin: 0
     .movieCards
         margin-bottom: 100px
+    .second-subheader
+        height: 250px
     .subheader
         .box
+            height: 80px
             display: flex
+            flex-direction: column
+            justify-content: space-between
             align-items: center
         &__list
             width: 340px
         &__subtitle
-            margin-left: 35px
             font-weight: 500
             font-size: 20px
-            color: $mainColor
+            color: $mainColorWhite
         &__title
             margin-top: -15px
 .subscribe
@@ -832,7 +856,7 @@
         flex-direction: column
         align-items: center
     &__content
-        height: 282px
+        height: 320px
         width: 100%
         display: flex
         flex-direction: column
@@ -847,7 +871,7 @@
         font-size: 22px
         line-height: 140%
         text-align: center
-        color: $mainColor
+        color: $mainColorWhite
         margin-bottom: 28px
     &__interactiveEl
         display: flex
@@ -860,7 +884,7 @@
             border-radius: 10px
             width: 425px
             height: 71px
-            background: $mainColor
+            background: $mainColorWhite
             padding: 0 25px
             font-weight: 400
             font-size: 17px
@@ -871,11 +895,11 @@
             border-radius: 10px
             width: 182px
             height: 71px
-            background: $thirdColor
+            background: $linksColor
             font-weight: 700
             font-size: 18px
             line-height: 167%
-            color: #151a26
+            color: $footerDarkColor
 .check
     height: 25px
     .customCheck
@@ -884,13 +908,13 @@
         font-size: 17px
         line-height: 140%
         text-align: center
-        color: $mainColor
+        color: $mainColorWhite
         display: flex
         justify-content: space-between
         a
-            color: $thirdColor
+            color: $linksColor
             text-decoration: none
-            border-bottom: 1px solid $thirdColor
+            border-bottom: 1px solid $linksColor
         input
             -webkit-appearance: none
             -mozilla-appearance: none 
@@ -898,7 +922,7 @@
             &:checked + .checkbox .checkMark
                 display: block
         .checkbox
-            background: $mainColor
+            background: $mainColorWhite
             border-radius: 2px
             width: 17px
             height: 17px
@@ -929,11 +953,11 @@
         .title
             font-weight: 700
             font-size: 18px
-            color: $mainColor
+            color: $mainColorWhite
         .boxOffice
             font-weight: 500
             font-size: 15px
-            color: $thirdColor
+            color: $linksColor
             margin-top: 12px
         .boxOfficeOnWeek
             margin-top: 2px
@@ -941,7 +965,7 @@
             font-size: 14px
             color: rgba(255, 255, 255, 0.41)
 .footer
-    background: #151a26
+    background: $footerColor
     height: 300px
     padding: 53px 0
     &__politic
@@ -970,10 +994,10 @@
         i
             cursor: pointer
             font-size: 20px
-            color: #3c4767
+            color: $transparentLinkColor
             &:hover
                 font-size: 22px
-                color: $mainColor
+                color: $mainColorWhite
     &__navigation
         width: 930px
         height: 30px
@@ -983,7 +1007,7 @@
         justify-content: space-between
         align-items: center
         a
-            color: $mainColor
+            color: $mainColorWhite
             text-decoration: none
             font-weight: bold
             text-shadow: 0 0 10px rgba(255,255,255,.7)
