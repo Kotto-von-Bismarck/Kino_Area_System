@@ -1,0 +1,206 @@
+@media (max-width: 1690px)
+    .alterButtonOnP
+        width: 100px
+        height: 42px
+        font-size: 13px
+    .avatarBox
+        height: 370px
+        width: 370px
+    .profileContainer
+        width: 100%
+        flex-direction: column
+        .profileTabList
+            width: 100%
+            display: grid
+            grid-template-columns: repeat(5, 1fr)
+            .profileTabItem
+                width: 100%
+                height: 72px
+                img
+                    width: 27px
+                    height: 27px
+        .profileContentBox
+            padding: 21px
+            width: 100%
+            &__header
+                .profileTitle
+                    font-size: 28px
+                .profileSettings
+                    width: 128px
+                    height: 43px
+                    font-size: 13px
+            &__body
+                gap: 20px
+                .profileDescr
+                    width: 400px
+                    .userName
+                        font-size: 35px
+                    .userBio
+                        font-size: 15px
+                        line-height: 18px
+                .userParams
+                    width: 100%
+                    grid-template-columns: repeat(2, 1fr)
+                    font-size: 15px
+                    gap: 12px 8px
+            &__footer
+                height: 58px
+                .countItem
+                    &__title
+                        font-size: 15px
+                    &__quantity
+                        font-size: 27px
+        .profileSettingsBox
+            width: 100%
+            .editProfileForm
+                gap: 20px
+            .input-file
+                height: 54px
+                font-size: 15px
+                margin-top: 10px
+            .profileDescr
+                font-size: 16px
+                gap: 10px
+                input, select
+                    font-size: 16px
+                input
+                    width: 210px
+                .userBio
+                    font-size: 16px
+@media (max-width: 999px)
+    .alterButtonOnP
+        font-size: 12px
+        border-radius: 5px
+        height: 38px
+    .avatarBox
+        height: 270px
+        width: 270px
+    .profileContainer
+        .profileContentBox
+            &__body
+                gap: 15px
+                align-items: flex-start
+            &__settings
+                height: 1000px
+            .profileDescr
+                width: 320px
+        .profileSettingsBox
+            width: 100%
+            .avatarBox
+                height: 304px
+                width: 304px
+            .profileDescr
+                width: 100%
+            .editProfileForm
+                flex-direction: column
+                justify-content: space-between
+                height: 100%
+                gap: 0
+            .profileDescr
+                font-size: 16px
+                gap: 10px
+                input
+                    width: 100%
+@media (max-width: 767px)
+    .alterButtonOnP
+        font-size: 11px
+        height: 28px
+        width: 63px
+    .profileContainer
+        .profileTabList
+            .profileTabItem
+                height: 60px
+                border-radius: 5px
+                img
+                    width: 21px
+                    height: 21px
+        .profileContentBox
+            border-radius: 5px
+            padding: 15px
+            height: fit-content
+            &__settings
+                min-height: 1100px
+            &__header
+                margin-bottom: 12px
+                .profileTitle
+                    font-size: 20px
+                    line-height: 30px
+                .profileSettings
+                    border-radius: 5px
+                    width: 35px
+                    height: 35px
+                    font-size: 12px
+                span
+                    display: none
+                img
+                    width: 15px
+                    height: 15px
+            &__body
+                display: flex
+                flex-direction: column
+                gap: 20px
+                justify-content: space-between
+                align-items: center
+                .profileDescr
+                    width: 100%
+                    .userName
+                        font-size: 25px
+                        text-align: center
+                    .userBio
+                        width: 100%
+                        background: rgba(54, 161, 203, .3)
+                        padding: 10px
+                        border-radius: 5px
+                        font-size: 12px
+                        line-height: 16px
+                        margin-bottom: 15px
+                        min-height: 80px
+                .userParams
+                    width: 100%
+                    grid-template-columns: 1fr 1fr
+                    font-size: 13px
+                    gap: 10px 15px
+                    &__title
+                        text-align: right
+            &__footer
+                flex-wrap: wrap
+                height: fit-content
+                gap: 20px
+                .countItem
+                    &__title
+                        font-size: 12px
+                    &__quantity
+                        font-size: 22px
+                    &:hover
+                        color: $mainColorWhite
+                        transition: 0.5s all
+                        text-shadow: 0 0 10px rgba(255,255,255,.7)
+        .profileSettingsBox
+            width: 100%
+            .avatarBox
+                height: 270px
+                width: 270px
+            .editProfileForm
+                align-items: center
+            .input-file
+                font-size: 12px
+                border-radius: 5px
+                height: 44px
+                span
+                    border-radius: 5px
+                p
+                    font-size: 6.5px
+            .profileDescr
+                grid-template-areas: "labelFirstName labelFirstName" "inputFirstName inputFirstName" "labelSurname labelSurname" "inputSurname inputSurname" "labelGender labelGender" "selectGender selectGender" "labelBirthday labelBirthday" "inputBirthday inputBirthday" "labelEmail labelEmail" "inputEmail inputEmail" "labelNickname labelNickname" "inputNickname inputNickname" "labelCity ." "selectCity ." "userBio ." "submitData ." 
+                font-size: 12px
+                input, select
+                    font-size: 12px
+                    border-radius: 5px
+                    height: 44px
+                .userBio
+                    font-size: 12px
+                    border-radius: 5px
+                .submitData
+                    background: url('../icons/profileIcons/saveCheck.svg') left 35% bottom 50% no-repeat $bodyColor
+                
+// @media (max-width: 375px)

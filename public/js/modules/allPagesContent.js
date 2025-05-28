@@ -42,47 +42,47 @@ function pagesContent () {
         PageSpumerMechanism() {
             // painting KinoareaMark
             if (this.KinoareaMark <= 2) {
-                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/1.svg);"';
+                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/1.svg);"';
             } else if (this.KinoareaMark > 2 && this.KinoareaMark <= 3) {
-                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/2.svg);"';
+                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/2.svg);"';
             } else if (this.KinoareaMark > 3 && this.KinoareaMark <= 4) {
-                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/3.svg);"';
+                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/3.svg);"';
             } else if (this.KinoareaMark > 4 && this.KinoareaMark <= 5) {
-                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/4.svg);"';
+                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/4.svg);"';
             } else if (this.KinoareaMark > 5 && this.KinoareaMark <= 6) {
-                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/5.svg);"';
+                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/5.svg);"';
             } else if (this.KinoareaMark > 6 && this.KinoareaMark <= 7) {
-                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/6.svg);"';
+                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/6.svg);"';
             } else if (this.KinoareaMark > 7 && this.KinoareaMark <= 8) {
-                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/7.svg);"';
+                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/7.svg);"';
             } else if (this.KinoareaMark > 8 && this.KinoareaMark <= 9) {
-                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/8.svg);"';
+                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/8.svg);"';
             } else if (this.KinoareaMark > 9 && this.KinoareaMark <= 9.5) {
-                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/9.svg);"';
+                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/9.svg);"';
             } else if (this.KinoareaMark > 9.5 && this.KinoareaMark  <= 10) {
-                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/10.svg);"';
+                this.KinoareaMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/10.svg);"';
             }
             // painting IMDbMark
             if (this.IMDbMark <= 2) {
-                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/1.svg);"';
+                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/1.svg);"';
             } else if (this.IMDbMark > 2 && this.IMDbMark <= 3) {
-                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/2.svg);"';
+                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/2.svg);"';
             } else if (this.IMDbMark > 3 && this.IMDbMark <= 4) {
-                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/3.svg);"';
+                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/3.svg);"';
             } else if (this.IMDbMark > 4 && this.IMDbMark <= 5) {
-                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/4.svg);"';
+                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/4.svg);"';
             } else if (this.IMDbMark > 5 && this.IMDbMark <= 6) {
-                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/5.svg);"';
+                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/5.svg);"';
             } else if (this.IMDbMark > 6 && this.IMDbMark <= 7) {
-                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/6.svg);"';
+                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/6.svg);"';
             } else if (this.IMDbMark > 7 && this.IMDbMark <= 8) {
-                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/7.svg);"';
+                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/7.svg);"';
             } else if (this.IMDbMark > 8 && this.IMDbMark <= 9) {
-                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/8.svg);"';
+                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/8.svg);"';
             } else if (this.IMDbMark > 9 && this.IMDbMark <= 9.5) {
-                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/9.svg);"';
+                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/9.svg);"';
             } else if (this.IMDbMark > 9.5 && this.IMDbMark <= 10) {
-                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/10.svg);"';
+                this.IMDbMarkBG = '"background-image: url(icons/moviePagesMarks/oldVer/10.svg);"';
             }
 
             // динамический рейтинг ожиданий
@@ -90,9 +90,9 @@ function pagesContent () {
                 this.procentBAR = this.expectationsRating;
                 let n = +this.expectationsRating;
                 if (n >= 75) {
-                    this.procentBG = '#3be21d62';
+                    this.procentBG = 'rgba(44, 161, 97, .4)';
                 } else if (n < 75 && n >= 60) {
-                    this.procentBG = '#88cb3669';
+                    this.procentBG = 'rgba(136, 181, 31, 0.4)';
                 } else if (n < 60 && n >= 45) {
                     this.procentBG = '#cb6d3673';
                 } else if (n < 45) {
@@ -242,8 +242,25 @@ function pagesContent () {
                     </header>
                     <div class="movieDescription__container">
                         <div class="movieDescription__firstFlexBox">
-                            <div class="first-con NONEMOB">
-                                <img src=${this.movieCardItem}>
+                            <div class="first-con">
+                                <img class="NONEMOB" src=${this.movieCardItem}>
+                                <div class="third-con">
+                                    <div class="markBorder">
+                                        <i class="fa-solid fa-thumbs-up"></i>
+                                    </div>
+                                    <div class="markBorder">
+                                        <i class="fa-solid fa-thumbs-down fa-flip-horizontal"></i>
+                                    </div>
+                                    <div class="markBorder markBorder-procent">
+                                        <div class="procentBAR" style="width: ${this.procentBAR}%; background: ${this.procentBG};"></div>
+                                        <span class="procent">
+                                            Рейтинг ожиданий ${this.expectationsRating}%
+                                        </span>
+                                    </div>
+                                    <div class="markBorder">
+                                        <i class="fa-solid fa-heart"></i>
+                                    </div>
+                                </div>
                             </div>
                             <div class="second-con">
                                 <h2 class="subheader__title">
@@ -287,136 +304,124 @@ function pagesContent () {
                                     </div>
                                 </div>
                             </div>
-                            <div class="third-con">
-                                <div class="markBorder">
-                                    <i class="fa-solid fa-thumbs-up"></i>
-                                </div>
-                                <div class="markBorder">
-                                    <i class="fa-solid fa-thumbs-down fa-flip-horizontal"></i>
-                                </div>
-                                <div class="markBorder markBorder-procent">
-                                    <div class="procentBAR" style="width: ${this.procentBAR}%; background: ${this.procentBG};"></div>
-                                    <div class="procent">
-                                        Рейтинг ожиданий ${this.expectationsRating}%
-                                    </div>
-                                </div>
-                                <div class="markBorder">
-                                    <i class="fa-solid fa-heart"></i>
-                                </div>
-                                <span class="NONEMOB">В избранном у ${this.peopNum} человек </span>
-                            </div>
                         </div>
                         <div class="movieDescription__secondFlexBox">
-                            <div class="title">
+                            <span class="title">
                                 Год:	
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.yearOfRelease}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Страна:	
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.countryOfRelease}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Слоган:
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.slogan}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Режиссер:	
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.director}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Сценарий:
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.Screenwriter}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Продюсер:
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.Producer}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Оператор:	
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.Operator}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Композитор:
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.Composer}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Художник:
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.Artist}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Монтаж:
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.Editor}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Жанр:
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.Genre}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Сборы в мире:	
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 $${this.boxOffice}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Премьера (мир):
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.PremiereWrld}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Премьера (РФ):	
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.PremiereRF}
-                            </div>
-                            <div class="title">
+                            </span>
+                            <span class="title">
                                 Возраст:
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.AgeLimit}
-                            </div>
-                            <div class="title">              
+                            </span>
+                            <span class="title">              
                                 Время:
-                            </div>
-                            <div class="descr">
+                            </span>
+                            <span class="descr">
                                 ${this.TimeLimit}
-                            </div>
+                            </span>
                         </div>
                         <div class="movieDescription__thirdFlexBox">
                             <div class="director">
                                 <img src=${this.directorIMG} alt="directorIMG">
                                 <div>
-                                    <div class="position__nameRus">
-                                        ${this.directorNameRus}
+                                    <div>
+                                        <span class="position__nameRus">
+                                            ${this.directorNameRus}
+                                        </span>
                                     </div>
-                                    <div class="position__nameEng">
-                                        ${this.directorNameEng}
+                                    <div>
+                                        <span class="position__nameEng">
+                                            ${this.directorNameEng}
+                                        </span>
                                     </div>
-                                    <div class="position__position">
-                                        Режисёр
-                                    </div>
+                                    <div>
+                                        <span class="position__position">
+                                            Режисёр
+                                        </span>
+                                    </div>                                    
                                 </div>
                             </div>
                             <div class="movieInfo">
@@ -453,14 +458,6 @@ function pagesContent () {
                         <h2 class="trailer__title">
                             В главных ролях:
                         </h2>
-                        <div class="trailer__more">
-                            <a href="#actorsID">
-                                <div>
-                                    Все актёры
-                                </div>
-                            </a>
-                            <img src="icons/Arrow.svg" class="trailer__arrow">
-                        </div>
                     </div>
                     <div class="actorsWindow">
                         <div class="actors-area">
@@ -475,13 +472,13 @@ function pagesContent () {
                         <h2 class="trailer__title">
                             Трейлер фильма
                         </h2>
+                        <div class="subheader__devider DESKTOP"></div>
                         <div class="trailer__more" style="width: 270px;">
                             <a href="index.html#trailerHeaderID">
                                 <div>
                                     Все новые трейлеры
                                 </div>
                             </a>
-                            <img src="icons/Arrow.svg" class="trailer__arrow">
                         </div>
                     </div>
                     <div class="openTrailerBase">
@@ -503,14 +500,6 @@ function pagesContent () {
                         <h2 class="trailer__title">
                             Награды
                         </h2>
-                        <div class="trailer__more">
-                            <a href="#achievementID">
-                                <div>
-                                    Все награды
-                                </div>
-                            </a>
-                            <img src="icons/Arrow.svg" class="trailer__arrow">
-                        </div>
                     </div>
                     <div class="achievement__contant">
                         <!-- данные из js -->
@@ -523,14 +512,6 @@ function pagesContent () {
                         <h2 class="trailer__title">
                             Постеры к фильму
                         </h2>
-                        <div class="trailer__more">
-                            <a href="#moviePosters">
-                                <div>
-                                    Все постеры
-                                </div>
-                            </a>
-                            <img src="icons/Arrow.svg" class="trailer__arrow">
-                        </div>
                     </div>
                     <div class="moviePosters__contant-wrapper">
                         <div class="moviePosters__contant">
@@ -586,13 +567,6 @@ function pagesContent () {
                         <h2 class="trailer__title">
                             Рецензии к фильму
                         </h2>
-                        <div class="trailer__more">
-                            <a href="#up" class="FastLink">
-                                <button data-modal class="ADDmovieReview">
-                                    <span>Добавить рецензию</span>
-                                </button>
-                            </a>
-                        </div>
                     </div>
                     <div class="ReviewFilterTabs">
                         <ul class="ReviewFilterTabs__tabsList">
@@ -613,13 +587,20 @@ function pagesContent () {
                     <div class="ReviewContent">
                         <!-- данные из js -->
                     </div>
+                    <div class="AddMovieReviewButton">
+                        <a href="#up" class="FastLink">
+                            <button data-modal class="ADDmovieReview">
+                                <span>Добавить рецензию</span>
+                            </button>
+                        </a>
+                    </div>
                 </div>
             </section>
             <section class="subscribeToUs">
                 <div class="container">
                     <div class="subscribe">
                         <div class="logo">
-                            <img src="icons/liteLogo.svg" alt="Movie zone">
+                            <img src="icons/logo.svg" alt="Movie zone">
                         </div>
                         <div class="subscribe__content">
                             <div class="subheader">
@@ -829,10 +810,10 @@ function pagesContent () {
             DubbingStudioSpanList: '<span>1.ㅤПифагор</span>',
             PostersForMoviePostersSection: '<div class="moviePosters__item"><img src="images/moviePagesPosters/posters/p1.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/p2.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/p3.png"></div>',
             FramesForMovieFramesSection: '<div class="movieFrames__item_bigImg"><img src="images/movieFrames/escape-from-pretoria/1.png"></div><div class="movieFrames__item"><img src="images/movieFrames/escape-from-pretoria/2.png"></div><div class="movieFrames__item"><img src="images/movieFrames/escape-from-pretoria/3.png"></div><div class="movieFrames__item"><img src="images/movieFrames/escape-from-pretoria/4.png"></div><div class="movieFrames__item"><img src="images/movieFrames/escape-from-pretoria/5.png"></div><div class="movieFrames__item_bigImg"><img src="images/movieFrames/escape-from-pretoria/6.png"></div>',
-            firstMovieQuote: 'Принимая во внимание показатели успешности, высококачественный прототип будущего проекта не оставляет шанса для своевременного выполнения сверхзадачи. Равным образом, дальнейшее развитие различных форм деятельности играет определяющее значение для благоприятных перспектив!',
-            firstMovieQuoteAuthor: 'Слова отца',
-            secondMovieQuote: 'Мы вынуждены отталкиваться от того, что постоянное информационно-пропагандистское обеспечение нашей деятельности обеспечивает актуальность форм воздействия. Приятно, граждане, наблюдать, как непосредственные участники технического прогресса представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом и должны быть функционально разнесены на независимые элементы. Господа, понимание сути ресурсосберегающих технологий создаёт предпосылки для приоритизации разума над эмоциями. Приятно, граждане, наблюдать, как некоторые особенности внутренней политики, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут преданы социально-демократической анафеме.',
-            secondMovieQuoteAuthor: 'Слова странного человека'
+            firstMovieQuote: 'Мы узники совести',
+            firstMovieQuoteAuthor: 'Слова Тома Дженкина',
+            secondMovieQuote: 'Свобода — это состояние ума',
+            secondMovieQuoteAuthor: 'Слова Дэниса Голдберга'
         }).PageSpumerMechanism();
 
     } else if(document.querySelector('.body').classList.contains('joker')) {
@@ -884,7 +865,7 @@ function pagesContent () {
         new PageSpumer({
             mainBackgroundImageSRC: 'images/page-bg/sw.png',
             movieCardItem: 'images/filmPosters/star-wars.png',
-            movieTitleRus: 'Звёздные войны: Скайуокер. Восход',
+            movieTitleRus: 'Звездные войны: Скайуокер. Восход',
             movieTitleEng: 'Star Wars: Episode IX – The Rise of Skywallker',
             KinoareaMark: '6.7',
             IMDbMark: '7.4',
@@ -1103,7 +1084,7 @@ function pagesContent () {
         new PageSpumer({
             mainBackgroundImageSRC: 'images/page-bg/django.png',
             movieCardItem: 'images/filmPosters/django.png',
-            movieTitleRus: 'Джанго освобождённый',
+            movieTitleRus: 'Джанго освобожденный',
             movieTitleEng: 'Django unchained',
             KinoareaMark: '8.2',
             IMDbMark: '8.5',

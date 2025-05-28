@@ -18,32 +18,44 @@ function searchItems() {
                 this.img = "images/searchItems/defaultSearchItemImg.svg"
             }
             // painting items
-            if (this.mark <= 5) {
-                this.itemColor = 'bad';
+            if (this.mark > 0 && this.mark <= 1) {
+                this.markItem = '1.svg';
+            } else if (this.mark > 1 && this.mark <= 2) {
+                this.markItem = '2.svg';
+            } else if (this.mark > 2 && this.mark <= 3) {
+                this.markItem = '3.svg';
+            } else if (this.mark > 3 && this.mark <= 4) {
+                this.markItem = '4.svg';
+            } else if (this.mark > 4 && this.mark <= 5) {
+                this.markItem = '5.svg';
             } else if (this.mark > 5 && this.mark <= 6) {
-                this.itemColor = 'notbad';
+                this.markItem = '6.svg';
             } else if (this.mark > 6 && this.mark <= 7) {
-                this.itemColor = 'good';
-            } else if (this.mark > 7) {
-                this.itemColor = 'verygood';
-            }
+                this.markItem = '7.svg';
+            } else if (this.mark > 7 && this.mark <= 8) {
+                this.markItem = '8.svg';
+            } else if (this.mark > 8 && this.mark <= 9) {
+                this.markItem = '9.svg';
+            } else if (this.mark > 9) {
+                this.markItem = '10.svg';
+            } 
+
             element.innerHTML = `
                 <img src=${this.img}>
                 <div class="search__movieDescr">
-                    <div class="position__nameRus">
+                    <span class="position__nameRus">
                         ${this.titlerus}
-                    </div>
-                    <div class="position__nameEng">
+                    </span>
+                    <span class="position__nameEng">
                         ${this.titleeng}
-                    </div>
-                    <div class="position__position">
+                    </span>
+                    <span class="position__position">
                         ${this.genres}
-                    </div>
+                    </span>
                 </div>
-                <div class="mark ${this.itemColor}">
-                    <div>
-                        ${this.mark}
-                    </div>
+                <div class="mark">
+                    <img src="icons/moviePagesMarks/oldVer/${this.markItem}">
+                    <span>${this.mark}</span>
                 </div>
             `;
             this.parent.append(element);

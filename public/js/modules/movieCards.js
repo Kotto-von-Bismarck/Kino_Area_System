@@ -53,32 +53,33 @@ function movieCards() {
                   genreType = [];
 
             genres.forEach(item => {
-                if (item == 'триллер') {
-                    genreType.push('thriller');
-                } else if (item == 'драма') {
-                    genreType.push('drama');
-                } else if (item == 'криминал') {
-                    genreType.push('crime');
-                } else if (item == 'фантастика') {
-                    genreType.push('fantastic');
-                } else if (item == 'фэнтези') {
-                    genreType.push('fantasy');
-                } else if (item == 'боевик') {
-                    genreType.push('actionmovie');
-                } else if (item == 'приключения') {
-                    genreType.push('adventures');
-                } else if (item == 'комедия') {
-                    genreType.push('comedy');
-                } else if (item == 'биография') {
-                    genreType.push('biography');
-                } else if (item == 'спорт') {
-                    genreType.push('sport');
-                } else if (item == 'мультфильм') {
-                    genreType.push('cartoon');
-                } else if (item == 'ужасы') {
-                    genreType.push('horror');
-                } else if (item == 'вестерн') {
-                    genreType.push('western');
+                switch (item) {
+                    case 'триллер': genreType.push('thriller')
+                        break;
+                    case 'драма': genreType.push('drama')
+                        break;
+                    case 'криминал': genreType.push('crime')
+                        break;
+                    case 'фантастика': genreType.push('fantastic')
+                        break;
+                    case 'фэнтези': genreType.push('fantasy')
+                        break;
+                    case 'боевик': genreType.push('actionmovie')
+                        break;
+                    case 'приключения': genreType.push('adventures')
+                        break;
+                    case 'комедия': genreType.push('comedy')
+                        break;
+                    case 'биография': genreType.push('biography')
+                        break;
+                    case 'спорт': genreType.push('sport')
+                        break;
+                    case 'мультфильм': genreType.push('cartoon')
+                        break;
+                    case 'ужасы': genreType.push('horror')
+                        break;
+                    case 'вестерн': genreType.push('western')
+                        break;
                 }
             })
 
@@ -91,7 +92,7 @@ function movieCards() {
                         <span>${this.mark}</span>
                     </div>
                     <img src=${this.src} class="cardItem__image">
-                    <a href=${this.href} class="cardItem__rectangle"><div>Узнать больше</div></a>
+                    <a href=${this.href} class="cardItem__rectangle"><span>Узнать больше</span></a>
                 </div>
                 <h4 class="cardItem__movieTitle ${dateClass}">
                     ${this.title}

@@ -1,4 +1,6 @@
 @media (max-width: 1690px) 
+    .logo img
+        height: 42px
     .watchTrailer
         &__button
             width: 215px
@@ -36,11 +38,10 @@
         &__firstFlexBox
             .first-con
                 width: 300px
-                height: 396px
+                height: fit-content
             .second-con
                 width: 518px
             .third-con
-                height: 90px
                 .markBorder
                     &:nth-child(3)
                         width: 160px
@@ -54,10 +55,19 @@
             font-size: 16px
             gap: 20px 0 
         &__thirdFlexBox
-            grid-template-columns: repeat(4, 1fr)
+            grid-template-columns: repeat(3, 1fr)
             gap: 30px      
             .director
-                grid-column: span 2
+                flex-direction: row
+                justify-content: flex-start
+                align-items: center
+                grid-column: span 3
+                div > div
+                    margin-bottom: 15px
+                    margin-left: 35px
+                img
+                    width: 30%
+                    border-radius: 10px
     .actors
         margin-bottom: 40px
         .actorsWindow
@@ -95,7 +105,6 @@
             flex-wrap: nowrap
             justify-content: flex-start
         .subheader
-            margin-bottom: 0px
             height: 70px
         &__item
             display: flex 
@@ -154,7 +163,6 @@
             .director
                 grid-column: span 3
         &__firstFlexBox
-            flex-direction: column
             min-height: fit-content
             max-height: 900px
             h2
@@ -201,8 +209,6 @@
             font-size: 13px
             gap: 15px
     .movieReview 
-        .subheader
-            margin-bottom: 0
         .trailer__more
             min-width: 185px 
             height: 50px
@@ -228,6 +234,7 @@
             &__title
                 .ThisReviewTitle
                     font-size: 25px
+                    max-width: 380px
             .ThisReviewmarks
                 .comment
                     font-size: 15px
@@ -254,8 +261,11 @@
             .director
                 grid-column: span 3
         &__firstFlexBox
-            flex-direction: column
+            flex-direction: column-reverse
             max-height: fit-content
+            .first-con
+                margin: 0
+                width: 100%
             .paragraph
                 font-size: 14px
                 text-align: justify
@@ -279,20 +289,15 @@
                     &__button
                         margin: 0
             .third-con
-                margin-top: 5px
-                order: 3
+                margin-top: 35px
                 width: 100%
-                justify-content: space-between
+                justify-content: space-evenly
                 height: fit-content
-                margin-bottom: 20px
-                margin-top: 50px
                 .markBorder
-                    width: 60px
-                    height: 60px
+                    margin: 0
+                .markBorder-procent
                     border-radius: 10px
-                    margin: 0px
-                    i
-                        font-size: 15px
+                    margin-left: 5px
         &__secondFlexBox 
             grid-template-columns: 110px 1fr 
         &__thirdFlexBox
@@ -303,10 +308,22 @@
                 justify-content: space-between
                 &__descr
                     width: 50%
-            .director img  
-                max-width: 110px
+            .director
+                flex-direction: column
+                align-items: flex-start
+                img  
+                    width: 100%
             .director>div
-                margin-left: 50px
+                margin-top: 20px
+                display: grid
+                grid-template-columns: repeat(2, 1fr)
+                width: 100%
+                div
+                    margin-left: 0
+                    &:last-child
+                        
+                    span
+                        font-size: 16px !important
     .actors 
         .actors-area
             grid-template-columns: repeat(5, 170px)
@@ -320,7 +337,8 @@
                 height: 0
     .movieTrailer
         .trailer__more
-            justify-content: flex-start
+            margin: 0 auto 
+            justify-content: center
             img
                 margin-left: 20px
     .subheader
@@ -386,13 +404,6 @@
                 grid-template-columns: repeat(2, 1fr)
                 grid-template-rows: repeat(2, 50px)
                 gap: 10px
-    .ReviewContent
-        .badReviews
-            border: 3px solid #ce2323
-        .goodReviews
-            border: 3px solid #57d043
-        .neutralReviews
-            border: 3px solid #fff065d5
         .ReviewElement
             padding: 25px 20px
             &__header

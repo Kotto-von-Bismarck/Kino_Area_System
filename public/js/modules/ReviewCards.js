@@ -16,7 +16,7 @@ function reviews(){
         ReviewCards() {
             const element = document.createElement('div');
             if (this.avatar === undefined) {
-                this.avatar = "images/users-avatars/universal-avatar.svg"
+                this.avatar = "images/users-avatars/universal-avatar-mini.svg"
             }
             element.innerHTML = `
                 <div class="ReviewElement ${this.reviewclass}">
@@ -30,7 +30,6 @@ function reviews(){
                             <a href="#movieReviewID">Оценки</a>
                             <a href="#movieReviewID">Друзья</a>
                             <a href="#movieReviewID">Фильмы</a>
-                            <a href="#movieReviewID">Звёзды</a>
                         </div>
                         <div class="ReviewElement__title">
                             <h4 class="ThisReviewTitle">
@@ -47,10 +46,6 @@ function reviews(){
                         ${this.reviewtext}
                     </div>
                     <div class="ThisReviewmarks">
-                        <a href="#up" data-modal class="FastLink comment">
-                            <i class="fa-regular fa-comment"></i>
-                            <span>Комментировать</span>
-                        </a>
                         <div class="markBorderWrapper">
                             <div class="markBorder">
                                 <i class="fa-solid fa-thumbs-up"></i>
