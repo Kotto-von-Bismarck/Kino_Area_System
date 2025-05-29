@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Личный кабинет</title>
+    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
+    <link rel="shortcut icon" href="favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Movie zone" />
+    <link rel="manifest" href="favicon/site.webmanifest" />
+    <link rel="stylesheet" href="css/style.min.css">
+</head>
+<body class="body profilePageSelector" unselectable="no">
+    <nav class="mobile__menu">
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="index.html#cinemaNowHeaderID">
+                <div>
+                    Афиша
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="index.html#trailerHeaderID">
+                <div>
+                    Трейлеры
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="index.html#popularHeaderID">
+                <div>
+                    Популярные фильмы
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="index.html#personsHeaderID">
+                <div>
+                    Персоны
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="index.html#lastNewsHeaderID">
+                <div>
+                    Последние новости
+                </div>
+            </a>
+        </div>
+        <div class="mobile__menu-item">
+            <a class="mobile__menu-link" href="index.html#expectedHeaderID">
+                <div>
+                    Ожидаемые новинки
+                </div>
+            </a>
+        </div>
+    </nav>
+    <div class="profileWrapper">
+        <div class="container">
+            <header class="header">
+                <div class="searchElements MIDDLESCREEN">
+                    <button data-searchactive class="searchButton MIDDLESCREEN">
+                        <div>
+                            <img src="icons/searchVector.svg" alt="search">
+                            <div class="searchBTN">Поиск</div>
+                        </div>
+                    </button>
+                </div>
+                <div class="nav-container NONEMOB">
+                    <div class="logo">
+                        <a href="index.html"><img src="icons/logo.svg" alt="KinoArea"></a>
+                    </div>
+                    <nav class="navigation">
+                        <div>
+                            <a href="index.html#cinemaNowHeaderID">Афиша</a>
+                        </div>
+                        <div>
+                            <a href="index.html#trailerHeaderID">Трейлеры</a>
+                        </div>
+                        <div>
+                            <a href="index.html#popularHeaderID">Популярные фильмы</a>
+                        </div>
+                        <div>
+                            <a href="index.html#personsHeaderID">Персоны</a>
+                        </div>
+                        <div>
+                            <a href="index.html#lastNewsHeaderID">Последние новости</a>
+                        </div>
+                        <div>
+                            <a href="index.html#expectedHeaderID">Ожидаемые новинки</a>
+                        </div>
+                    </nav>
+                </div>
+                <div class="interactivElements NONEMOB">
+                    <button data-searchactive class="searchButton DESKTOP">
+                        <div><img src="icons/searchVector.svg" alt="search"></div>
+                    </button>
+                    <button data-modal class="autorisation forLogOut">
+                        <span>Выйти</span>
+                    </button>
+                </div>
+                <div class="headerMobile MOBILE">
+                    <div class="interactivElements">
+                        <button class="mobileMenuButton">
+                            <div class="hamburger">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                            </div>
+                        </button>
+                        <button data-searchactive class="searchButton">
+                            <div><img src="icons/searchVector.svg" alt="search"></div>
+                        </button>
+                    </div>
+                    <div class="logo">
+                        <a id="headerLogo" href="index.html"><img src="icons/logo.svg" alt="KinoArea"></a>
+                    </div>
+                    <div class="interactivElements">
+                        <button data-modal class="forLogOut autorisation">
+                            <span>Выйти</span>
+                        </button>
+                    </div>
+                </div>
+            </header>
+        </div>
+        <section id="up" class="mainItem">
+            <div class="container">
+                <div class="ReviewContent myReview">
+                    <div class="ReviewElement">
+                        <div class="ReviewElement__header">
+                            <div class="UserData">
+                                <img src="uploadedAvatars/663b52d8-73eb-46a8-a80f-19bf58b5341f.png">
+                                <h2 class="NickName">L0rd_$ith</h2>
+                            </div>
+                        </div>
+                        <div class="ReviewElement__form">
+                            <form class="addReviewForm" name="requestForAddReview" method="post" enctype="multipart/form-data" action="/publicReview">
+                                <label class="title-label" for="title">Заголовок</label>
+                                <input maxlength="30" class="title-input" required placeholder="Заголовок рецензии" name="title" type="text">
+
+                                <label class="reviewType-label" for="reviewType">Тип рецензии</label>
+                                <select class="reviewType-select" name="reviewType">
+                                    <option value="neutralReview">Нейтральная</option>
+                                    <option value="goodReview">Положительная</option>
+                                    <option value="badReview">Отрицательная</option>
+                                </select>
+
+                                <textarea class="reviewBody" name="reviewBody" placeholder="Ваше мнение" type="text"></textarea>
+
+                                <input id="tokenInput" style="display: none" name="token" type="text">
+                                <input id="movieIdInput" style="display: none" name="movieId" type="text">
+
+                                <input class="submitData" name="userSub" type="submit" value="Отправить">
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <footer class="footer">
+            <div class="container footer__con" id="socialID">
+                <div class="footer__social">
+                    <div><i class="fa-brands fa-vk"></i></div>
+                    <div><i class="fa-brands fa-instagram"></i></div>
+                    <div><i class="fa-brands fa-facebook-f"></i></div>
+                    <div><i class="fa-brands fa-twitter"></i></div>
+                    <div><i class="fa-brands fa-youtube"></i></div>
+                </div>
+                <nav class="footer__navigation">
+                    <div>
+                        <a href="index.html#cinemaNowHeaderID">Афиша</a>
+                    </div>
+                    <div>
+                        <a href="index.html#trailerHeaderID">Трейлеры</a>
+                    </div>
+                    <div>
+                        <a href="index.html#popularHeaderID">Популярные фильмы</a>
+                    </div>
+                    <div>
+                        <a href="index.html#personsHeaderID">Персоны</a>
+                    </div>
+                    <div>
+                        <a href="index.html#lastNewsHeaderID">Последние новости</a>
+                    </div>
+                    <div>
+                        <a href="index.html#expectedHeaderID">Ожидаемые новинки</a>
+                    </div>
+                </nav>
+                <div class="footer__rightsProtect">
+                    2025 © Movie zone.  Все права защищены
+                </div>
+                <div>
+                    <a class="footer__politic" href="#">Политика конфиденциальности</a>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script type="module" src="https://kit.fontawesome.com/66e8b232e1.js" crossorigin="anonymous"></script>
+    <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+</body>
+</html> 

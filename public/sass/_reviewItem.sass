@@ -1,0 +1,72 @@
+.myReview
+    height: fit-content
+    .ReviewElement
+        height: fit-content
+        gap: 30px
+        &__header
+            height: fit-content
+            margin: 0
+            .UserData
+                gap: 30px
+                .NickName
+                    font-family: 'Magneto'
+                img
+                    margin: 0
+                    border-radius: 100%
+                    width: 90px !important
+                    height: 90px !important
+        &__form
+            width: 100%
+            .addReviewForm
+                display: grid
+                grid-template-columns: repeat(2, 1fr)
+                grid-template-areas: "title-label reviewType-label" "title-input reviewType-select" "reviewTextArea reviewTextArea" "submitBtn submitBtn"
+                gap: 20px
+                font-size: 20px
+                input, select
+                    padding: 0 26px
+                    font-size: 20px
+                    border-radius: 10px
+                    height: 71px
+                    background: $bodyColor
+                    outline: none
+                    color: $mainColorWhite
+                input
+                    width: 100%
+                select
+                    cursor: pointer
+                    -webkit-appearance: none
+                    -moz-appearance: none
+                    appearance: none
+                    background: url('../icons/profileIcons/selectArrow.svg') right 26px bottom 50% no-repeat $bodyColor
+                select::-ms-expand
+                    display: none
+                .title-label
+                    grid-area: title-label
+                    color: rgba(255, 255, 255, 0.6)
+                .title-input
+                    grid-area: title-input
+                .reviewType-label
+                    grid-area: reviewType-label
+                    color: rgba(255, 255, 255, 0.6)
+                .reviewType-select
+                    grid-area: reviewType-select
+                .reviewBody
+                    grid-area: reviewTextArea
+                    padding: 26px
+                    font-size: 20px
+                    border-radius: 10px
+                    background: $bodyColor
+                    outline: none
+                    color: $mainColorWhite
+                    min-height: 250px
+                    resize: none
+                .submitData
+                    grid-area: submitBtn
+                    cursor: pointer
+                    transition: 0.5s all
+                    &:hover
+                        background: $bodyLightColor
+                        transition: 0.5s all
+                        -webkit-box-shadow: 0 0 15px 0 rgba(54, 161, 203, 0.3)
+                        box-shadow: 0 0 15px 0 rgba(54, 161, 203, 0.3)
