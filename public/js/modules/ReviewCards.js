@@ -25,12 +25,7 @@ function reviews(){
                             <img src=${this.avatar}>
                             <div class="NickName">${this.nickname}</div>
                         </div>
-                        <div class="UserLinks">
-                            <a href="#movieReviewID">Рецензии</a>
-                            <a href="#movieReviewID">Оценки</a>
-                            <a href="#movieReviewID">Друзья</a>
-                            <a href="#movieReviewID">Фильмы</a>
-                        </div>
+                        <div class="subheader__devider"></div>
                         <div class="ReviewElement__title">
                             <h4 class="ThisReviewTitle">
                                 ${this.reviewtitle}

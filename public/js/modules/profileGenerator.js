@@ -135,7 +135,7 @@ function profileGenerator() {
                     </div>
                     <div class="countItem">
                         <span class="countItem__quantity">0</span>
-                        <span class="countItem__title">Комментарии</span>
+                        <span class="countItem__title">Билеты и сеансы</span>
                     </div>
                 </div>
             `;

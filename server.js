@@ -727,3 +727,306 @@ app.listen(3000, () => {
 //   })
 
 // await User.drop()
+
+
+
+
+const Movies = sequelize.define(
+    'Movies',
+    {
+        movieID: { 
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4
+        },
+        background: {
+            type: DataTypes.STRING,
+        },
+        rusTitle: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        engTitle: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        description: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        markMZ: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        markIMDB: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        rating: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        likesQuantity: {
+            type: DataTypes.INTEGER,
+        },
+        dislikesQuantity: {
+            type: DataTypes.INTEGER,
+        },
+        primaryPoster: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        year: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        genre: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        slogan: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        screenwriter: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        operator: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        artist: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        producer: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        composer: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        editor: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        ageRating: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        madeIn: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        directorRusName: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        directorEngName: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        directorImg: {
+            type: DataTypes.STRING,
+        },
+        worldPremiere: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        rusPremiere: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        worldwideBoxOffice: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        duration: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+    }
+)
+
+const Actors = sequelize.define(
+    'Actors',
+    {
+        actorID: { 
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4
+        },
+        imgPath: {
+            type: DataTypes.STRING,
+        },
+        nameRus: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        nameEng: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+    }
+)
+
+const Characters = sequelize.define(
+    'Characters',
+    {
+        characterID: { 
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4
+        },
+        name: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+    }
+)
+
+Actors.hasMany(Characters, { foreignKey: 'actorId' });
+Movies.hasMany(Characters, { foreignKey: 'movieID' });
+
+
+// const [results, metadata] = await sequelize.query(
+//   "SELECT actorID, roleInFilm FROM Actor"
+// )
+// let newActors = results.map(obj => {
+//     delete obj.roleInFilm;
+//     delete obj.createdAt;
+//     delete obj.updatedAt;
+//     if (obj.imgPath) {        
+//         obj.imgPath = (obj.imgPath.split(/[/]/).slice(-1)).toString();
+//         return obj
+//     } else {
+//         return obj
+//     }
+// })
+
+// newActors.forEach( actor => {
+//     Actors.create( { actorID: actor.actorID, imgPath: actor.imgPath, nameRus: actor.nameRus, nameEng: actor.nameEng } );
+// })
+
+// let newRes = results.map(obj => {
+//     let newObj = obj.roleInFilm.split(', ');
+//     if (newObj.length < 3) {
+//         return {
+//             actorIdentifier: obj.actorID, 
+//             character: newObj[0],
+//             movie: newObj[1].slice(0, -1)
+//         }
+//     } 
+//     else {
+//         newObj = obj.roleInFilm.split('; ');
+//         let specialObj = newObj.map(item => item.split(', '));
+//         return [{
+//             actorIdentifier: obj.actorID, 
+//             character: specialObj[0][0],
+//             movie: specialObj[0][1]
+//         }, {
+//             actorIdentifier: obj.actorID, 
+//             character: specialObj[1][0],
+//             movie: specialObj[1][1].slice(0, -1)
+//         }]
+//     }
+    
+// })
+// let finalRes = [];
+// newRes.forEach(item => {
+//     if(item.length != undefined) {
+//         finalRes.push(item[0]);
+//         finalRes.push(item[1]);
+//     } else {
+//         finalRes.push(item);
+//     }
+// })
+
+// finalRes = finalRes.map(obj => {
+//     switch (obj.movie) {
+//         case 'Побег из Претории':
+//             obj.movie = '12249b49-a322-4502-b118-e9154fe7733e'
+//             break;
+//         case 'Джокер':
+//             obj.movie = 'f0285eaa-1b88-427b-8e3f-0a9d9c80d7fe'
+//             break;
+//         case 'Звёздные войны: Скайуокер Восход':
+//             obj.movie = '1353f720-7c58-4f2f-9326-8930af3d874e'
+//             break;
+//         case 'Джентльмены':
+//             obj.movie = '5844f0b4-a9b6-4edd-9e92-de9df2747be5'
+//             break;
+//         case 'Ford против Ferrari':
+//             obj.movie = 'e012c688-e3d1-4e23-8871-6387d9f6a1ee'
+//             break;
+//         case '3022':
+//             obj.movie = '239dc840-396c-41f2-89f1-a95bce35861e'
+//             break;
+//         case 'Бесславные ублюдки':
+//             obj.movie = 'c413f28c-d318-4501-b5e7-4621fdb0c273'
+//             break;
+//         case 'Джанго освобождённый':
+//             obj.movie = '2208374b-5297-4c21-ae20-f6f67960b06d'
+//             break;
+//         case 'Ещё по одной':
+//             obj.movie = '03b2e6dd-0f34-4c97-9748-7c2ea0a07ce6'
+//             break;
+//     }
+//     return obj
+// })
+// let WNun = 0;
+// while (WNun < 88) {
+//     let obj = finalRes[WNun]
+//     Characters.create( { 
+//         name: obj.character,
+//         actorId: obj.actorIdentifier,
+//         movieID: obj.movie
+//     } )
+//     WNun++
+// }
+
+// Characters.truncate();
+
+
+
+
+// app.post('/api/createMovieInfo', async (req, res) => {
+//     const {mainBackgroundImageSRC, movieCardItem, movieTitleRus, movieTitleEng, MovieZoneMark, IMDbMark, shortMovieDescr, expectationsRating, yearOfRelease, countryOfRelease, slogan, Screenwriter, Producer, Operator, Composer, Artist, Editor, Genre, boxOffice, PremiereWrld, PremiereRF, AgeLimit, TimeLimit, directorIMG, directorNameRus, directorNameEng} = req.body;
+    
+//     Movies.create( { 
+//         background: mainBackgroundImageSRC, 
+//         rusTitle: movieTitleRus, 
+//         engTitle: movieTitleEng, 
+//         description: shortMovieDescr, 
+//         markMZ: MovieZoneMark, 
+//         markIMDB: IMDbMark, 
+//         rating: expectationsRating,
+//         likesQuantity: 0,
+//         dislikesQuantity: 0,
+//         primaryPoster:  movieCardItem,
+//         year: yearOfRelease,
+//         genre: Genre,
+//         slogan: slogan,
+//         screenwriter: Screenwriter,
+//         operator: Operator,
+//         artist: Artist,
+//         producer: Producer,
+//         composer: Composer,
+//         editor: Editor,
+//         ageRating: AgeLimit,
+//         madeIn: countryOfRelease,
+//         directorRusName: directorNameRus,
+//         directorEngName: directorNameEng,
+//         directorImg: directorIMG,
+//         worldPremiere: PremiereWrld,
+//         rusPremiere: PremiereRF,
+//         worldwideBoxOffice: boxOffice,
+//         duration: TimeLimit,
+//     } );
+//     res.send({ title: 'success' })
+// });

@@ -15,7 +15,7 @@ function actors() {
             element.classList.add('actor-item');
 
             if (this.src == undefined) {
-                this.src = 'images/actors/universal-actor-icon.png'
+                this.src = 'images/actors/universal-actor-icon.svg'
             }
 
             element.innerHTML = `
