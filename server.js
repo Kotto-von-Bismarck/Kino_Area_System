@@ -961,68 +961,100 @@ const Studios = sequelize.define(
 
 Movies.hasOne(Studios, { foreignKey: 'movieID', onDelete: "cascade"});
 
+const Trailers = sequelize.define(
+    'Trailers',
+    {
+        trailerID: { 
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4
+        },
+        fullsizePreview: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        trailer: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        likesQuantity: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        dislikesQuantity: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    }
+)
+
+Movies.hasOne(Trailers, { foreignKey: 'movieID', onDelete: "cascade"});
+
+const NewTrailers = sequelize.define(
+    'NewTrailers',
+    {
+        newTrailerID: { 
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4
+        },
+        fullsizePreview: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        miniPreview: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        trailer: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        likesQuantity: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        dislikesQuantity: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    }
+)
 
 
 
 
 
-
-
-// app.post('/api/createStudiosGroup', async (req, res) => {
+// app.post('/api/createTrailer', async (req, res) => {
 //     const {
-//         ProductionSpanList,
-//         movieTitleRus, 
-//         SpecialEffectsSpanList,
-//         DubbingStudioSpanList
-//     } = req.body;
-
-//     let movieIdishnik = movieTitleRus;
-
-//     switch (movieIdishnik) {
-//         case 'Побег из Претории':
-//             movieIdishnik = '12249b49-a322-4502-b118-e9154fe7733e'
-//             break;
-//         case 'Джокер':
-//             movieIdishnik = 'f0285eaa-1b88-427b-8e3f-0a9d9c80d7fe'
-//             break;
-//         case 'Звездные войны: Скайуокер. Восход':
-//             movieIdishnik = '1353f720-7c58-4f2f-9326-8930af3d874e'
-//             break;
-//         case 'Джентльмены':
-//             movieIdishnik = '5844f0b4-a9b6-4edd-9e92-de9df2747be5'
-//             break;
-//         case 'Ford против Ferrari':
-//             movieIdishnik = 'e012c688-e3d1-4e23-8871-6387d9f6a1ee'
-//             break;
-//         case '3022':
-//             movieIdishnik = '239dc840-396c-41f2-89f1-a95bce35861e'
-//             break;
-//         case 'Бесславные ублюдки':
-//             movieIdishnik = 'c413f28c-d318-4501-b5e7-4621fdb0c273'
-//             break;
-//         case 'Джанго освобожденный':
-//             movieIdishnik = '2208374b-5297-4c21-ae20-f6f67960b06d'
-//             break;
-//         case 'Еще по одной':
-//             movieIdishnik = '03b2e6dd-0f34-4c97-9748-7c2ea0a07ce6'
-//             break;
-//     }     
-//     console.log(
-//         { 
-//             production: ProductionSpanList == undefined ? null : ProductionSpanList,
-//             effects: SpecialEffectsSpanList == undefined ? null : SpecialEffectsSpanList,
-//             dubbing: DubbingStudioSpanList == undefined ? null : DubbingStudioSpanList,
-//             movieID: movieIdishnik
-//         }
-//     );
+//         miniPreview,
+//         trailer,
+//         fullsizePreview,
+//         title,
+//         likesQuantity,
+//         dislikesQuantity
+//     } = req.body;  
     
 
-//     Studios.create( { 
-//         production: ProductionSpanList == undefined ? null : ProductionSpanList,
-//         effects: SpecialEffectsSpanList == undefined ? null : SpecialEffectsSpanList,
-//         dubbing: DubbingStudioSpanList == undefined ? null : DubbingStudioSpanList,
-//         movieID: movieIdishnik
-//     } );
+//     NewTrailers.create({ 
+//         miniPreview: miniPreview,
+//         fullsizePreview: fullsizePreview,
+//         trailer: trailer,
+//         likesQuantity: likesQuantity,
+//         dislikesQuantity: dislikesQuantity,
+//         title: title
+//     });
+
 //     res.send({ title: 'success' })
 // });
 
