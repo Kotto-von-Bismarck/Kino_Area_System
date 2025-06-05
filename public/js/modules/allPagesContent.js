@@ -1191,75 +1191,63 @@ function pagesContent () {
     const moviesArray = [
         {
             movieTitleRus: 'Побег из Претории',
-            ProductionSpanList: '<span>1.ㅤArclight Films</span><span>2.ㅤBeagle Pug Films</span><span>3.ㅤFootprint Films</span>',
-            SpecialEffectsSpanList: '<span>1.ㅤParticular Crowd</span><span>2.ㅤPremiere Picture</span><span>3.ㅤSpier Films</span>',
-            DubbingStudioSpanList: '<span>1.ㅤПифагор</span>',
-            PostersForMoviePostersSection: '<div class="moviePosters__item"><img src="images/moviePagesPosters/posters/p1.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/p2.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/p3.png"></div>',
-            FramesForMovieFramesSection: '<div class="movieFrames__item_bigImg"><img src="images/movieFrames/escape-from-pretoria/1.png"></div><div class="movieFrames__item"><img src="images/movieFrames/escape-from-pretoria/2.png"></div><div class="movieFrames__item"><img src="images/movieFrames/escape-from-pretoria/3.png"></div><div class="movieFrames__item"><img src="images/movieFrames/escape-from-pretoria/4.png"></div><div class="movieFrames__item"><img src="images/movieFrames/escape-from-pretoria/5.png"></div><div class="movieFrames__item_bigImg"><img src="images/movieFrames/escape-from-pretoria/6.png"></div>'
+
+            ProductionSpanList: 'Arclight Films, Beagle Pug Films, Footprint Films',
+            SpecialEffectsSpanList: 'Particular Crowd, Premiere Picture, Spier Films',
+            DubbingStudioSpanList: 'Пифагор'
         },
         {
             movieTitleRus: 'Джокер',
-            ProductionSpanList: '<span>1.ㅤ22 & Indiana Pictures</span><span>2.ㅤBron Studios</span><span>3.ㅤCreative Wealth Media Finance</span><span>4.ㅤDC Comics</span><span>5.ㅤDC Entertainment</span><span>6.ㅤVillage Roadshow Pictures</span><span>7.ㅤWarner Bros</span>',
-            SpecialEffectsSpanList: '<span>1.ㅤScanlineVFX</span><span>2.ㅤShade VFX</span><span>3.ㅤCaptured Dimensions</span>',
-            DubbingStudioSpanList: '<span>1.ㅤМосфильм-Мастер</span>',
-            PostersForMoviePostersSection: '<div class="moviePosters__item"><img src="images/moviePagesPosters/posters/joker-p1.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/joker-p2.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/joker-p3.png"></div>',
-            FramesForMovieFramesSection: '<div class="movieFrames__item_bigImg"><img src="images/movieFrames/joker/1.png"></div><div class="movieFrames__item"><img src="images/movieFrames/joker/2.png"></div><div class="movieFrames__item"><img src="images/movieFrames/joker/3.png"></div><div class="movieFrames__item"><img src="images/movieFrames/joker/4.png"></div><div class="movieFrames__item"><img src="images/movieFrames/joker/5.png"></div><div class="movieFrames__item_bigImg"><img src="images/movieFrames/joker/6.png"></div>'
+
+            ProductionSpanList: '22 & Indiana Pictures, Bron Studios, Creative Wealth Media Finance, DC Comics, DC Entertainment, Village Roadshow Pictures, Warner Bros',
+            SpecialEffectsSpanList: 'ScanlineVFX, Shade VFX, Captured Dimensions',
+            DubbingStudioSpanList: 'Мосфильм-Мастер'
         },
         {
             movieTitleRus: 'Звездные войны: Скайуокер. Восход',
-            ProductionSpanList: '<span>1.ㅤBad Robot</span><span>2.ㅤDigital Makeup Group</span><span>3.ㅤLucasfilm Ltd</span><span>4.ㅤWalt Disney Pictures</span>',
-            SpecialEffectsSpanList: '<span>1.ㅤ32TEN Studios</span><span>2.ㅤBase FX</span><span>3.ㅤHybride Technologies</span><span>4.ㅤImportant Looking Pirates (ILPvfx)</span><span>5.ㅤIndustrial Light & Magic (ILM)</span><span>6.ㅤStereo D</span><span>7.ㅤThird Floor, The</span><span>8.ㅤExceptional Minds</span><span>8.ㅤReelEye Company</span>',
-            DubbingStudioSpanList: '<span>1.ㅤНевафильм</span>',
-            PostersForMoviePostersSection: '<div class="moviePosters__item"><img src="images/moviePagesPosters/posters/s-w-p1.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/s-w-p2.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/s-w-p3.png"></div>',
-            FramesForMovieFramesSection: '<div class="movieFrames__item_bigImg"><img src="images/movieFrames/star-wars/1.png"></div><div class="movieFrames__item"><img src="images/movieFrames/star-wars/2.png"></div><div class="movieFrames__item"><img src="images/movieFrames/star-wars/3.png"></div><div class="movieFrames__item"><img src="images/movieFrames/star-wars/4.png"></div><div class="movieFrames__item"><img src="images/movieFrames/star-wars/5.png"></div><div class="movieFrames__item_bigImg"><img src="images/movieFrames/star-wars/6.png"></div>'
+
+            ProductionSpanList: 'Bad Robot, Digital Makeup Group, Lucasfilm Ltd, Walt Disney Pictures',
+            SpecialEffectsSpanList: '32TEN Studios, Base FX, Hybride Technologies, Important Looking Pirates (ILPvfx), Industrial Light & Magic (ILM), Stereo D, Third Floor, Exceptional Minds, ReelEye Company',
+            DubbingStudioSpanList: 'Невафильм'
         },
         {
             movieTitleRus: 'Джентльмены',
-            ProductionSpanList: '<span>1.ㅤMiramax Films</span><span>2.ㅤSTX Films</span><span>3.ㅤToff Guy Films</span>',
-            SpecialEffectsSpanList: '<span>1.ㅤUnion Visual Effects</span>',
-            DubbingStudioSpanList: '<span>1.ㅤСинеЛаб СаундМикс</span>',
-            PostersForMoviePostersSection: '<div class="moviePosters__item"><img src="images/moviePagesPosters/posters/gents1.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/gents2.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/gents3.png"></div>',
-            FramesForMovieFramesSection: '<div class="movieFrames__item_bigImg"><img src="images/movieFrames/gents/1.png"></div><div class="movieFrames__item"><img src="images/movieFrames/gents/2.png"></div><div class="movieFrames__item"><img src="images/movieFrames/gents/3.png"></div><div class="movieFrames__item"><img src="images/movieFrames/gents/4.png"></div><div class="movieFrames__item"><img src="images/movieFrames/gents/5.png"></div><div class="movieFrames__item_bigImg"><img src="images/movieFrames/gents/6.png"></div>'
+
+            ProductionSpanList: 'Miramax Films, STX Films, Toff Guy Films',
+            SpecialEffectsSpanList: 'Union Visual Effects',
+            DubbingStudioSpanList: 'СинеЛаб СаундМикс'
         },
         {
             movieTitleRus: 'Ford против Ferrari',
-            ProductionSpanList: '<span>1.ㅤ20th Century Fox Film Corporation</span><span>2.ㅤChernin Entertainment</span><span>3.ㅤTSG Entertainment</span><span>4.ㅤTurnpike Films</span>',
-            SpecialEffectsSpanList: '<span>1.ㅤEDI (Effetti Digitali Italiani)</span><span>2.ㅤFactory VFX</span><span>3.ㅤHalon Entertainment</span><span>4.ㅤLidar Guys</span><span>5.ㅤMethod Studios</span>',
-            DubbingStudioSpanList: '<span>1.ㅤСиПиАй Филмз / CPI Films</span>',
-            PostersForMoviePostersSection: '<div class="moviePosters__item"><img src="images/moviePagesPosters/posters/f-vs-f1.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/f-vs-f2.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/f-vs-f3.png"></div>',
-            FramesForMovieFramesSection: '<div class="movieFrames__item_bigImg"><img src="images/movieFrames/ford-vs-ferrari/1.png"></div><div class="movieFrames__item"><img src="images/movieFrames/ford-vs-ferrari/2.png"></div><div class="movieFrames__item"><img src="images/movieFrames/ford-vs-ferrari/3.png"></div><div class="movieFrames__item"><img src="images/movieFrames/ford-vs-ferrari/4.png"></div><div class="movieFrames__item"><img src="images/movieFrames/ford-vs-ferrari/5.png"></div><div class="movieFrames__item_bigImg"><img src="images/movieFrames/ford-vs-ferrari/6.png"></div>'
+
+            ProductionSpanList: '20th Century Fox Film Corporation, Chernin Entertainment, TSG Entertainment, Turnpike Films',
+            SpecialEffectsSpanList: 'EDI (Effetti Digitali Italiani), Factory VFX, Halon Entertainment, Lidar Guys, Method Studios',
+            DubbingStudioSpanList: 'СиПиАй Филмз / CPI Films'
         },
         {
             movieTitleRus: '3022',
-            ProductionSpanList: '<span>1.ㅤBondIt</span><span>2.ㅤHideout Pictures</span><span>3.ㅤNatural Selection</span><span>4.ㅤSquid Farm</span><span>5.ㅤTitle Media</span>',
-            SpecialEffectsSpanList: '<span>нет информации</span>',
-            DubbingStudioSpanList: '<span>нет информации</span>',
-            PostersForMoviePostersSection: '<div class="moviePosters__item"><img src="images/moviePagesPosters/posters/3022-1.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/3022-2.png"></div>',
-            FramesForMovieFramesSection: '<div class="movieFrames__item_bigImg"><img src="images/movieFrames/3022/1.png"></div><div class="movieFrames__item"><img src="images/movieFrames/3022/2.png"></div><div class="movieFrames__item"><img src="images/movieFrames/3022/3.png"></div><div class="movieFrames__item"><img src="images/movieFrames/3022/4.png"></div><div class="movieFrames__item"><img src="images/movieFrames/3022/5.png"></div><div class="movieFrames__item_bigImg"><img src="images/movieFrames/3022/6.png"></div>'
+
+            ProductionSpanList: 'BondIt, Hideout Pictures, Natural Selection, Squid Farm, Title Media'
         },
         {
             movieTitleRus: 'Бесславные ублюдки',
-            ProductionSpanList: '<span>1.ㅤA Band Apart</span><span>2.ㅤLawrence Bender Productions</span><span>3.ㅤStudio Babelsberg</span><span>4.ㅤThe Weinstein Company LLC</span><span>5.ㅤ	Universal Pictures</span><span>6.ㅤZehnte Babelsberg</span>',
-            SpecialEffectsSpanList: '<span>нет информации</span>',
-            DubbingStudioSpanList: '<span>1.ㅤПифагор</span>',
-            PostersForMoviePostersSection: '<div class="moviePosters__item"><img src="images/moviePagesPosters/posters/inglouriousbasterds1.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/inglouriousbasterds2.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/inglouriousbasterds3.png"></div>',
-            FramesForMovieFramesSection: '<div class="movieFrames__item_bigImg"><img src="images/movieFrames/inglouriousbasterds/1.png"></div><div class="movieFrames__item"><img src="images/movieFrames/inglouriousbasterds/2.png"></div><div class="movieFrames__item"><img src="images/movieFrames/inglouriousbasterds/3.png"></div><div class="movieFrames__item"><img src="images/movieFrames/inglouriousbasterds/4.png"></div><div class="movieFrames__item"><img src="images/movieFrames/inglouriousbasterds/5.png"></div><div class="movieFrames__item_bigImg"><img src="images/movieFrames/inglouriousbasterds/6.png"></div>'
+
+            ProductionSpanList: 'A Band Apart, Lawrence Bender Productions, Studio Babelsberg, The Weinstein Company LLC, Universal Pictures, Zehnte Babelsberg',
+            DubbingStudioSpanList: 'Пифагор'
         },
         {
             movieTitleRus: 'Джанго освобожденный',
-            ProductionSpanList: '<span>1.ㅤBrown 26 Productions</span><span>2.ㅤColumbia Pictures</span><span>3.ㅤDouble Feature Films</span><span>4.ㅤSuper Cool Man Shoe Too</span><span>5.ㅤSuper Cool ManChu, Too</span><span>6.ㅤThe Weinstein Company LLC</span><span>7.ㅤ	Visiona Romantica</span>',
-            SpecialEffectsSpanList: '<span>1.ㅤK.N.B. EFX Group Inc.</span><span>2.ㅤRhythm & Hues</span>',
-            DubbingStudioSpanList: '<span>1.ㅤПифагор</span>',
-            PostersForMoviePostersSection: '<div class="moviePosters__item"><img src="images/moviePagesPosters/posters/django1.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/django2.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/django3.png"></div>',
-            FramesForMovieFramesSection: '<div class="movieFrames__item_bigImg"><img src="images/movieFrames/django/1.png"></div><div class="movieFrames__item"><img src="images/movieFrames/django/2.png"></div><div class="movieFrames__item"><img src="images/movieFrames/django/3.png"></div><div class="movieFrames__item"><img src="images/movieFrames/django/4.png"></div><div class="movieFrames__item"><img src="images/movieFrames/django/5.png"></div><div class="movieFrames__item_bigImg"><img src="images/movieFrames/django/6.png"></div>'
+
+            ProductionSpanList: 'Brown 26 Productions, Columbia Pictures, Double Feature Films, Super Cool Man Shoe Too, The Weinstein Company LLC, Visiona Romantica',
+            SpecialEffectsSpanList: 'K.N.B. EFX Group Inc, Rhythm & Hues',
+            DubbingStudioSpanList: 'Пифагор'         
         },
         {
             movieTitleRus: 'Еще по одной',
-            ProductionSpanList: '<span>1.ㅤDet Danske Filminstitut</span><span>2.ㅤEurimages</span><span>3.ㅤFilm i Väst</span><span>4.ㅤNederlands Filmfonds</span><span>5.ㅤTopkapi Films</span><span>6.ㅤ	TV2 Danmark</span><span>7.ㅤZentropa Productions 2</span>',
-            SpecialEffectsSpanList: '<span>1.ㅤKamerauthyrningen</span><span>2.ㅤStorm Post Production</span>',
-            DubbingStudioSpanList: '<span>1.ㅤPride Production</span>',
-            PostersForMoviePostersSection: '<div class="moviePosters__item"><img src="images/moviePagesPosters/posters/druk1.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/druk2.png"></div><div class="moviePosters__item"><img src="images/moviePagesPosters/posters/druk3.png"></div>',
-            FramesForMovieFramesSection: '<div class="movieFrames__item_bigImg"><img src="images/movieFrames/druk/1.png"></div><div class="movieFrames__item"><img src="images/movieFrames/druk/2.png"></div><div class="movieFrames__item"><img src="images/movieFrames/druk/3.png"></div><div class="movieFrames__item"><img src="images/movieFrames/druk/4.png"></div><div class="movieFrames__item"><img src="images/movieFrames/druk/5.png"></div><div class="movieFrames__item_bigImg"><img src="images/movieFrames/druk/6.png"></div>'
+
+            ProductionSpanList: 'Det Danske Filminstitut, Eurimages, Film i Väst, Nederlands Filmfonds, Topkapi Films, TV2 Danmark, Zentropa Productions 2',
+            SpecialEffectsSpanList: 'Kamerauthyrningen, Storm Post Production',
+            DubbingStudioSpanList: 'Pride Production'
         }
     ];
     // async function postMovies(url, body) {            
@@ -1273,7 +1261,7 @@ function pagesContent () {
     //     }
     //     return await res.json()
     // } 
-    // postMovies('/api/createQuoteInfo', moviesArray[9])
+    // postMovies('/api/createframesGroup', moviesArray[9])
 };
 
 export default pagesContent;

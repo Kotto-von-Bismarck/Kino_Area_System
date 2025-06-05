@@ -916,15 +916,34 @@ const Quotes = sequelize.define(
 Characters.hasMany(Quotes, { foreignKey: 'authorID' });
 Movies.hasMany(Quotes, { foreignKey: 'movieID' });
 
+const Frames = sequelize.define(
+    'Frames',
+    {
+        framesGroupID: { 
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4
+        },
+        additionalPosters: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        framesFolder: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+    }
+)
+
+Movies.hasOne(Frames, { foreignKey: 'movieID', onDelete: "cascade"});
 
 
 
 
 
-
-
-// app.post('/api/createQuoteInfo', async (req, res) => {
-//     const {firstMovieQuote, firstMovieQuoteAuthor, firstMovieQuoteAuthorID, secondMovieQuote, secondMovieQuoteAuthor, secondMovieQuoteAuthorID, movieTitleRus} = req.body;
+// app.post('/api/createframesGroup', async (req, res) => {
+//     const {PostersForMoviePostersSection, movieTitleRus, folderName} = req.body;
 
 //     let movieIdishnik = movieTitleRus;
 
@@ -956,17 +975,11 @@ Movies.hasMany(Quotes, { foreignKey: 'movieID' });
 //         case 'Еще по одной':
 //             movieIdishnik = '03b2e6dd-0f34-4c97-9748-7c2ea0a07ce6'
 //             break;
-//     } 
-//     Quotes.create( { 
-//         quote: firstMovieQuote,
-//         quoteAuthor: firstMovieQuoteAuthor,
-//         authorID: firstMovieQuoteAuthorID,
-//         movieID: movieIdishnik,
-//     } );
-//     Quotes.create( { 
-//         quote: secondMovieQuote,
-//         quoteAuthor: secondMovieQuoteAuthor,
-//         authorID: secondMovieQuoteAuthorID,
+//     }     
+
+//     Frames.create( { 
+//         additionalPosters: PostersForMoviePostersSection,
+//         framesFolder: folderName,
 //         movieID: movieIdishnik,
 //     } );
 //     res.send({ title: 'success' })
