@@ -938,12 +938,43 @@ const Frames = sequelize.define(
 
 Movies.hasOne(Frames, { foreignKey: 'movieID', onDelete: "cascade"});
 
+const Studios = sequelize.define(
+    'Studios',
+    {
+        studiosGroupID: { 
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4
+        },
+        production: {
+            type: DataTypes.STRING,
+        },
+        effects: {
+            type: DataTypes.STRING,
+        },
+        dubbing: {
+            type: DataTypes.STRING,
+        },
+    }
+)
+
+Movies.hasOne(Studios, { foreignKey: 'movieID', onDelete: "cascade"});
 
 
 
 
-// app.post('/api/createframesGroup', async (req, res) => {
-//     const {PostersForMoviePostersSection, movieTitleRus, folderName} = req.body;
+
+
+
+
+// app.post('/api/createStudiosGroup', async (req, res) => {
+//     const {
+//         ProductionSpanList,
+//         movieTitleRus, 
+//         SpecialEffectsSpanList,
+//         DubbingStudioSpanList
+//     } = req.body;
 
 //     let movieIdishnik = movieTitleRus;
 
@@ -976,11 +1007,21 @@ Movies.hasOne(Frames, { foreignKey: 'movieID', onDelete: "cascade"});
 //             movieIdishnik = '03b2e6dd-0f34-4c97-9748-7c2ea0a07ce6'
 //             break;
 //     }     
+//     console.log(
+//         { 
+//             production: ProductionSpanList == undefined ? null : ProductionSpanList,
+//             effects: SpecialEffectsSpanList == undefined ? null : SpecialEffectsSpanList,
+//             dubbing: DubbingStudioSpanList == undefined ? null : DubbingStudioSpanList,
+//             movieID: movieIdishnik
+//         }
+//     );
+    
 
-//     Frames.create( { 
-//         additionalPosters: PostersForMoviePostersSection,
-//         framesFolder: folderName,
-//         movieID: movieIdishnik,
+//     Studios.create( { 
+//         production: ProductionSpanList == undefined ? null : ProductionSpanList,
+//         effects: SpecialEffectsSpanList == undefined ? null : SpecialEffectsSpanList,
+//         dubbing: DubbingStudioSpanList == undefined ? null : DubbingStudioSpanList,
+//         movieID: movieIdishnik
 //     } );
 //     res.send({ title: 'success' })
 // });
