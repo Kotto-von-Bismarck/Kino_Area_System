@@ -1,28 +1,22 @@
+import buildMainPageComponent from "../services/MainPageRequests";
+
 function movieCards() {
     class MovieCard {
-        constructor(src, href, mark, title, ganre, parentSelector, ...classes) {
-            this.src = src;
-            this.href = href;
-            this.mark = parseFloat(mark).toFixed(2);
-            this.title = title;
-            this.ganre = ganre;
-            this.classes = classes;
-            this.parent = document.querySelector(parentSelector);
+        constructor(data) {
+            this.src = data.primaryPoster;
+            this.movieID = data.movieID;
+            this.mark = parseFloat(data.markMZ).toFixed(2);
+            this.title = data.rusTitle;
+            this.genre = data.genre;
+            this.year = data.year;
+            this.parent = document.querySelector(data.parentHTML);
         }
         render() {
             const element = document.createElement('div');
-            let dateClass = 'noDate';
-            this.class = this.classes.pop();
-            if (this.class !== undefined) {
-                dateClass = this.class
-            } else {
-                dateClass = 'noDate';
+            if (!this.movieID) {
+                this.movieID = '#'
             }
-            if (this.classes.length === 0) {
-                element.classList.add(`cardItem`);
-            } else {
-                this.classes.forEach(className => element.classList.add(className));
-            }
+            element.classList.add(`cardItem`);
 
             // painting items
 
@@ -49,8 +43,8 @@ function movieCards() {
             } 
 
             // detection of the genre
-            const genres = this.ganre.toLowerCase().split(', '),
-                  genreType = [];
+            const genres = this.genre.toLowerCase().split(', '),
+                  genreType = [];            
 
             genres.forEach(item => {
                 switch (item) {
@@ -92,13 +86,15 @@ function movieCards() {
                         <span>${this.mark}</span>
                     </div>
                     <img src=${this.src} class="cardItem__image">
-                    <a href=${this.href} class="cardItem__rectangle"><span>Узнать больше</span></a>
+                    <button id=${this.movieID} class="cardItem__rectangle">
+                        <span>Узнать больше</span>
+                    </button>
                 </div>
-                <h4 class="cardItem__movieTitle ${dateClass}">
+                <h4 class="cardItem__movieTitle ${this.year}">
                     ${this.title}
                 </h4>
                 <h6 class="cardItem__movieGanre ${this.genreType}">
-                    ${this.ganre}
+                    ${this.genre}
                 </h6>
             `;
             this.parent.append(element);
@@ -108,419 +104,320 @@ function movieCards() {
 
     // cinemaNow
 
-    new MovieCard(
-        'images/filmPosters/escape.png',
-        'escape-from-pretoria.html',
-        '6.7',
-        'Побег из Претории',
-        'Триллер',
-        '.cinemaNow .movieCards',
-    ).render();
-
-    new MovieCard(
-        'images/filmPosters/joker.png',
-        'joker.html',
-        '8.5',
-        'Джокер',
-        'Триллер, драма, криминал',
-        '.cinemaNow .movieCards',
-    ).render();
-
-    new MovieCard(
-        'images/filmPosters/star-wars.png',
-        'star-wars.html',
-        '6.7',
-        'Звёздные войны: Скайуокер. Восход',
-        'Фантастика, фэнтези, боевик, приключения',
-        '.cinemaNow .movieCards'
-    ).render();
-
-    new MovieCard(
-        'images/filmPosters/gents.png',
-        'gentlemen.html',
-        '8',
-        'Джентльмены',
-        'Боевик, комедия, криминал',
-        '.cinemaNow .movieCards'
-    ).render();
-
-    new MovieCard(
-        'images/filmPosters/ford-vs-ferrari.png',
-        'ford-vs-ferrari.html',
-        '8.1',
-        'Ford против Ferrari',
-        'Биография, спорт, драма, боевик',
-        '.cinemaNow .movieCards'
-    ).render();
-
-    new MovieCard(
-        'images/filmPosters/3022.png',
-        '3022.html',
-        '4.9',
-        '3022',
-        'Фантастика, триллер',
-        '.cinemaNow .movieCards'
-    ).render();
-
-    new MovieCard(
-        'images/filmPosters/chickens.png',
-        '#',
-        '6.2',
-        'Хищные птицы: Потрясающая история Харли Квинн',
-        'Боевик, криминал, комедия',
-        '.cinemaNow .movieCards'
-    ).render();
-
-    new MovieCard(
-        'images/filmPosters/bad-guys.png',
-        '#',
-        '6.9',
-        'Плохие парни навсегда',
-        'Боевик, комедия, криминал',
-        '.cinemaNow .movieCards'
-    ).render();
+    buildMainPageComponent('/api/getTrends', MovieCard);
 
     // popular
 
-    new MovieCard(
-        'images/popular/forrest-gump.png',
-        '#',
-        '8.91',
-        'Форрест Гамп',
-        'Драма, комедия, мелодрама, история, военный',
-        '.popular .movieCards',
-        '1994'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/forrest-gump.png',
+        markMZ: '8.91',
+        rusTitle: 'Форрест Гамп',
+        genre: 'Драма, комедия, мелодрама, история, военный',
+        parentHTML: '.popular .movieCards',
+        year: '1994'
+    }).render();
 
-    new MovieCard(
-        'images/popular/onece-upon-a-time-in-Hollywood.png',
-        '#',
-        '7.7',
-        'Однажды в… Голливуде',
-        'Драма, комедия',
-        '.popular .movieCards',
-        '2019'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/onece-upon-a-time-in-Hollywood.png',
+        markMZ: '7.7',
+        rusTitle: 'Однажды в… Голливуде',
+        genre: 'Драма, комедия',
+        parentHTML: '.popular .movieCards',
+        year: '2019'
+    }).render();
 
-    new MovieCard(
-        'images/popular/hacksaw-ridge.png',
-        '#',
-        '8.2',
-        'По соображениям совести',
-        'Биография, драма,  боевик',
-        '.popular .movieCards',
-        '2016'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/hacksaw-ridge.png',
+        markMZ: '8.2',
+        rusTitle: 'По соображениям совести',
+        genre: 'Биография, драма,  боевик',
+        parentHTML: '.popular .movieCards',
+        year: '2016'
+    }).render();
 
-    new MovieCard(
-        'images/filmPosters/inglouriousbasterds.png',
-        'inglouriousbasterds.html',
-        '8',
-        'Бесславные ублюдки',
-        'Драма, военный, комедия, боевик',
-        '.popular .movieCards',
-        '2009'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/filmPosters/inglouriousbasterds.png',
+        movieID: 'c413f28c-d318-4501-b5e7-4621fdb0c273',
+        markMZ: '8',
+        rusTitle: 'Бесславные ублюдки',
+        genre: 'Драма, военный, комедия, боевик',
+        parentHTML: '.popular .movieCards',
+        year: '2009'
+    }).render();
 
-    new MovieCard(
-        'images/popular/jurassic-world.png',
-        '#',
-        '6.94',
-        'Мир Юрского Периода',
-        'Фантастика, приключения, боевик',
-        '.popular .movieCards',
-        '2015'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/jurassic-world.png',
+        markMZ: '6.94',
+        rusTitle: 'Мир Юрского Периода',
+        genre: 'Фантастика, приключения, боевик',
+        parentHTML: '.popular .movieCards',
+        year: '2015'
+    }).render();
 
-    new MovieCard(
-        'images/popular/it.png',
-        '#',
-        '7.34',
-        'Оно',
-        'Детектив, драма, фэнтези, ужасы',
-        '.popular .movieCards',
-        '2017'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/it.png',
+        markMZ: '7.34',
+        rusTitle: 'Оно',
+        genre: 'Детектив, драма, фэнтези, ужасы',
+        parentHTML: '.popular .movieCards',
+        year: '2017'
+    }).render();
 
-    new MovieCard(
-        'images/popular/venom.png',
-        '#',
-        '6.91',
-        'Веном',
-        'Ужасы, триллер, боевик, фантастика',
-        '.popular .movieCards',
-        '2018'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/venom.png',
+        markMZ: '6.91',
+        rusTitle: 'Веном',
+        genre: 'Ужасы, триллер, боевик, фантастика',
+        parentHTML: '.popular .movieCards',
+        year: '2018'
+    }).render();
+    
+    new MovieCard({
+        primaryPoster: 'images/filmPosters/joker.png',
+        movieID: 'f0285eaa-1b88-427b-8e3f-0a9d9c80d7fe',
+        markMZ: '8.5',
+        rusTitle: 'Джокер',
+        genre: 'Триллер, драма, криминал',
+        parentHTML: '.popular .movieCards',
+        year: '2019'
+    }).render();
 
-    new MovieCard(
-        'images/filmPosters/joker.png',
-        'joker.html',
-        '8.5',
-        'Джокер',
-        'Триллер, драма, криминал',
-        '.popular .movieCards',
-        '2019'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/toy-story.png',
+        markMZ: '7.8',
+        rusTitle: 'История игрушек 4',
+        genre: 'Мультфильм, фэнтези, комедия, приключения',
+        parentHTML: '.popular .movieCards',
+        year: '2019'
+    }).render();
 
-    new MovieCard(
-        'images/popular/toy-story.png',
-        '#',
-        '7.8',
-        'История игрушек 4',
-        'Мультфильм, фэнтези, комедия, приключения',
-        '.popular .movieCards',
-        '2019'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/Midsommar.png',
+        markMZ: '7.1',
+        rusTitle: 'Солнцестояние',
+        genre: 'Ужасы, триллер, драма',
+        parentHTML: '.popular .movieCards',
+        year: '2019'
+    }).render();
+    
+    new MovieCard({
+        primaryPoster: 'images/filmPosters/django.png',
+        movieID: '2208374b-5297-4c21-ae20-f6f67960b06d',
+        markMZ: '8.2',
+        rusTitle: 'Джанго освобождённый',
+        genre: 'Вестерн, комедия, драма, боевик',
+        parentHTML: '.popular .movieCards',
+        year: '2012'
+    }).render();
 
-    new MovieCard(
-        'images/popular/Midsommar.png',
-        '#',
-        '7.1',
-        'Солнцестояние',
-        'Ужасы, триллер, драма',
-        '.popular .movieCards',
-        '2019'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/filmPosters/bonetamagafk.png',
+        markMZ: '6.9',
+        rusTitle: 'Костяной томагавк',
+        genre: 'Вестерн, ужасы',
+        parentHTML: '.popular .movieCards',
+        year: '2015'
+    }).render();
 
-    new MovieCard(
-        'images/filmPosters/django.png',
-        'django.html',
-        '8.2',
-        'Джанго освобождённый',
-        'Вестерн, комедия, драма, боевик',
-        '.popular .movieCards',
-        '2012'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/filmPosters/paddington.png',
+        markMZ: '8.1',
+        rusTitle: 'Приключения Паддингтона 2',
+        genre: 'Фентези, комедия, приключения',
+        parentHTML: '.popular .movieCards',
+        year: '2017'
+    }).render();
 
-    new MovieCard(
-        'images/filmPosters/bonetamagafk.png',
-        '#',
-        '6.9',
-        'Костяной томагавк',
-        'Вестерн, ужасы',
-        '.popular .movieCards',
-        '2015'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/velikan.png',
+        markMZ: '6.1',
+        rusTitle: 'Большой и добрый великан',
+        genre: 'Фентези, приключения',
+        parentHTML: '.popular .movieCards',
+        year: '2016'
+    }).render();
 
-    new MovieCard(
-        'images/filmPosters/paddington.png',
-        '#',
-        '8.1',
-        'Приключения Паддингтона 2',
-        'Фентези, комедия, приключения',
-        '.popular .movieCards',
-        '2017'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/macdack.png',
+        markMZ: '7.6',
+        rusTitle: 'Основатель',
+        genre: 'Биография, драма',
+        parentHTML: '.popular .movieCards',
+        year: '2016'
+    }).render();
 
-    new MovieCard(
-        'images/popular/velikan.png',
-        '#',
-        '6.1',
-        'Большой и добрый великан',
-        'Фентези, приключения',
-        '.popular .movieCards',
-        '2016'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/deadpool.png',
+        markMZ: '7.6',
+        rusTitle: 'Дэдпул',
+        genre: 'Боевик, комедия',
+        parentHTML: '.popular .movieCards',
+        year: '2016'
+    }).render();
 
-    new MovieCard(
-        'images/popular/macdack.png',
-        '#',
-        '7.6',
-        'Основатель',
-        'Биография, драма',
-        '.popular .movieCards',
-        '2016'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/bro.png',
+        markMZ: '8.32',
+        rusTitle: 'Брат',
+        genre: 'Драма, боевик',
+        parentHTML: '.popular .movieCards',
+        year: '1997'
+    }).render();
 
-    new MovieCard(
-        'images/popular/deadpool.png',
-        '#',
-        '7.6',
-        'Дэдпул',
-        'Боевик, комедия',
-        '.popular .movieCards',
-        '2016'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/visit.png',
+        markMZ: '6.21',
+        rusTitle: 'Визит',
+        genre: 'Ужасы',
+        parentHTML: '.popular .movieCards',
+        year: '2015'
+    }).render();
 
-    new MovieCard(
-        'images/popular/bro.png',
-        '#',
-        '8.32',
-        'Брат',
-        'Драма, боевик',
-        '.popular .movieCards',
-        '1997'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/krampus.png',
+        markMZ: '5.8',
+        rusTitle: 'Крампус',
+        genre: 'Ужасы, фэнтези, комедия',
+        parentHTML: '.popular .movieCards',
+        year: '2015'
+    }).render();
 
-    new MovieCard(
-        'images/popular/visit.png',
-        '#',
-        '6.21',
-        'Визит',
-        'Ужасы',
-        '.popular .movieCards',
-        '2015'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/goosebumps.png',
+        markMZ: '6.24',
+        rusTitle: 'Ужастики',
+        genre: 'Приключения, комедия, фэнтези',
+        parentHTML: '.popular .movieCards',
+        year: '2015'
+    }).render();
 
-    new MovieCard(
-        'images/popular/krampus.png',
-        '#',
-        '5.8',
-        'Крампус',
-        'Ужасы, фэнтези, комедия',
-        '.popular .movieCards',
-        '2015'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/earth.png',
+        markMZ: '8.9',
+        rusTitle: 'Земля: Один потрясающий день',
+        genre: 'Документальный, семейный',
+        parentHTML: '.popular .movieCards',
+        year: '2017'
+    }).render();
 
-    new MovieCard(
-        'images/popular/goosebumps.png',
-        '#',
-        '6.24',
-        'Ужастики',
-        'Приключения, комедия, фэнтези',
-        '.popular .movieCards',
-        '2015'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/coco.png',
+        markMZ: '8.7',
+        rusTitle: 'Тайна Коко',
+        genre: 'Фэнтези, комедия, приключения, семейный',
+        parentHTML: '.popular .movieCards',
+        year: '2017'
+    }).render();
 
-    new MovieCard(
-        'images/popular/earth.png',
-        '#',
-        '8.9',
-        'Земля: Один потрясающий день',
-        'Документальный, семейный',
-        '.popular .movieCards',
-        '2017'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/van-gogh.png',
+        markMZ: '8.2',
+        rusTitle: 'Ван Гог. С любовью Винсент',
+        genre: 'Биография, драма, преступление',
+        parentHTML: '.popular .movieCards',
+        year: '2017'
+    }).render();
 
-    new MovieCard(
-        'images/popular/coco.png',
-        '#',
-        '8.7',
-        'Тайна Коко',
-        'Фэнтези, комедия, приключения, семейный',
-        '.popular .movieCards',
-        '2017'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/goosebumps-2.png',
+        markMZ: '6.04',
+        rusTitle: 'Ужастики 2',
+        genre: 'Фэнтези, комедия, приключения',
+        parentHTML: '.popular .movieCards',
+        year: '2018'
+    }).render();
 
-    new MovieCard(
-        'images/popular/van-gogh.png',
-        '#',
-        '8.2',
-        'Ван Гог. С любовью Винсент',
-        'Биография, драма, преступление',
-        '.popular .movieCards',
-        '2017'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/house-that-jack-built.png',
+        markMZ: '7.02',
+        rusTitle: 'Дом, который построил Джек',
+        genre: 'Триллер, драма, преступление, ужасы',
+        parentHTML: '.popular .movieCards',
+        year: '2018'
+    }).render();
 
-    new MovieCard(
-        'images/popular/goosebumps-2.png',
-        '#',
-        '6.04',
-        'Ужастики 2',
-        'Фэнтези, комедия, приключения',
-        '.popular .movieCards',
-        '2018'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/hugo.png',
+        markMZ: '8.1',
+        rusTitle: 'Кузя и семейка троллей',
+        genre: 'Мультфильм, семейный',
+        parentHTML: '.popular .movieCards',
+        year: '2018'
+    }).render();
 
-    new MovieCard(
-        'images/popular/house-that-jack-built.png',
-        '#',
-        '7.02',
-        'Дом, который построил Джек',
-        'Триллер, драма, преступление, ужасы',
-        '.popular .movieCards',
-        '2018'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/maigret.png',
+        markMZ: '7.12',
+        rusTitle: 'Мегрэ: Ночь на перекрёстке',
+        genre: 'Драма, преступление, детектив',
+        parentHTML: '.popular .movieCards',
+        year: '2017'
+    }).render();
 
-    new MovieCard(
-        'images/popular/hugo.png',
-        '#',
-        '8.1',
-        'Кузя и семейка троллей',
-        'Мультфильм, семейный',
-        '.popular .movieCards',
-        '2018'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/klaus.png',
+        markMZ: '8.72',
+        rusTitle: 'Клаус',
+        genre: 'Семейный, приключения',
+        parentHTML: '.popular .movieCards',
+        year: '2019'
+    }).render();
 
-    new MovieCard(
-        'images/popular/maigret.png',
-        '#',
-        '7.12',
-        'Мегрэ: Ночь на перекрёстке',
-        'Драма, преступление, детектив',
-        '.popular .movieCards',
-        '2017'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/lion-the-king.png',
+        markMZ: '7.2',
+        rusTitle: 'Король лев',
+        genre: 'Семейный, приключения',
+        parentHTML: '.popular .movieCards',
+        year: '2019'
+    }).render();
 
-    new MovieCard(
-        'images/popular/klaus.png',
-        '#',
-        '8.72',
-        'Клаус',
-        'Семейный, приключения',
-        '.popular .movieCards',
-        '2019'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/greenland.png',
+        markMZ: '6.8',
+        rusTitle: 'Гренландия',
+        genre: 'Боевик, драма',
+        parentHTML: '.popular .movieCards',
+        year: '2020'
+    }).render();
 
-    new MovieCard(
-        'images/popular/lion-the-king.png',
-        '#',
-        '7.2',
-        'Король лев',
-        'Семейный, приключения',
-        '.popular .movieCards',
-        '2019'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/wolfs-legend.png',
+        markMZ: '8.2',
+        rusTitle: 'Легенда о волках',
+        genre: 'Приключения, семейный',
+        parentHTML: '.popular .movieCards',
+        year: '2020'
+    }).render();
 
-    new MovieCard(
-        'images/popular/greenland.png',
-        '#',
-        '6.8',
-        'Гренландия',
-        'Боевик, драма',
-        '.popular .movieCards',
-        '2020'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/druk.png',
+        movieID: '03b2e6dd-0f34-4c97-9748-7c2ea0a07ce6',
+        markMZ: '7.6',
+        rusTitle: 'Ещё по одной',
+        genre: 'Драма, комедия',
+        parentHTML: '.popular .movieCards',
+        year: '2020'
+    }).render();
 
-    new MovieCard(
-        'images/popular/wolfs-legend.png',
-        '#',
-        '8.2',
-        'Легенда о волках',
-        'Приключения, семейный',
-        '.popular .movieCards',
-        '2020'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/popular/alita.png',
+        markMZ: '7.22',
+        rusTitle: 'Алита: боевой ангел',
+        genre: 'Боевик, фантастика',
+        parentHTML: '.popular .movieCards',
+        year: '2019'
+    }).render();
 
-    new MovieCard(
-        'images/popular/druk.png',
-        'druk.html',
-        '7.6',
-        'Ещё по одной',
-        'Драма, комедия',
-        '.popular .movieCards',
-        '2020'
-    ).render();
-
-    new MovieCard(
-        'images/popular/alita.png',
-        '#',
-        '7.22',
-        'Алита: боевой ангел',
-        'Боевик, фантастика',
-        '.popular .movieCards',
-        '2019'
-    ).render();
-
-    new MovieCard(
-        'images/filmPosters/escape.png',
-        'escape-from-pretoria.html',
-        '6.7',
-        'Побег из Претории',
-        'Триллер',
-        '.popular .movieCards',
-        '2020'
-    ).render();
+    new MovieCard({
+        primaryPoster: 'images/filmPosters/escape.png',
+        movieID: '12249b49-a322-4502-b118-e9154fe7733e',
+        markMZ: '6.7',
+        rusTitle: 'Побег из Претории',
+        genre: 'Триллер',
+        parentHTML: '.popular .movieCards',
+        year: '2020'
+    }).render();
 };
 
 export default movieCards;
