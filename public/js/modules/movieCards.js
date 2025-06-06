@@ -1,4 +1,4 @@
-import buildMainPageComponent from "../services/MainPageRequests";
+import MainPageRequest from "../services/MainPageRequests";
 
 function movieCards() {
     class MovieCard {
@@ -14,7 +14,7 @@ function movieCards() {
         render() {
             const element = document.createElement('div');
             if (!this.movieID) {
-                this.movieID = '#'
+                this.movieID = '404-page'
             }
             element.classList.add(`cardItem`);
 
@@ -77,7 +77,19 @@ function movieCards() {
                 }
             })
 
-            this.genreType = genreType.join(' ')
+            this.genreType = genreType.join(' ');
+
+            const redirectBTN = document.createElement('button');
+            redirectBTN.innerHTML = '<span>Узнать больше</span>';
+            redirectBTN.classList.add("cardItem__rectangle");
+            redirectBTN.addEventListener('click', () => {
+                localStorage.setItem('lastViewed', this.movieID);
+                if (this.movieID == '404-page') {
+                    location.href = '404-page.html'
+                } else {
+                    location.href = 'movie-page.html'
+                }
+            })
             
             element.innerHTML = `
                 <div class="cardItem__imageBox">
@@ -86,9 +98,6 @@ function movieCards() {
                         <span>${this.mark}</span>
                     </div>
                     <img src=${this.src} class="cardItem__image">
-                    <button id=${this.movieID} class="cardItem__rectangle">
-                        <span>Узнать больше</span>
-                    </button>
                 </div>
                 <h4 class="cardItem__movieTitle ${this.year}">
                     ${this.title}
@@ -97,6 +106,7 @@ function movieCards() {
                     ${this.genre}
                 </h6>
             `;
+            element.firstElementChild.append(redirectBTN);
             this.parent.append(element);
 
         }
@@ -104,7 +114,7 @@ function movieCards() {
 
     // cinemaNow
 
-    buildMainPageComponent('/api/getTrends', MovieCard);
+    MainPageRequest('/api/getTrends', MovieCard);
 
     // popular
 

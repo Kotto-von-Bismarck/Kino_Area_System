@@ -750,7 +750,6 @@ app.post( "/upload", upload.single("file"), (req, res) => {
 
 
 // маршрут на получение афиши
-
 app.get('/api/getTrends', (req, res) => {
     Movies.findAll({
         raw: true, 
@@ -770,7 +769,20 @@ app.get('/api/getTrends', (req, res) => {
     .catch(e => console.log(`error: ${e}`));
 });
 
+// маршрут на получение данных фильма
+app.post('/api/getMovie', (req, res) => {
+    const { filmName } = req.body;
 
+    Movies.findOne({
+        where: { movieID: { [Op.substring] : filmName } }  
+    })
+    .then(movie => {
+        console.log(movie.dataValues);
+
+        res.send(movie.dataValues);
+    })
+    .catch(e => console.log(`error: ${e}`));
+});
 
 
 

@@ -1,3 +1,5 @@
+import moviePageContent from './modules/moviePageConstructor'
+
 import pagesContent from './modules/allPagesContent';
 import actors from './modules/actorsCardsForMoviePages';
 import achievements from './modules/achievementsConstructor';
@@ -45,19 +47,23 @@ window.addEventListener('DOMContentLoaded', () => {
         mobileMenu();
         upElement();
         profileGenerator();
-    } else {
-        tokenVerification();
-        pagesContent();
-        actors();
-        achievements();
-        reviews();
-        modalWindows();
-        postFormData();
-        searchItems();
-        search();
+    } else if (document.querySelector('.body').classList.contains('404-page')) {
         mobileMenu();
-        filterTabs();
-        videoPlayer();
-        upElement();   
+        upElement(); 
+    } else {
+        moviePageContent();
+        // tokenVerification();
+        // pagesContent();
+        // actors();
+        // achievements();
+        // reviews();
+        // modalWindows();
+        // postFormData();
+        // searchItems();
+        // search();
+        // mobileMenu();
+        // filterTabs();
+        // videoPlayer();
+        // upElement();   
     }
 });

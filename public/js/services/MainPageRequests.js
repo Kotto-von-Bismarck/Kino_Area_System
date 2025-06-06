@@ -1,4 +1,4 @@
-const buildMainPageComponent = function(url, constructorName) {
+const MainPageRequest = function(url, constructorOrArgument) {
 
     async function getJSON(url) {            
         const res = await fetch(url)
@@ -21,12 +21,12 @@ const buildMainPageComponent = function(url, constructorName) {
     }
 
     if (url == '/api/getTrends') {
-        getJSON('/api/getTrends').then(data => {
+        getJSON(url).then(data => {
             data.forEach(item => {
-                new constructorName(item).render();
+                new constructorOrArgument(item).render();
             });
         });
     }
 }
 
-export default buildMainPageComponent;
+export default MainPageRequest;
