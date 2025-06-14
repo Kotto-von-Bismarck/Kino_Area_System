@@ -48,8 +48,8 @@ function filterTabs() {
     };
 
     if(!document.querySelector('.body').classList.contains('moviePageBody')) {
-
-            // cinemaNow section
+    
+        // cinemaNow section
         new FilterMechanism({
             cardItem: document.querySelector('.cinemaNow').querySelectorAll('.cardItem__movieGanre'),
             tabs: document.querySelector('.cinemaNow').querySelectorAll('.subheader__item'),

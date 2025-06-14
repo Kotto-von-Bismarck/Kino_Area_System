@@ -55,13 +55,13 @@
             font-size: 16px
             gap: 20px 0 
         &__thirdFlexBox
-            grid-template-columns: repeat(3, 1fr)
+            display: grid
+            grid-template-columns: 1fr
             gap: 30px      
             .director
                 flex-direction: row
                 justify-content: flex-start
                 align-items: center
-                grid-column: span 3
                 div > div
                     margin-bottom: 15px
                     margin-left: 35px
@@ -151,8 +151,6 @@
     .movieDescription
         &__thirdFlexBox
             padding: 15px 25px
-            grid-template-columns: repeat(3, 1fr)
-            gap: 30px      
             .movieInfo
                 &__title
                     font-size: 16px
@@ -160,8 +158,6 @@
                 &__descr
                     font-size: 14px 
                     line-height: 23px
-            .director
-                grid-column: span 3
         &__firstFlexBox
             min-height: fit-content
             max-height: 900px
@@ -303,9 +299,12 @@
         &__thirdFlexBox
             display: flex
             flex-direction: column
+            .Studios
+                display: block
             .movieInfo
                 flex-direction: row
                 justify-content: space-between
+                margin-bottom: 20px
                 &__descr
                     width: 50%
             .director
@@ -398,7 +397,7 @@
             .trailer__more
                 align-self: center !important
         .ReviewFilterTabs
-            height: 100px
+            height: 130px
             &__tabsList
                 display: grid
                 grid-template-columns: repeat(2, 1fr)
@@ -443,10 +442,18 @@
         .third-con
             height: 140px
             flex-wrap: wrap
-            span
-                width: 60vw
-            .markBorder:nth-child(3) 
-                width: 57vw
+            justify-content: center
+            .markBorder:nth-child(1) 
+                order: 1
+                margin-right: 10px
+            .markBorder:nth-child(2) 
+                order: 3
+            .markBorder:nth-child(3)
+                width: 100%
+                order: 4
+            .markBorder:nth-child(4) 
+                order: 2
+                margin-right: 10px
             .NONEMOB
                 display: block !important
     .achievement__contant

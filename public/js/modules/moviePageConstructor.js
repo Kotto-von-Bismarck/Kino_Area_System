@@ -31,12 +31,7 @@ function moviePageContent () {
             this.TimeLimit = data.duration;
             this.directorIMG = data.directorImg;
             this.directorNameRus = data.directorRusName;
-            this.directorNameEng = data.directorEngName;
-
-            // this.ProductionSpanList = data.ProductionSpanList;
-            // this.SpecialEffectsSpanList = data.SpecialEffectsSpanList;
-            // this.DubbingStudioSpanList = data.DubbingStudioSpanList;
-            
+            this.directorNameEng = data.directorEngName;            
             this.mainBackgroundImageSRC = data.background;
         }
         render() {
@@ -275,7 +270,7 @@ function moviePageContent () {
                 </div>
                 <div class="movieDescription__thirdFlexBox">
                     <div class="director">
-                        <img src=${this.directorIMG} alt="directorIMG">
+                        <img src=${this.directorIMG} loading="lazy" alt="directorIMG">
                         <div>
                             <div>
                                 <span class="position__nameRus">
@@ -294,28 +289,10 @@ function moviePageContent () {
                             </div>                                    
                         </div>
                     </div>
-                    <div class="movieInfo">
-                        <h5 class="movieInfo__title">
-                            Производство:
-                        </h5>
-                        <div class="movieInfo__descr">
-                            ${this.ProductionSpanList}
-                        </div>
-                    </div>
-                    <div class="movieInfo">
-                        <h5 class="movieInfo__title">
-                            Спецэффекты:
-                        </h5>
-                        <div class="movieInfo__descr">
-                            ${this.SpecialEffectsSpanList}
-                        </div>
-                    </div>
-                    <div class="movieInfo">
-                        <h5 class="movieInfo__title">
-                            Студия дубляжа:
-                        </h5>
-                        <div class="movieInfo__descr">
-                            ${this.DubbingStudioSpanList}
+                    <div class="Studios">
+                        <div class="loading" style="margin: 0 auto; grid-column: span 3; height: 200px">
+                            <img class="logobottom" src="icons/forLoading/loadingLogo.svg">
+                            <img class="logotop" src="icons/forLoading/loadingDots.svg">
                         </div>
                     </div>
                 </div>
@@ -323,12 +300,7 @@ function moviePageContent () {
             parentHTML.firstElementChild.append(childHTML);
         }
     };
-
     const localMovieID = localStorage.getItem('lastViewed');
-    
-    console.log(typeof localMovieID);
-
     constructComponent('/api/getMovie', localMovieID, moviePageSpumer);
 };
-
 export default moviePageContent;

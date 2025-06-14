@@ -1,8 +1,10 @@
 import moviePageContent from './modules/moviePageConstructor'
+import studiosContent from './modules/studiosConstructor'
 
-import pagesContent from './modules/allPagesContent';
-import actors from './modules/actorsCardsForMoviePages';
-import achievements from './modules/achievementsConstructor';
+import frames from './modules/postersConstructor';
+import actors from './modules/actorCardsConstructor';
+import awrds from './modules/awardsConstructor';
+import quotes from './modules/quotesConstructor';
 import reviews from './modules/ReviewCards';
 
 import modalWindows from './modules/modalWindowsAndSearch';
@@ -33,12 +35,22 @@ window.addEventListener('DOMContentLoaded', () => {
         movieCards();
         boxOffice();
         expectedMovie();
-        filterTabs();
         videoPlayer();
         lastNews();
-        tabs()
-        sliders();
-        upElement();
+        const firstAwaitInterwal = setInterval(() => {
+            if (document.querySelector('.cinemaNow .cardItem')) {
+                filterTabs();
+                clearInterval(firstAwaitInterwal);
+            }
+        }, 1000);
+        const secondAwaitInterwal = setInterval(() => {
+            if (document.querySelector('.openTrailerWrapper')) {
+                tabs();
+                sliders();
+                upElement();
+                clearInterval(secondAwaitInterwal);
+            }
+        }, 1000);
     } else if (document.querySelector('.body').classList.contains('profilePageSelector')) {
         tokenVerification();
         modalWindows();
@@ -52,6 +64,17 @@ window.addEventListener('DOMContentLoaded', () => {
         upElement(); 
     } else {
         moviePageContent();
+        const awaitMovieDataInterwal = setInterval(() => {
+            if (document.querySelector('.movieDescription__thirdFlexBox')) {
+                studiosContent();                
+                clearInterval(awaitMovieDataInterwal);
+            }
+        }, 1000);
+        actors();
+        videoPlayer();
+        awrds();
+        frames();
+        quotes();
         // tokenVerification();
         // pagesContent();
         // actors();
@@ -63,7 +86,6 @@ window.addEventListener('DOMContentLoaded', () => {
         // search();
         // mobileMenu();
         // filterTabs();
-        // videoPlayer();
         // upElement();   
     }
 });

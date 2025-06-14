@@ -26,6 +26,30 @@ const MainPageRequest = function(url, constructorOrArgument) {
                 new constructorOrArgument(item).render();
             });
         });
+    } else if (url == '/api/getNewTrailers') {
+        const PlayerConstructor = constructorOrArgument[0],
+              TabsConstructor = constructorOrArgument[1];
+
+        getJSON(url).then(data => {
+            const trailersArray = data;
+
+            trailersArray.forEach((item, i) => {
+                if (i < 4) {
+                    Object.assign(item, { 
+                        parent: '.trailer .openTrailerBase',
+                        tabParent: '.trailer .trailer__slider .firstTS-box'
+                    });
+                } else {
+                    Object.assign(item, { 
+                        parent: '.trailer .openTrailerBase',
+                        tabParent: '.trailer .trailer__slider .secondTS-box'
+                    });
+                }
+                console.log(item);
+                new PlayerConstructor(item).render();
+                new TabsConstructor(item).render();
+            });
+        })
     }
 }
 

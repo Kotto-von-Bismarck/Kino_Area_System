@@ -103,7 +103,6 @@ function sliders() {
                         offset = 0;
                     } else {
                         offset += c;
-                        console.log(itemWidth);
                     }
                     sliderInner.style.transform = `translateX(-${offset}px)`;
 

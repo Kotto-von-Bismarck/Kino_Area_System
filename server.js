@@ -589,165 +589,19 @@ app.post( "/upload", upload.single("file"), (req, res) => {
     }
 });
 
-// маршрут на получение всех актёров
-
-// app.post('/api/getActorsList', (req, res) => {
-//     const {filmName} = req.body;
-//     Actor.findAll({raw:true, 
-//         where: { roleInFilm: { [Op.substring] : filmName } }  
-//     })
-//     .then(actors => {        
-//         res.send(actors);
-//     })
-//     .catch(e => console.log(`error: ${e}`));
-// });
-
 // маршрут на получение всех достижений кинокартины
-// app.post('/api/getFilmAchievements', (req, res) => {
-//     const {filmName} = req.body;
-//     let awards = [];
-
-//     Oscar.findAll({
-//         raw:true, 
-//         attributes: ['nomination', 'year'],
-//         where: { film: { [Op.substring] : filmName } }
-//     })
-//     .then(achievs => {
-//         let shortAchievsInfo = achievs.map(item =>
-//             Object.assign( item, 
-//                 { 
-//                     awardName: 'Премия Оскар',
-//                     imgPath: 'icons/avards/awardOscar.png'
-//                 }
-//             )
-//         );
-//         awards.push([...shortAchievsInfo]);
-//     })
-//     .then(() => {
-//         BritishAcademy.findAll({
-//             raw:true, 
-//             attributes: ['nomination', 'year'],
-//             where: { film: { [Op.substring] : filmName } }
-//         })
-//         .then(achievs => {
-//             let shortAchievsInfo = achievs.map(item =>
-//                 Object.assign( item, 
-//                     { 
-//                         awardName: 'Премия Британской Киноакадемии',
-//                         imgPath: 'icons/avards/brit-academ.png'
-//                     }
-//                 )
-//             );
-//             awards.push([...shortAchievsInfo]);
-//         })
-//         .then(() => {
-//             SAG.findAll({
-//                 raw:true, 
-//                 attributes: ['nomination', 'year'],
-//                 where: { film: { [Op.substring] : filmName } }
-//             })
-//             .then(achievs => {
-//                 let shortAchievsInfo = achievs.map(item =>
-//                     Object.assign( item, 
-//                         { 
-//                             awardName: 'Премия Гильдии Актёров',
-//                             imgPath: 'icons/avards/achievement243.png'
-//                         }
-//                     )
-//                 );
-//                 awards.push([...shortAchievsInfo]);
-//             })
-//             .then(() => {
-//                 Saturn.findAll({
-//                     raw:true, 
-//                     attributes: ['nomination', 'year'],
-//                     where: { film: { [Op.substring] : filmName } }
-//                 })
-//                 .then(achievs => {
-//                     let shortAchievsInfo = achievs.map(item =>
-//                         Object.assign( item, 
-//                             { 
-//                                 awardName: 'Премия Сатурн',
-//                                 imgPath: 'icons/avards/saturn.png'
-//                             }
-//                         )
-//                     );
-//                     awards.push([...shortAchievsInfo]);
-//                 })
-//                 .then(() => {
-//                     NominationOnAward.findAll({
-//                         raw:true, 
-//                         attributes: ['nomination', 'year', 'award'],
-
-//                         where: { film: { [Op.substring] : filmName } }
-//                     })
-//                     .then(achievs => {
-//                         let shortAchievsInfo = achievs.map(item => {
-//                             let src = 'icons/avards/';
-//                             switch (item.award) {
-//                                 case 'Сатурн':
-//                                     src += 'saturn-nomination.png';
-//                                     break;
-//                                 case 'Золотой глобус':
-//                                     src += 'awardGoldenGlobe-nomination.png';
-//                                     break;
-//                                 case 'Оскар':
-//                                     src += 'awardOscar-nomination.png';
-//                                     break;
-//                                 case 'Британская академия':
-//                                     src += 'brit-academ-nomination.png';
-//                                     break;
-//                                 case 'Эмми':
-//                                     src += 'emmi-nomination.png';
-//                                     break;
-//                             }
-//                             return Object.assign( item, 
-//                                 { 
-//                                     awardName: `Номинация на премию ${item.award}`,
-//                                     imgPath: `${src}`
-//                                 }
-//                             )
-//                         });
-//                         console.log(shortAchievsInfo);
-//                         awards.push([...shortAchievsInfo]);
-//                     })
-//                     .then(() => {
-//                         GoldenGlobes.findAll({
-//                             raw:true, 
-//                             attributes: ['nomination', 'year'],
-//                             where: { film: { [Op.substring] : filmName } }
-//                         })
-//                         .then(achievs => {
-//                             let shortAchievsInfo = achievs.map(item =>
-//                                 Object.assign( item, 
-//                                     { 
-//                                         awardName: 'Премия Золотой Глобус',
-//                                         imgPath: 'icons/avards/awardGoldenGlobe.png'
-//                                     }
-//                                 )
-//                             );
-//                             awards.push([...shortAchievsInfo]);
-//                         })
-//                         .then(() => {
-//                             let allAwards = [];
-//                             awards.forEach(award => {
-//                                 if (award.length > 1) {
-//                                     award.forEach(obj => allAwards.push(obj))
-//                                 } else if (award.length > 0 && award.length < 2) {
-//                                     allAwards.push(...award)
-//                                 }
-//                             })
-                            
-//                             res.send(allAwards);
-//                         })
-//                     })
-//                 })
-//             })
-//         })
-//     })
-//     .catch(e => console.log(`error: ${e}`));
-// });
-
+app.get('/api/getAwards', (req, res) => {
+    const {filmname} = req.headers;
+    Awards.findAll({
+        raw: true, 
+        attributes: ['awardName', 'nomination', 'year', 'isAwarded'],
+        where: { movieID: { [Op.substring] : filmname } }
+    })
+    .then(awards => {
+        res.send(awards);
+    })
+    .catch(e => console.log(`error: ${e}`));
+});
 
 // маршрут на получение афиши
 app.get('/api/getTrends', (req, res) => {
@@ -769,21 +623,98 @@ app.get('/api/getTrends', (req, res) => {
     .catch(e => console.log(`error: ${e}`));
 });
 
+// маршрут на получение новых трейлеров
+app.get('/api/getNewTrailers', (req, res) => {
+    NewTrailers.findAll({
+        raw: true, 
+        attributes: ['newTrailerID', 'fullsizePreview', 'miniPreview', 'trailer', 'likesQuantity', 'title', 'dislikesQuantity']
+    })
+    .then(newTrailers => {        
+        res.send(newTrailers);
+    })
+    .catch(e => console.log(`error: ${e}`));
+});
+
 // маршрут на получение данных фильма
-app.post('/api/getMovie', (req, res) => {
-    const { filmName } = req.body;
+app.get('/api/getMovie', (req, res) => {
+    const { filmname } = req.headers;
 
     Movies.findOne({
-        where: { movieID: { [Op.substring] : filmName } }  
+        where: { movieID: { [Op.substring] : filmname } }  
     })
     .then(movie => {
-        console.log(movie.dataValues);
-
         res.send(movie.dataValues);
     })
     .catch(e => console.log(`error: ${e}`));
 });
 
+// маршрут на получение данных студий
+app.get('/api/getStudios', (req, res) => {
+    const { filmname } = req.headers;
+
+    Studios.findOne({
+        where: { movieID: { [Op.substring] : filmname } }  
+    })
+    .then(studio => {
+        res.send(studio.dataValues);
+    })
+    .catch(e => console.log(`error: ${e}`));
+});
+
+// маршрут на получение трейлера к фильму
+app.get('/api/getTrailer', (req, res) => {
+    const { filmname } = req.headers;
+
+    Trailers.findOne({
+        raw: true, 
+        attributes: ['fullsizePreview', 'trailer', 'likesQuantity', 'dislikesQuantity', 'title', 'trailerID'],
+        where: { movieID: { [Op.substring] : filmname } }  
+    })
+    .then(trailer => {
+        res.send(trailer);
+    })
+    .catch(e => console.log(`error: ${e}`));
+});
+
+// маршрут на получение данных актёров и их ролей
+app.get('/api/getActorsList', async (req, res) => {
+    const { filmname } = req.headers;
+    sequelize.query(
+        `SELECT Characters.name, Characters.movieID, Actors.imgPath, Actors.nameRus, Actors.nameEng FROM Characters JOIN Actors ON Actors.actorID = Characters.actorId WHERE movieID = '${filmname}'`
+    ).then(([results, metadata]) => {          
+        res.send(results);
+    });      
+});
+
+// маршрут на получение постеров и кадров из фильма
+app.get('/api/getFrames', (req, res) => {
+    const { filmname } = req.headers;
+
+    Frames.findOne({
+        raw: true, 
+        attributes: ['additionalPosters', 'framesFolder'],
+        where: { movieID: { [Op.substring] : filmname } }  
+    })
+    .then(framesGroup => {        
+        res.send(framesGroup);
+    })
+    .catch(e => console.log(`error: ${e}`));
+});
+
+// маршрут на получение цитат из фильма
+app.get('/api/getQuotes', (req, res) => {
+    const { filmname } = req.headers;
+
+    Quotes.findAll({
+        raw: true, 
+        attributes: ['quote', 'quoteAuthor'],
+        where: { movieID: { [Op.substring] : filmname } }  
+    })
+    .then(QuotesGroup => {        
+        res.send(QuotesGroup);
+    })
+    .catch(e => console.log(`error: ${e}`));
+});
 
 
 // // маршрут на создание записи 
@@ -863,7 +794,7 @@ app.post('/login', async (request, response) => {
                 return response.sendStatus(400)
             }
 
-            let token = jwt.sign( { nickname: nickname }, "2315", { expiresIn: "120m" } )
+            let token = jwt.sign( { nickname: nickname }, "2315", { expiresIn: "15m" } )
             response.send( { token } )
         } else {
             response.send( {res: 'Время сессии истекло, войдите ещё раз!'} )
@@ -1014,8 +945,9 @@ app.listen(3000, () => {
 
 
 // const [results, metadata] = await sequelize.query(
-//   "DROP TABLE GoldenGlobes"
+//   `SELECT Characters.name, Characters.movieID, Actors.imgPath, Actors.nameRus, Actors.nameEng FROM Characters JOIN Actors ON Actors.actorID = Characters.actorId WHERE movieID = '${movieID}'`
 // )
+ 
 // console.log(results);
 
 // let newActors = results.map(obj => {

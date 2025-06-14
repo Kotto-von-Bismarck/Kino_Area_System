@@ -62,6 +62,8 @@ function movieCards() {
                         break;
                     case 'приключения': genreType.push('adventures')
                         break;
+                    case 'приключение': genreType.push('adventures')
+                        break;
                     case 'комедия': genreType.push('comedy')
                         break;
                     case 'биография': genreType.push('biography')
