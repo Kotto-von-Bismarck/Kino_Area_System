@@ -35,6 +35,8 @@ const upload = multer({
   dest: "/public/img/users-avatars/uploadAvatars"
 });
 
+const _server_401_response_ = '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ошибка 401</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>alert("Возникла ошибка аутентификации");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000)</script>';
+const _server_500_response_ = '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ошибка 500</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>alert("Возникла непредвиденная шибка!");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000)</script>';
 
 const Movies = sequelize.define(
     'Movies',
@@ -374,8 +376,8 @@ const Awards = sequelize.define(
 Movies.hasMany(Awards, { foreignKey: 'movieID' });
 AvailableAwards.hasMany(Awards, { foreignKey: 'awardName' });
 
-const User = sequelize.define(
-    'User',
+const Users = sequelize.define(
+    'Users',
     {
         userID: { 
             allowNull: false,
@@ -422,12 +424,148 @@ const User = sequelize.define(
         userBio: {
             type: DataTypes.STRING,
             allowNull: true
-        },        
-    },
-    {
-      freezeTableName: true,
+        }, 
+        reviews: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },
+        tickets: {
+            type: DataTypes.STRING,
+            allowNull: true
+        },       
     }
 )
+
+const Reviews = sequelize.define(
+    'Reviews',
+    {
+        reviewID: { 
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4
+        },
+        reviewType: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        text: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        title: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        likesQuantity: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+        dislikesQuantity: {
+            type: DataTypes.INTEGER,
+            allowNull: false
+        },
+    }
+)
+
+Users.hasMany(Reviews, { foreignKey: 'authorID' });
+Movies.hasMany(Reviews, { foreignKey: 'movieID' });
+
+// маршрут на публикацию рецензии к фильму
+app.post( "/publicReview", upload.single("file"), async (req, res) => {
+    const {token, title, movieId, reviewBody, reviewType} = req.body;
+
+    let ourUser;
+
+    jwt.verify(token, "2315", async (err, decoded) => {
+        if (decoded) {
+            ourUser = await Users.findOne({
+                raw: true, 
+                attributes: ['userID'],
+                where: {userID: decoded.id}
+            });
+        } else if (err) {
+            console.log(err);
+                return res
+                    .status(401)
+                    .contentType("html")
+                    .end ( _server_401_response_ )
+        }
+    }).then( async () => {
+        await Reviews.findOne({
+            raw: true, 
+            attributes: ['authorID'],
+            where: {authorID: ourUser.userID}
+        })
+
+        // await Reviews.create(
+        //     {
+        //         reviewType: reviewType,
+        //         text: reviewBody,
+        //         title: title,
+        //         likesQuantity: 0,
+        //         dislikesQuantity: 0,
+        //         movieID: movieId,
+        //         authorID: ourUser.userID
+
+        //     }
+        // )
+        .then( (review) => {
+            
+            console.log(review);
+            res
+                .status(200)
+                .contentType("html")
+                .end(
+                `<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Успешная операция</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>alert("Рецензия была добавлена");setTimeout(()=>{window.location.replace("http://localhost:3000/movie-page.html")},2000);</script>`
+                );
+        })
+    })
+});
+
+// маршрут на получение всех отзывов к кинокартине
+app.get('/api/getReviews', (req, res) => {
+    const {filmname} = req.headers;
+    sequelize.query(
+        `SELECT Reviews.*, Users.nickname, Users.avatar FROM Reviews JOIN Users ON Users.userID = Reviews.authorID WHERE movieID = '${filmname}'`
+    ).then(([results, metadata]) => {
+        const reviews = results.map(item => item = {
+            avatar: item.avatar,
+            nickname: item.nickname,
+            reviewtitle: item.title,
+            time: item.updatedAt,
+            reviewclass: item.reviewType,
+            reviewtext: item.text,
+            likesQuantity: item.likesQuantity,
+            dislikesQuantity: item.dislikesQuantity
+        })
+        // console.log(reviews);
+        res.send(reviews);
+    }).catch(e => console.log(`error: ${e}`));
+});
+
+// маршрут на получение части данных пользователя
+app.get('/api/getNickAndAvatar', async (req, res) => {
+    const {token} = req.headers;
+    let user;
+
+    jwt.verify(token, "2315", async (err, decoded) => {
+        if (err) {
+            res.send( {res: 'Время сессии истекло или пользователь не авторизован, войдите ещё раз!'} )
+        } else if (decoded) {
+            user = await Users.findOne(
+                {where: {userID: decoded.id}}
+            );
+
+            const data = { 
+                avatar: user.avatar,
+                nickname: user.nickname
+            };
+
+            res.send( data )
+        }
+    })    
+});
 
 // маршрут на получение данных пользователя
 app.post('/api/getProfileData', async (req, res) => {
@@ -439,8 +577,8 @@ app.post('/api/getProfileData', async (req, res) => {
         if (err) {
             res.send( {res: 'Время сессии истекло или пользователь не авторизован, войдите ещё раз!'} )
         } else if (decoded) {
-            user = await User.findOne(
-                {where: {nickname: decoded.nickname}}
+            user = await Users.findOne(
+                {where: {userID: decoded.id}}
             );
 
             const data = { 
@@ -464,14 +602,11 @@ app.post('/api/getProfileData', async (req, res) => {
 app.post( "/upload", upload.single("file"), async (req, res) => {
     const {token, firstname, surname, gender, birthday, email, nickname, city, userBio} = req.body;
 
-    const _server_401_response_ = '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ошибка 401</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>alert("Возникла ошибка аутентификации");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000)</script>';
-    const _server_500_response_ = '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ошибка 500</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>alert("Возникла непредвиденная шибка!");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000)</script>';
-
     let ourUser;
 
     jwt.verify(token, "2315", async (err, decoded) => {
         if (decoded) {
-            ourUser = await User.findOne( {where: {userID: decoded.id}} );
+            ourUser = await Users.findOne( {where: {userID: decoded.id}} );
         } else if (err) {
             console.log(err);
                 return res
@@ -482,8 +617,8 @@ app.post( "/upload", upload.single("file"), async (req, res) => {
     })
 
     
-    let userWithSimilarNickname = await User.findOne( {where: {nickname: nickname}} );
-    let userWithSimilarEmail = await User.findOne( {where: {email: email}} );
+    let userWithSimilarNickname = await Users.findOne( {where: {nickname: nickname}} );
+    let userWithSimilarEmail = await Users.findOne( {where: {email: email}} );
 
     // console.log(userWithSimilarNickname);
     // console.log(userWithSimilarEmail);
@@ -509,7 +644,7 @@ app.post( "/upload", upload.single("file"), async (req, res) => {
     console.log(req.file)
 
     if (!req.file) {
-        await User.update(
+        await Users.update(
             {
                 firstname: firstname,
                 surname: surname,
@@ -550,7 +685,7 @@ app.post( "/upload", upload.single("file"), async (req, res) => {
                         .end( _server_500_response_ );
                 }
 
-                await User.update(
+                await Users.update(
                     {
                         firstname: firstname,
                         surname: surname,
@@ -792,7 +927,7 @@ app.post('/login', async (request, response) => {
         if (nickname) {
             console.log(request.body);
 
-            let user = await User.findOne( {where: {nickname: nickname}} )
+            let user = await Users.findOne( {where: {nickname: nickname}} )
 
             if(user == null){
                 return response.sendStatus(404)
@@ -815,18 +950,18 @@ app.post('/regist', async (request, response) => {
 
     let data = request.body;
 
-    let user = await User.findOne( {where: {nickname: nickname}} );
+    let user = await Users.findOne( {where: {nickname: nickname}} );
     if(user != null){
         data = { error: '401' };
         return response.sendStatus(401)
     }
-    user = await User.findOne( {where: {email: email}} );
+    user = await Users.findOne( {where: {email: email}} );
     if(user != null){
         data = { error: '402' };
         return response.sendStatus(402)
     }
 
-    User.create( { firstname: firstname, password: password, surname: surname, nickname: nickname, email: email, gender: null, birthday: null, city: null, avatar: null, userBio: null} );
+    Users.create( { firstname: firstname, password: password, surname: surname, nickname: nickname, email: email, gender: null, birthday: null, city: null, avatar: null, userBio: null} );
 
     response.send( data )
 })
@@ -952,7 +1087,7 @@ app.listen(3000, () => {
 
 
 // const [results, metadata] = await sequelize.query(
-//   `SELECT Characters.name, Characters.movieID, Actors.imgPath, Actors.nameRus, Actors.nameEng FROM Characters JOIN Actors ON Actors.actorID = Characters.actorId WHERE movieID = '${movieID}'`
+//   `DROP TABLE User`
 // )
  
 // console.log(results);

@@ -81,7 +81,13 @@ window.addEventListener('DOMContentLoaded', () => {
         awrds();
         frames();
         quotes();
-        // filterTabs();
+        reviews();
+        const awaitReviewContentInterwal = setInterval(() => {
+            if (document.querySelector('.ReviewElement')) {
+                filterTabs();         
+                clearInterval(awaitReviewContentInterwal);
+            }
+        }, 1000);
         upElement();   
     }
 });

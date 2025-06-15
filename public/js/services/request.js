@@ -51,6 +51,18 @@ const constructComponent = function(url, film, constructorName) {
             data.forEach(item => new constructorName(item).render());
         });
     }
+    else if (url == '/api/getReviews') {
+        getData(url, film).then(data => {
+            const reviews = data.map(review =>
+                Object.assign(review, 
+                    { 
+                        parentSelector: '.ReviewContent'
+                    }
+                )
+            );
+            reviews.forEach(item => new constructorName(item).ReviewCards());
+        })
+    }
 }
 
 export default constructComponent;
