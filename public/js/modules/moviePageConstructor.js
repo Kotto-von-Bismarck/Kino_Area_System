@@ -36,9 +36,12 @@ function moviePageContent () {
         }
         render() {
 
-            const parentHTML = document.querySelector('.movieDescription');
+            const parentHTML = document.querySelector('.movieDescription'),
+                  pageTitle = document.querySelector('#PageTitle');
 
             parentHTML.style.cssText = `background: url(${this.mainBackgroundImageSRC}) top center/105% no-repeat`;
+
+            pageTitle.innerHTML = `${this.movieTitleRus}`;
 
             // painting MovieZoneMark
             if (this.MovieZoneMark <= 2) {

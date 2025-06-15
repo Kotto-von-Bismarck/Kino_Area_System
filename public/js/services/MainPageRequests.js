@@ -29,10 +29,8 @@ const MainPageRequest = function(url, constructorOrArgument) {
     } else if (url == '/api/getNewTrailers') {
         const PlayerConstructor = constructorOrArgument[0],
               TabsConstructor = constructorOrArgument[1];
-
         getJSON(url).then(data => {
             const trailersArray = data;
-
             trailersArray.forEach((item, i) => {
                 if (i < 4) {
                     Object.assign(item, { 
@@ -45,7 +43,6 @@ const MainPageRequest = function(url, constructorOrArgument) {
                         tabParent: '.trailer .trailer__slider .secondTS-box'
                     });
                 }
-                console.log(item);
                 new PlayerConstructor(item).render();
                 new TabsConstructor(item).render();
             });

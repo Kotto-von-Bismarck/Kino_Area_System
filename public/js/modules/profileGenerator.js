@@ -112,7 +112,7 @@ function profileGenerator() {
                             <div class="userParams__data">${birthday}</div>
 
                             <div class="userParams__title">Город:</div>
-                            <div class="userParams__data">${this.usercity}</div>
+                            <div class="userParams__data">${this.usercity == 'virtualCity' ? 'В моём городе нет кинотеатров-партнёров Movie zone' : this.usercity}</div>
                         </div>
                     </div>
                 </div>
@@ -223,9 +223,14 @@ function profileGenerator() {
             if (document.querySelector('.input-file input[type=file]')) {
                 let dt = new DataTransfer();
                 document.querySelector('.input-file input[type=file]').addEventListener('change', function () {
+                    
+                    if (this.files.length > 0) {
+                        this.parentElement.style.display='none'
+                    }
                     if(this.files[0].size > 2097152) {
                         alert("Размер файла слишком большой (максимум 2 МБ)");
                         this.value = "";
+                        this.parentElement.style.display='flex'
                     } else {
                         document.querySelector('.input-file').lastElementChild.innerHTML = `... ${this.files[0].name.slice(-28)}`
                         uploadImageForm = document.forms.requestForPostCatalogItem;

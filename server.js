@@ -461,20 +461,95 @@ app.post('/api/getProfileData', async (req, res) => {
 });
 
 // маршрут на редактирование пользовательских данных
-app.post( "/upload", upload.single("file"), (req, res) => {
+app.post( "/upload", upload.single("file"), async (req, res) => {
     const {token, firstname, surname, gender, birthday, email, nickname, city, userBio} = req.body;
 
-    if (!req.file) {
-        jwt.verify(token, "2315", async (err, decoded) => {
-            if (err) {
-                console.log(err);
-                res
+    const _server_401_response_ = '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ошибка 401</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>alert("Возникла ошибка аутентификации");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000)</script>';
+    const _server_500_response_ = '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ошибка 500</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>alert("Возникла непредвиденная шибка!");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000)</script>';
+
+    let ourUser;
+
+    jwt.verify(token, "2315", async (err, decoded) => {
+        if (decoded) {
+            ourUser = await User.findOne( {where: {userID: decoded.id}} );
+        } else if (err) {
+            console.log(err);
+                return res
                     .status(401)
                     .contentType("html")
-                    .end(
-                        '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ошибка 401</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>alert("Возникла ошибка аутентификации");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000)</script>'
-                    );
-            } else if (decoded) {
+                    .end ( _server_401_response_ )
+        }
+    })
+
+    
+    let userWithSimilarNickname = await User.findOne( {where: {nickname: nickname}} );
+    let userWithSimilarEmail = await User.findOne( {where: {email: email}} );
+
+    // console.log(userWithSimilarNickname);
+    // console.log(userWithSimilarEmail);
+    // console.log(ourUser.nickname, ourUser.email, ourUser.userID);
+
+    if (userWithSimilarNickname) {
+        if (userWithSimilarNickname.dataValues.nickname == nickname && userWithSimilarNickname.dataValues.userID != ourUser.userID) {
+            return res
+            .status(401)
+            .contentType("html")
+            .end( _server_401_response_ );
+        }
+    }
+    if (userWithSimilarEmail) {
+        if (userWithSimilarEmail.dataValues.email == email && userWithSimilarEmail.dataValues.userID != ourUser.userID) {
+            return res
+            .status(401)
+            .contentType("html")
+            .end( _server_401_response_ );
+        }
+    }
+
+    console.log(req.file)
+
+    if (!req.file) {
+        await User.update(
+            {
+                firstname: firstname,
+                surname: surname,
+                nickname: nickname,
+                email: email,
+                gender: gender,
+                birthday: birthday,
+                city: city,
+                userBio: userBio,        
+            },
+            {
+                where: { userID: ourUser.userID }
+            }
+        ).then( () => {
+            let newToken = jwt.sign( { nickname: nickname, id: ourUser.userID  }, "2315", { expiresIn: "10m" } );
+
+            res
+                .status(200)
+                .contentType("html")
+                .end(
+                `<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Успешная операция</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>localStorage.setItem('token', '${newToken}');alert("Данные профиля успешно изменены");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000);</script>`
+                );
+        })
+    } else {
+        const tempPath = req.file.path,
+            extN = path.extname(req.file.originalname);
+            
+        let targetPath = path.join( __dirname, `./uploads/${ourUser.userID}${extN}`);  
+        let newFileName = `${ourUser.userID}${extN}`;
+
+        if (extN == '.png') {
+            fs.rename(tempPath, targetPath, async err => {
+                if (err) {
+                    console.log(err);
+                    return res
+                        .status(500)
+                        .contentType("html")
+                        .end( _server_500_response_ );
+                }
+
                 await User.update(
                     {
                         firstname: firstname,
@@ -484,108 +559,40 @@ app.post( "/upload", upload.single("file"), (req, res) => {
                         gender: gender,
                         birthday: birthday,
                         city: city,
+                        avatar: newFileName,
                         userBio: userBio,        
                     },
                     {
-                        where: { nickname: decoded.nickname }
+                        where: { userID: ourUser.userID }
                     }
                 ).then( () => {
-                    let newToken = jwt.sign( { nickname: nickname }, "2315", { expiresIn: "120m" } );
-
-                    res
-                        .status(200)
-                        .contentType("html")
-                        .end(
-                        `<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Успешная операция</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>localStorage.setItem('token', '${newToken}');alert("Данные профиля успешно изменены");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000);</script>`
-                        );
-                })
-            }
-        })
-    } else {
-        const tempPath = req.file.path,
-            extN = path.extname(req.file.originalname);
-
-        let targetPath, newFileName, nick;
-
-        jwt.verify(token, "2315", async (err, decoded) => {
-            if (err) {
-                console.log(err);
-                res
-                    .status(401)
-                    .contentType("html")
-                    .end(
-                        '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ошибка 401</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>alert("Возникла ошибка аутентификации");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000)</script>'
-                    );
-            } else if (decoded) {
-                nick = decoded.nickname;
-                const user = await User.findOne( 
-                    {where: {nickname: decoded.nickname}}
+                    fs.rename(targetPath, (path.join(__dirname, `./public/uploadedAvatars/${newFileName}`)), err => {
+                        if (err) {
+                            console.log(err);
+                            return res
+                                .status(500)
+                                .contentType("html")
+                                .end( _server_500_response_ );
+                        } else {
+                            let newToken = jwt.sign( { nickname: nickname,  id: ourUser.userID }, "2315", { expiresIn: "10m" } );
+                            res
+                                .status(200)
+                                .contentType("html")
+                                .end(
+                                `<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Успешная операция</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>localStorage.setItem('token', '${newToken}');alert("Данные профиля успешно изменены");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000);</script>`
+                                );
+                            }
+                        });           
+                    })
+            })
+        } else {
+            res
+                .status(415)
+                .contentType("html")
+                .end(
+                    '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ошибка 415</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>alert("Ошибка! Неверный формат загрузки данных");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000)</script>'
                 );
-                targetPath = path.join(
-                    __dirname,
-                    `./uploads/${user.userID}${extN}`
-                );  
-                newFileName = `${user.userID}${extN}`;
-            }
-        }).then( () => {        
-            if (extN == '.png') {
-                fs.rename(tempPath, targetPath, async err => {
-                    if (err) {
-                        console.log(err);
-                        return res
-                            .status(500)
-                            .contentType("html")
-                            .end(
-                                '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ошибка 500</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>alert("Возникла непредвиденная шибка!");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000)</script>'
-                            );
-                    }
-
-                    await User.update(
-                        {
-                            firstname: firstname,
-                            surname: surname,
-                            nickname: nickname,
-                            email: email,
-                            gender: gender,
-                            birthday: birthday,
-                            city: city,
-                            avatar: newFileName,
-                            userBio: userBio,        
-                        },
-                        {
-                            where: { nickname: nick }
-                        }
-                    ).then( () => {
-                        fs.rename(targetPath, (path.join(__dirname, `./public/uploadedAvatars/${newFileName}`)), err => {
-                            if (err) {
-                                console.log(err);
-                                return res
-                                    .status(500)
-                                    .contentType("html")
-                                    .end(
-                                        '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ошибка 500</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>alert("Возникла непредвиденная шибка!");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000)</script>'
-                                    );
-                            } else {
-                                let newToken = jwt.sign( { nickname: nickname }, "2315", { expiresIn: "120m" } );
-                                res
-                                    .status(200)
-                                    .contentType("html")
-                                    .end(
-                                    `<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Успешная операция</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>localStorage.setItem('token', '${newToken}');alert("Данные профиля успешно изменены");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000);</script>`
-                                    );
-                                }
-                            });           
-                        })
-                })
-            } else {
-                res
-                    .status(415)
-                    .contentType("html")
-                    .end(
-                        '<head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Ошибка 415</title><link rel="apple-touch-icon" sizes="180x180" href="favicon_package_v0.16/apple-touch-icon.png"><link rel="icon" type="image/png" sizes="32x32" href="favicon_package_v0.16/favicon-32x32.png"><link rel="icon" type="image/png" sizes="16x16" href="favicon_package_v0.16/favicon-16x16.png"><link rel="manifest" href="favicon_package_v0.16/site.webmanifest"><link rel="mask-icon" href="favicon_package_v0.16/safari-pinned-tab.svg" color="#5bbad5"><meta name="msapplication-TileColor" content="#da532c"><meta name="theme-color" content="#ffffff"><link rel="stylesheet" href="css/style.min.css"></head><body class="body profilePageSelector" unselectable="no"><div class="container"><div class="profileMainBox fade"><div class="loading"><img class="logobottom" src="icons/forLoading/loadingLogo.svg"><img class="logotop" src="icons/forLoading/loadingDots.svg"></div></div></div></body><script>alert("Ошибка! Неверный формат загрузки данных");setTimeout(()=>{window.location.replace("http://localhost:3000/profile.html")},2000)</script>'
-                    );
-            }
-        })
+        }
     }
 });
 
@@ -781,7 +788,7 @@ app.post('/login', async (request, response) => {
             }
         })
     } else {
-        const { nickname, password } = request.body
+        const { nickname, password, id } = request.body
         if (nickname) {
             console.log(request.body);
 
@@ -794,7 +801,7 @@ app.post('/login', async (request, response) => {
                 return response.sendStatus(400)
             }
 
-            let token = jwt.sign( { nickname: nickname }, "2315", { expiresIn: "15m" } )
+            let token = jwt.sign( { nickname: nickname, id: user.userID }, "2315", { expiresIn: "15m" } )
             response.send( { token } )
         } else {
             response.send( {res: 'Время сессии истекло, войдите ещё раз!'} )

@@ -99,7 +99,7 @@ function movieCards() {
                         <img src="icons/moviePagesMarks/${this.markItem}">
                         <span>${this.mark}</span>
                     </div>
-                    <img src=${this.src} class="cardItem__image">
+                    <img src=${this.src} loading="lazy" class="cardItem__image">
                 </div>
                 <h4 class="cardItem__movieTitle ${this.year}">
                     ${this.title}

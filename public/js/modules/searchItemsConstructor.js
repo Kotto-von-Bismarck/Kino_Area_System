@@ -13,7 +13,7 @@ function searchItems() {
             this.parent = data.parentSelector;
         }
         searchItemsConstruct() {
-            const element = document.createElement('a');
+            const element = document.createElement('div');
             if (this.img === undefined) {
                 this.img = "images/searchItems/defaultSearchItemImg.svg"
             }
@@ -40,8 +40,17 @@ function searchItems() {
                 this.markItem = '10.svg';
             } 
 
+            element.addEventListener('click', () => {
+                localStorage.setItem('lastViewed', this.url);
+                if (this.url == '#') {
+                    location.href = '404-page.html'
+                } else {
+                    location.href = 'movie-page.html'
+                }
+            })
+
             element.innerHTML = `
-                <img src=${this.img}>
+                <img src=${this.img} loading="lazy">
                 <div class="search__movieDescr">
                     <span class="position__nameRus">
                         ${this.titlerus}
@@ -60,13 +69,12 @@ function searchItems() {
             `;
             this.parent.append(element);
             element.classList.add('search__item', 'hide');
-            element.setAttribute("href", this.url);
         }
     };
 
     new searchItems({
         img: 'images/filmPosters/escape.png', 
-        url: 'escape-from-pretoria.html', 
+        url: '12249b49-a322-4502-b118-e9154fe7733e', 
         titlerus: 'Побег из Претории', 
         titleeng: 'Escape from Pretoria', 
         genres: 'Триллер', 
@@ -76,7 +84,7 @@ function searchItems() {
 
     new searchItems({
         img: 'images/filmPosters/joker.png', 
-        url: 'joker.html', 
+        url: 'f0285eaa-1b88-427b-8e3f-0a9d9c80d7fe', 
         titlerus: 'Джокер', 
         titleeng: 'Joker', 
         genres: 'Триллер, драма, криминал', 
@@ -86,7 +94,7 @@ function searchItems() {
 
     new searchItems({
         img: 'images/filmPosters/star-wars.png', 
-        url: 'star-wars.html', 
+        url: '1353f720-7c58-4f2f-9326-8930af3d874e', 
         titlerus: 'Звёздные войны: Скайуокер. Восход', 
         titleeng: 'Star Wars: The Rise of Skywalker', 
         genres: 'Фантастика, фэнтези, боевик, приключения', 
@@ -96,7 +104,7 @@ function searchItems() {
 
     new searchItems({
         img: 'images/filmPosters/gents.png', 
-        url: 'gentlemen.html', 
+        url: '5844f0b4-a9b6-4edd-9e92-de9df2747be5', 
         titlerus: 'Джентльмены', 
         titleeng: 'The Gentlemen', 
         genres: 'Боевик, комедия, криминал', 
@@ -106,7 +114,7 @@ function searchItems() {
 
     new searchItems({
         img: 'images/filmPosters/ford-vs-ferrari.png', 
-        url: 'ford-vs-ferrari.html',  
+        url: 'e012c688-e3d1-4e23-8871-6387d9f6a1ee',  
         titlerus: 'Ford против Ferrari', 
         titleeng: 'Ford vs Ferrari', 
         genres: 'Биография, спорт, драма, боевик', 
@@ -116,7 +124,7 @@ function searchItems() {
 
     new searchItems({
         img: 'images/filmPosters/3022.png', 
-        url: '3022.html',  
+        url: '239dc840-396c-41f2-89f1-a95bce35861e',  
         titlerus: '3022', 
         titleeng: '3022', 
         genres: 'Фантастика, триллер', 
@@ -176,7 +184,7 @@ function searchItems() {
 
     new searchItems({
         img: 'images/filmPosters/inglouriousbasterds.png', 
-        url: 'inglouriousbasterds.html', 
+        url: 'c413f28c-d318-4501-b5e7-4621fdb0c273', 
         titlerus: 'Бесславные ублюдки', 
         titleeng: 'Inglourious Basterds', 
         genres: 'Драма, военный, комедия, боевик', 
@@ -236,7 +244,7 @@ function searchItems() {
 
     new searchItems({
         img: 'images/filmPosters/django.png', 
-        url: 'django.html', 
+        url: '2208374b-5297-4c21-ae20-f6f67960b06d', 
         titlerus: 'Джанго освобождённый', 
         titleeng: 'Django Unchained', 
         genres: 'Вестерн, комедия, драма, боевик', 
@@ -446,7 +454,7 @@ function searchItems() {
 
     new searchItems({
         img: 'images/popular/druk.png', 
-        url: 'druk.html', 
+        url: '03b2e6dd-0f34-4c97-9748-7c2ea0a07ce6', 
         titlerus: 'Ещё по одной', 
         titleeng: 'Druk', 
         genres: 'Драма, комедия', 
@@ -458,7 +466,7 @@ function searchItems() {
         img: 'images/popular/alita.png', 
         url: '#', 
         titlerus: 'Алита: боевой ангел', 
-        titleeng: 'Druk', 
+        titleeng: 'Alita: Battle Angel', 
         genres: 'Боевик, фантастика', 
         mark: '7.22', 
         parentSelector: document.querySelector('.search').querySelector('.search__varList')

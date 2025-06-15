@@ -64,6 +64,12 @@ window.addEventListener('DOMContentLoaded', () => {
         upElement(); 
     } else {
         moviePageContent();
+        tokenVerification();
+        modalWindows();
+        postFormData();
+        searchItems();
+        search();
+        mobileMenu();
         const awaitMovieDataInterwal = setInterval(() => {
             if (document.querySelector('.movieDescription__thirdFlexBox')) {
                 studiosContent();                
@@ -75,17 +81,7 @@ window.addEventListener('DOMContentLoaded', () => {
         awrds();
         frames();
         quotes();
-        // tokenVerification();
-        // pagesContent();
-        // actors();
-        // achievements();
-        // reviews();
-        // modalWindows();
-        // postFormData();
-        // searchItems();
-        // search();
-        // mobileMenu();
         // filterTabs();
-        // upElement();   
+        upElement();   
     }
 });
