@@ -103,42 +103,52 @@ function tabs() {
         }
     };
 
-    // lastNews section
-    new TabsMechanism({
-        content: document.querySelectorAll('.tabcontent'),
-        tabs: document.querySelectorAll('.tabItem'),
-        tabsParent: document.querySelector('.tabcontainer'),
-        active: document.querySelectorAll('.active'),
-        hover: document.querySelectorAll('.read'),
-        tabElement: 'tabItem'
-    }).tabMechanism();
+    if (document.querySelector('.profilePageSelector')) {
+        // Profile sections
+        new TabsMechanism({
+            content: document.querySelectorAll('.profileTabContent'),
+            tabs: document.querySelectorAll('.profileTabItem'),
+            tabsParent: document.querySelector('.profileTabList'),
+            tabElement: 'profileTabItem'
+        }).tabMechanism();
+    } else {
+        // lastNews section
+        new TabsMechanism({
+            content: document.querySelectorAll('.tabcontent'),
+            tabs: document.querySelectorAll('.tabItem'),
+            tabsParent: document.querySelector('.tabcontainer'),
+            active: document.querySelectorAll('.active'),
+            hover: document.querySelectorAll('.read'),
+            tabElement: 'tabItem'
+        }).tabMechanism();
 
-    // Expected section
-    new TabsMechanism({
-        content: document.querySelectorAll('.filmBoxOffice'),
-        tabs: document.querySelector('.expected').querySelectorAll('.subheader__item'),
-        tabsParent: document.querySelector('.expected').querySelector('.subheader__list'),
-        tabElement: 'subheader__item'
-    }).tabMechanism();
+        // Expected section
+        new TabsMechanism({
+            content: document.querySelectorAll('.filmBoxOffice'),
+            tabs: document.querySelector('.expected').querySelectorAll('.subheader__item'),
+            tabsParent: document.querySelector('.expected').querySelector('.subheader__list'),
+            tabElement: 'subheader__item'
+        }).tabMechanism();
 
-    // табы для просмотра трейлеров
-    new TabsMechanism({
-        content: document.querySelectorAll('.openTrailerWrapper'),
-        tabs: document.querySelectorAll('.closeTrailer'),
-        tabsParent: document.querySelectorAll('.s-box'),
-        tabElement: 'closeTrailer',
-        videoLibrary: document.querySelectorAll('.trailer__video'),
-        button: document.querySelectorAll('.play-pause'),
-        mobilePlayButton: document.querySelectorAll('.playPauseMobile'),
-    }).tabMechanism();
+        // табы для просмотра трейлеров
+        new TabsMechanism({
+            content: document.querySelectorAll('.openTrailerWrapper'),
+            tabs: document.querySelectorAll('.closeTrailer'),
+            tabsParent: document.querySelectorAll('.s-box'),
+            tabElement: 'closeTrailer',
+            videoLibrary: document.querySelectorAll('.trailer__video'),
+            button: document.querySelectorAll('.play-pause'),
+            mobilePlayButton: document.querySelectorAll('.playPauseMobile'),
+        }).tabMechanism();
 
-    // табы популярных персон
-    new TabsMechanism({
-        content: document.querySelectorAll('.personsSubcontainer'),
-        tabs: document.querySelector('.persons').querySelectorAll('.subheader__item'),
-        tabsParent: document.querySelector('.persons').querySelector('.subheader__list'),
-        tabElement: 'subheader__item'
-    }).tabMechanism();
+        // табы популярных персон
+        new TabsMechanism({
+            content: document.querySelectorAll('.personsSubcontainer'),
+            tabs: document.querySelector('.persons').querySelectorAll('.subheader__item'),
+            tabsParent: document.querySelector('.persons').querySelector('.subheader__list'),
+            tabElement: 'subheader__item'
+        }).tabMechanism();
+    }
 };
 
 export default tabs;

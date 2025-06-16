@@ -53,6 +53,18 @@ button {
     }
 }
 
+.activeLike {
+    text-shadow: 0 0 10px rgba(72, 188, 255, 0.8);
+    font-size: 22px;
+    color: #fff;
+    transition: 0.3s all;
+}
+.activeDis {
+    text-shadow: 0 0 10px rgba(255,72,72,.8);
+    font-size: 22px;
+    color: #fff;
+    transition: 0.3s all;
+}
 
 @keyframes loadSpiner {
     from {

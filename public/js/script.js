@@ -59,6 +59,8 @@ window.addEventListener('DOMContentLoaded', () => {
         mobileMenu();
         upElement();
         profileGenerator();
+        reviews();
+        tabs();
     } else if (document.querySelector('.body').classList.contains('404-page')) {
         mobileMenu();
         upElement(); 

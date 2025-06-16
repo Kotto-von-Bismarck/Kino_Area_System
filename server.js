@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import { Sequelize, DataTypes, Op } from "sequelize";
+import { Sequelize, DataTypes, Op, where } from "sequelize";
 import jwt from 'jsonwebtoken';
 
 import path from "path";
@@ -494,23 +494,34 @@ app.post( "/publicReview", upload.single("file"), async (req, res) => {
     }).then( async () => {
         await Reviews.findOne({
             raw: true, 
-            attributes: ['authorID'],
-            where: {authorID: ourUser.userID}
-        })
+            attributes: ['reviewID'],
+            where: {authorID: ourUser.userID, movieID: movieId}
+        }).then( (review) => {
+            if (review != null) {
+                Reviews.update(
+                    {
+                        reviewType: reviewType,
+                        text: reviewBody,
+                        title: title,
+                    },
+                    {
+                        where: { reviewID: review.reviewID }
+                    }
+                )
+            } else {
+                Reviews.create(
+                    {
+                        reviewType: reviewType,
+                        text: reviewBody,
+                        title: title,
+                        likesQuantity: 0,
+                        dislikesQuantity: 0,
+                        movieID: movieId,
+                        authorID: ourUser.userID
 
-        // await Reviews.create(
-        //     {
-        //         reviewType: reviewType,
-        //         text: reviewBody,
-        //         title: title,
-        //         likesQuantity: 0,
-        //         dislikesQuantity: 0,
-        //         movieID: movieId,
-        //         authorID: ourUser.userID
-
-        //     }
-        // )
-        .then( (review) => {
+                    }
+                )
+            }
             
             console.log(review);
             res
@@ -542,6 +553,35 @@ app.get('/api/getReviews', (req, res) => {
         // console.log(reviews);
         res.send(reviews);
     }).catch(e => console.log(`error: ${e}`));
+});
+
+// маршрут на получение всех отзывов конкретного пользователя
+app.post('/api/getUserReviews', (req, res) => {
+    const {frontData} = req.body;
+    
+    jwt.verify(frontData, "2315", async (err, decoded) => {
+        if (err) {
+            res.send( {res: 'Время сессии истекло!'} )
+        } else if (decoded) {
+            sequelize.query(
+                `SELECT Reviews.*, Users.nickname, Users.avatar FROM Reviews JOIN Users ON Users.userID = Reviews.authorID WHERE authorID = '${decoded.id}'`
+            ).then(([results, metadata]) => {
+                const reviews = results.map(item => item = {
+                    avatar: item.avatar,
+                    nickname: item.nickname,
+                    reviewtitle: item.title,
+                    time: item.updatedAt,
+                    reviewclass: item.reviewType,
+                    reviewtext: item.text,
+                    likesQuantity: item.likesQuantity,
+                    dislikesQuantity: item.dislikesQuantity,
+                    parentSelector: '.profileReviewBox'
+                })
+                // console.log(reviews);
+                res.send(reviews);
+            }).catch(e => console.log(`error: ${e}`));
+        }
+    })
 });
 
 // маршрут на получение части данных пользователя
@@ -907,11 +947,6 @@ app.get('/api/getQuotes', (req, res) => {
 //     }
 // });
 
-
-
-
-
-
 // маршрут на авторизацию
 app.post('/login', async (request, response) => {
     if (request.body.jsonWtoken) {
@@ -936,7 +971,7 @@ app.post('/login', async (request, response) => {
                 return response.sendStatus(400)
             }
 
-            let token = jwt.sign( { nickname: nickname, id: user.userID }, "2315", { expiresIn: "15m" } )
+            let token = jwt.sign( { nickname: nickname, id: user.userID }, "2315", { expiresIn: "30m" } )
             response.send( { token } )
         } else {
             response.send( {res: 'Время сессии истекло, войдите ещё раз!'} )
@@ -973,216 +1008,11 @@ app.listen(3000, () => {
 })
 
 
-// const myAwardFunction = async function (movie) {
-//     let testFilmName = movie;
-//     let newAward = [];
-
-//     NominationOnAward.findAll({
-//         raw: true, 
-//         attributes: ['nomination', 'year', 'award'],
-//         where: { film: { [Op.substring] : testFilmName } }
-//     })
-//     .then(achievs => {
-//         let shortAchievsInfo = achievs.map(item => {
-//             let THISAWARD = item.award;
-//             switch (THISAWARD) {
-//                 case 'Сатурн':
-//                     THISAWARD = 'Премия Сатурн';
-//                     break;
-//                 case 'Золотой глобус':
-//                     THISAWARD = 'Премия Золотой Глобус';
-//                     break;
-//                 case 'Оскар':
-//                     THISAWARD = 'Премия Оскар';
-//                     break;
-//                 case 'Британская академия':
-//                     THISAWARD = 'Премия Британской Киноакадемии';
-//                     break;
-//                 case 'Эмми':
-//                     THISAWARD = 'Премия Эмми';
-//                     break;
-//             }
-//             switch (testFilmName) {
-//                 case 'Побег из Претории':
-//                     testFilmName = '12249b49-a322-4502-b118-e9154fe7733e'
-//                     break;
-//                 case 'Джокер':
-//                     testFilmName = 'f0285eaa-1b88-427b-8e3f-0a9d9c80d7fe'
-//                     break;
-//                 case 'Звёздные войны: Скайуокер Восход':
-//                     testFilmName = '1353f720-7c58-4f2f-9326-8930af3d874e'
-//                     break;
-//                 case 'Джентльмены':
-//                     testFilmName = '5844f0b4-a9b6-4edd-9e92-de9df2747be5'
-//                     break;
-//                 case 'Ford против Ferrari':
-//                     testFilmName = 'e012c688-e3d1-4e23-8871-6387d9f6a1ee'
-//                     break;
-//                 case '3022':
-//                     testFilmName = '239dc840-396c-41f2-89f1-a95bce35861e'
-//                     break;
-//                 case 'Бесславные ублюдки':
-//                     testFilmName = 'c413f28c-d318-4501-b5e7-4621fdb0c273'
-//                     break;
-//                 case 'Джанго освобождённый':
-//                     testFilmName = '2208374b-5297-4c21-ae20-f6f67960b06d'
-//                     break;
-//                 case 'Ещё по одной':
-//                     testFilmName = '03b2e6dd-0f34-4c97-9748-7c2ea0a07ce6'
-//                     break;
-//             }
-//             return Object.assign( item, 
-//                 { 
-//                     movieID: testFilmName,
-//                     awardName: THISAWARD,
-//                     isAwarded: 'nominated'
-//                 }
-//             )
-//         });
-        
-//         newAward.push(...shortAchievsInfo);
-        
-//         if (newAward.length > 0) {
-//             newAward.forEach(award => {
-//                 Awards.create({ 
-//                     nomination: award.nomination,
-//                     year: award.year,
-//                     movieID: award.movieID,
-//                     awardName: award.awardName,
-//                     isAwarded: award.isAwarded
-//                 });
-//             })
-//         }
-//     })
-// }
-// myAwardFunction('Ford против Ferrari');
-
-    
-
-
-
-
-// app.post('/api/createTrailer', async (req, res) => {
-//     const {
-//         miniPreview,
-//         trailer,
-//         fullsizePreview,
-//         title,
-//         likesQuantity,
-//         dislikesQuantity
-//     } = req.body;  
-    
-
-//     NewTrailers.create({ 
-//         miniPreview: miniPreview,
-//         fullsizePreview: fullsizePreview,
-//         trailer: trailer,
-//         likesQuantity: likesQuantity,
-//         dislikesQuantity: dislikesQuantity,
-//         title: title
-//     });
-
-//     res.send({ title: 'success' })
-// });
-
 
 // const [results, metadata] = await sequelize.query(
 //   `DROP TABLE User`
 // )
  
 // console.log(results);
-
-// let newActors = results.map(obj => {
-//     delete obj.roleInFilm;
-//     delete obj.createdAt;
-//     delete obj.updatedAt;
-//     if (obj.imgPath) {        
-//         obj.imgPath = (obj.imgPath.split(/[/]/).slice(-1)).toString();
-//         return obj
-//     } else {
-//         return obj
-//     }
-// })
-
-// newActors.forEach( actor => {
-//     Actors.create( { actorID: actor.actorID, imgPath: actor.imgPath, nameRus: actor.nameRus, nameEng: actor.nameEng } );
-// })
-
-// let newRes = results.map(obj => {
-//     let newObj = obj.roleInFilm.split(', ');
-//     if (newObj.length < 3) {
-//         return {
-//             actorIdentifier: obj.actorID, 
-//             character: newObj[0],
-//             movie: newObj[1].slice(0, -1)
-//         }
-//     } 
-//     else {
-//         newObj = obj.roleInFilm.split('; ');
-//         let specialObj = newObj.map(item => item.split(', '));
-//         return [{
-//             actorIdentifier: obj.actorID, 
-//             character: specialObj[0][0],
-//             movie: specialObj[0][1]
-//         }, {
-//             actorIdentifier: obj.actorID, 
-//             character: specialObj[1][0],
-//             movie: specialObj[1][1].slice(0, -1)
-//         }]
-//     }
-    
-// })
-// let finalRes = [];
-// newRes.forEach(item => {
-//     if(item.length != undefined) {
-//         finalRes.push(item[0]);
-//         finalRes.push(item[1]);
-//     } else {
-//         finalRes.push(item);
-//     }
-// })
-
-// finalRes = finalRes.map(obj => {
-    // switch (obj.movie) {
-    //     case 'Побег из Претории':
-    //         obj.movie = '12249b49-a322-4502-b118-e9154fe7733e'
-    //         break;
-    //     case 'Джокер':
-    //         obj.movie = 'f0285eaa-1b88-427b-8e3f-0a9d9c80d7fe'
-    //         break;
-    //     case 'Звёздные войны: Скайуокер Восход':
-    //         obj.movie = '1353f720-7c58-4f2f-9326-8930af3d874e'
-    //         break;
-    //     case 'Джентльмены':
-    //         obj.movie = '5844f0b4-a9b6-4edd-9e92-de9df2747be5'
-    //         break;
-    //     case 'Ford против Ferrari':
-    //         obj.movie = 'e012c688-e3d1-4e23-8871-6387d9f6a1ee'
-    //         break;
-    //     case '3022':
-    //         obj.movie = '239dc840-396c-41f2-89f1-a95bce35861e'
-    //         break;
-    //     case 'Бесславные ублюдки':
-    //         obj.movie = 'c413f28c-d318-4501-b5e7-4621fdb0c273'
-    //         break;
-    //     case 'Джанго освобождённый':
-    //         obj.movie = '2208374b-5297-4c21-ae20-f6f67960b06d'
-    //         break;
-    //     case 'Ещё по одной':
-    //         obj.movie = '03b2e6dd-0f34-4c97-9748-7c2ea0a07ce6'
-    //         break;
-    // }
-//     return obj
-// })
-// let WNun = 0;
-// while (WNun < 88) {
-//     let obj = finalRes[WNun]
-//     Characters.create( { 
-//         name: obj.character,
-//         actorId: obj.actorIdentifier,
-//         movieID: obj.movie
-//     } )
-//     WNun++
-// }
 
 // 123321.truncate();

@@ -1,5 +1,5 @@
 import constructComponent from "../services/request";
-
+import MainPageRequest from "../services/MainPageRequests"
 function reviews(){
 
     class ReviewCardsConstructor {
@@ -13,7 +13,7 @@ function reviews(){
             this.disVolume = data.dislikesQuantity;
             this.reviewclass = data.reviewclass;
             this.reviewtext = data.reviewtext;
-            this.parent = document.querySelector(data.parentSelector);
+            this.parent = data.parentSelector;
         }
         ReviewCards() {
             const element = document.createElement('div');
@@ -26,6 +26,8 @@ function reviews(){
                 creationTime = creationTime.slice(0,5) + ' UTC'
             let creationDate = (this.time.split(' '))[0];
                 creationDate = `${creationDate.slice(8,10)}.${creationDate.slice(5,7)}.${creationDate.slice(0,4)}`;
+
+            const parentHTML = document.querySelector(this.parent);
 
             element.innerHTML = `
                 <div class="ReviewElement ${this.reviewclass}">
@@ -51,22 +53,37 @@ function reviews(){
                     </div>
                     <div class="ThisReviewmarks">
                         <div class="markBorderWrapper">
-                            <div class="markBorder">
+                            <div class="markBorder" onclick="this.firstElementChild.classList.toggle('activeLike'); this.parentElement.lastElementChild.firstElementChild.classList.remove('activeDis')">
                                 <i class="fa-solid fa-thumbs-up"></i>
-                                <div class="points">${this.likeVolume}</div>
+                                <div style="display: none" class="points">${this.likeVolume}</div>
                             </div>
-                            <div class="markBorder">
+                            <div class="markBorder" onclick="this.firstElementChild.classList.toggle('activeDis'); this.parentElement.firstElementChild.firstElementChild.classList.remove('activeLike')">
                                 <i class="fa-solid fa-thumbs-down fa-flip-horizontal"></i>
-                                <div class="points">${this.disVolume}</div>
+                                <div style="display: none" class="points">${this.disVolume}</div>
                             </div>
                         </div>
                     </div>
                 </div>
             `;
-            this.parent.append(element);
+            if (this.parent == '.profileReviewBox') {
+                if (document.querySelector('#reviewLoading')) {
+                    const DIVelem = document.createElement('div');
+                    document.querySelector('#reviewLoading').replaceWith(DIVelem);
+                }
+                parentHTML.append(element);
+            } else {
+                parentHTML.append(element);
+            }
         }
     };
-    const localMovieID = localStorage.getItem('lastViewed');
-    constructComponent('/api/getReviews', localMovieID, ReviewCardsConstructor);
+
+    if (document.querySelector('.profilePageSelector')) {
+        const token = localStorage.getItem('token');
+        MainPageRequest('/api/getUserReviews', [token, ReviewCardsConstructor]);
+        
+    } else {
+        const localMovieID = localStorage.getItem('lastViewed');
+        constructComponent('/api/getReviews', localMovieID, ReviewCardsConstructor);
+    }
 };
 export default reviews;

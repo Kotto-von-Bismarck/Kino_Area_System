@@ -129,24 +129,24 @@
             <div class="container">
                 <div class="profileContainer">
                     <div class="profileTabList">
-                        <div class="profileTabItem">
-                            <img src="icons/profileIcons/homeRunVector.svg" alt="profile">
+                        <div style="cursor: pointer" class="profileTabItem">
+                            <img style="pointer-events: none" src="icons/profileIcons/homeRunVector.svg" alt="profile">
                         </div>
-                        <div class="profileTabItem">
+                        <!-- <div class="profileTabItem">
                             <img src="icons/profileIcons/friendVector.svg" alt="friends">
+                        </div> -->
+                        <div style="cursor: pointer" class="profileTabItem">
+                            <img style="pointer-events: none" src="icons/profileIcons/filmVector.svg" alt="movies">
                         </div>
-                        <div class="profileTabItem">
-                            <img src="icons/profileIcons/reviewVector.svg" alt="reviews">
-                        </div>
-                        <div class="profileTabItem">
+                        <!-- <div class="profileTabItem">
                             <img src="icons/profileIcons/marksVector.svg" alt="marks">
-                        </div>
-                        <div class="profileTabItem">
-                            <img src="icons/profileIcons/filmVector.svg" alt="movies">
+                        </div> -->
+                        <div style="cursor: pointer" class="profileTabItem">
+                            <img style="pointer-events: none" src="icons/profileIcons/reviewVector.svg" alt="reviews">
                         </div>
                     </div>
 
-                    <div class="profileContentBox">
+                    <div class="profileContentBox profileTabContent">
                         <!-- главный экран модуля "Профиль" -->
                         <div class="profileMainBox fade">
                             <div class="loading">
@@ -160,7 +160,27 @@
                         <div class="profileSettingsBox fade hide">
                             <!-- данные модуля из js -->
                         </div>
-                    </div>                
+                    </div>
+                    <div class="profileTabContent">
+                        <!-- раздел "Мои сеансы" -->
+                        <div class="profileTicketsBox fade">
+                            <div class="loading">
+                                <img class="logobottom" src="icons/forLoading/loadingLogo.svg">
+                                <img class="logotop" src="icons/forLoading/loadingDots.svg">
+                            </div>
+                            <!-- данные модуля "Сеансы" из js -->
+                        </div>
+                    </div>   
+                    <div class="profileTabContent movieReview reviewsCON">
+                        <!-- раздел "Мои рецензии" -->
+                        <div class="profileReviewBox ReviewContent fade">
+                            <div class="loading" id="reviewLoading">
+                                <img class="logobottom" src="icons/forLoading/loadingLogo.svg">
+                                <img class="logotop" src="icons/forLoading/loadingDots.svg">
+                            </div>
+                            <!-- данные модуля "Рецензии" из js -->
+                        </div>
+                    </div>             
                 </div>
             </div>
         </section>

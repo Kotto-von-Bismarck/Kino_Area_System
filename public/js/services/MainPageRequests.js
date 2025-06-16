@@ -47,6 +47,13 @@ const MainPageRequest = function(url, constructorOrArgument) {
                 new TabsConstructor(item).render();
             });
         })
+    } else if (url == '/api/getUserReviews') {
+        postJSON(url, constructorOrArgument[0]).then(data => {
+            const myConstructor = constructorOrArgument[1];
+            data.forEach(item => {
+                new myConstructor(item).ReviewCards();
+            });
+        });
     }
 }
 
