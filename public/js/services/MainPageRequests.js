@@ -20,7 +20,26 @@ const MainPageRequest = function(url, constructorOrArgument) {
         return await res.json()
     }
 
-    if (url == '/api/getTrends') {
+    async function postTICKET(url, data) {            
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: {'Content-type': 'application/json'},
+            body: JSON.stringify(data)
+        })
+        if(!res.ok) {
+            alert('Error!!!');
+        }
+        return await res.json()
+    }
+
+    if (url == '/api/getSessions') {
+        let city = localStorage.getItem('city');        
+        postJSON(url, city).then(data => {
+            data.forEach(item => {
+                new constructorOrArgument(item).render();
+            });
+        });
+    } else if (url == '/api/getTrends') {
         getJSON(url).then(data => {
             data.forEach(item => {
                 new constructorOrArgument(item).render();
@@ -57,6 +76,11 @@ const MainPageRequest = function(url, constructorOrArgument) {
     } else if (url == '/api/newEmailSubscriber') {
         postJSON(url, constructorOrArgument).then(data => {
             alert(data.res);
+        });
+    } else if (url == '/api/bookingTickets') {
+        postTICKET(url, constructorOrArgument).then(data => {
+            alert(data.res);
+            location.reload();
         });
     }
 }

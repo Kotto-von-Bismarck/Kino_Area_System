@@ -88,6 +88,7 @@ window.addEventListener('DOMContentLoaded', () => {
         frames();
         quotes();
         reviews();
+        postEmailSubscribe();
         const awaitReviewContentInterwal = setInterval(() => {
             if (document.querySelector('.ReviewElement')) {
                 filterTabs();         

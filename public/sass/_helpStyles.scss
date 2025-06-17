@@ -132,7 +132,7 @@ button {
     background-color: #fff;
 }
 
-.seat.occupied {
+.seat.occupd {
     background-color: #0c232b;
     cursor: not-allowed;
 }
@@ -154,9 +154,40 @@ button {
 #movie {
     font-size: 16px;
     padding: 5px;
+    border: none;
+    background:#0c232b;
+    color: #fff;
+    border-radius: 5px;
+    outline: none;
+}
+.buyTickets button {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0;
+    span {
+        font-weight: 700;
+        font-size: 15px;
+    }
+}
+#btn-super {
+    background: #f3bf0b;
 }
 
+.POSTER_img{max-height: 463px}
+
+@media (max-width: 999px) {
+    .POSTER_img {
+        max-height: 200px;
+    }
+}
 @media (max-width: 700px) {
+    .POSTER_img {
+        max-height: 463px;
+        height: 463px;
+    }
     .screen {
         border-radius: 5px;
         height: 50px;
@@ -170,9 +201,9 @@ button {
         width: 100%;
     }
     .seat {
-        height: 16px;
-        width: 16px;
-        margin: 2px;
+        height: 22px;
+        width: 22px;
+        margin: 3px;
         border-radius: 2px;
         cursor: pointer;
     }

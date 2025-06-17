@@ -487,6 +487,150 @@ const Subscribes = sequelize.define(
     }
 )
 
+const Sessions = sequelize.define(
+    'Sessions',
+    {
+        sessionID: { 
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4
+        },
+        time: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+        seatsPlan: {
+            type: DataTypes.STRING,
+            allowNull: false,
+            defaultValue: "[1,'vacant'];[2,'vacant'];[3,'vacant'];[4,'vacant'];[5,'vacant'];[6,'vacant'];[1,'vacant'];[2,'vacant'];[3,'vacant'];[4,'vacant'];[5,'vacant'];[6,'vacant'];[1,'vacant'];[2,'vacant'];[3,'vacant'];[4,'vacant'];[5,'vacant'];[6,'vacant'];[1,'vacant'];[2,'vacant'];[3,'vacant'];[4,'vacant'];[5,'vacant'];[6,'vacant']"
+        },
+        city: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    }
+)
+Movies.hasMany(Sessions, { foreignKey: 'movieID' });
+
+const Tickets = sequelize.define(
+    'Tickets',
+    {
+        ticketID: { 
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4
+        },
+        seats: {
+            type: DataTypes.STRING,
+            allowNull: false
+        }
+    }
+)
+Sessions.hasMany(Tickets, { foreignKey: 'sessionID' });
+Users.hasOne(Tickets, { foreignKey: 'userID'});
+
+// Sessions.truncate();
+
+// Sessions.create({
+//     time: "13:00",
+//     city: "Оренбург",
+//     movieID: "f0285eaa-1b88-427b-8e3f-0a9d9c80d7fe"
+// })
+// Sessions.create({
+//     time: "15:00",
+//     city: "Оренбург",
+//     movieID: "12249b49-a322-4502-b118-e9154fe7733e"
+// })
+// Sessions.create({
+//     time: "18:00",
+//     city: "Оренбург",
+//     movieID: "03b2e6dd-0f34-4c97-9748-7c2ea0a07ce6"
+// })
+
+// маршрут на бронирование мест в кинозале
+app.post('/api/bookingTickets', async (req, res) => {
+    const {sessionID, userToken, seats, price, format} = req.body;
+
+    // console.log(req.body);
+
+    Sessions.findOne({
+        attributes: ['seatsPlan'],
+        where: {sessionID: sessionID}
+    }).then( async (plan) => {
+        let userSeats = seats.split(';');
+        userSeats.splice(-1);
+        
+        userSeats = userSeats.map(item => {
+            let seat, row;
+
+            let myItem = item.trim().split(', ');
+            seat = myItem[0].split(': ');
+            row = myItem[1].split(': ');
+
+            return item = [+seat[1], +row[1]]
+        });
+
+        let cinemaPlan = plan.dataValues.seatsPlan;
+        cinemaPlan = cinemaPlan.split(';');
+        cinemaPlan = cinemaPlan.map(item => [+item.slice(1,2), item.slice(-8,-2)]);
+
+        userSeats.forEach(item => {
+            let occupiedPlace = (6 * item[1]) - (6 - item[0]);
+            let thisSeat = cinemaPlan[(occupiedPlace - 1)];
+            thisSeat[1] = 'occupd';
+        });
+        
+        let finalPlanStr = `[${cinemaPlan[0][0]},'${cinemaPlan[0][1]}'];[${cinemaPlan[1][0]},'${cinemaPlan[1][1]}'];[${cinemaPlan[2][0]},'${cinemaPlan[2][1]}'];[${cinemaPlan[3][0]},'${cinemaPlan[3][1]}'];[${cinemaPlan[4][0]},'${cinemaPlan[4][1]}'];[${cinemaPlan[5][0]},'${cinemaPlan[5][1]}'];[${cinemaPlan[6][0]},'${cinemaPlan[6][1]}'];[${cinemaPlan[7][0]},'${cinemaPlan[7][1]}'];[${cinemaPlan[8][0]},'${cinemaPlan[8][1]}'];[${cinemaPlan[9][0]},'${cinemaPlan[9][1]}'];[${cinemaPlan[10][0]},'${cinemaPlan[10][1]}'];[${cinemaPlan[11][0]},'${cinemaPlan[11][1]}'];[${cinemaPlan[12][0]},'${cinemaPlan[12][1]}'];[${cinemaPlan[13][0]},'${cinemaPlan[13][1]}'];[${cinemaPlan[14][0]},'${cinemaPlan[14][1]}'];[${cinemaPlan[15][0]},'${cinemaPlan[15][1]}'];[${cinemaPlan[16][0]},'${cinemaPlan[16][1]}'];[${cinemaPlan[17][0]},'${cinemaPlan[17][1]}'];[${cinemaPlan[18][0]},'${cinemaPlan[18][1]}'];[${cinemaPlan[19][0]},'${cinemaPlan[19][1]}'];[${cinemaPlan[20][0]},'${cinemaPlan[20][1]}'];[${cinemaPlan[21][0]},'${cinemaPlan[21][1]}'];[${cinemaPlan[22][0]},'${cinemaPlan[22][1]}'];[${cinemaPlan[23][0]},'${cinemaPlan[23][1]}']`;
+
+        let clientID;
+
+        jwt.verify(userToken, "2315", async (err, decoded) => {
+            if (decoded) {
+                clientID = decoded.id;
+            } else if (err) {
+                console.log(err);
+                    return res
+                        .status(401)
+                        .contentType("html")
+                        .end ( _server_401_response_ )
+            }
+        })
+
+        await Sessions.update(
+            { seatsPlan: finalPlanStr },
+            { where: {sessionID: sessionID} }
+        ).then( async () => {
+            await Tickets.create({
+                seats: `${price}; ${format}`,
+                sessionID: sessionID,
+                userID: clientID,
+            })
+            return res.send({ res: 'Успешное бронирование' });
+        }).catch(e => console.log(`error: ${e}`));
+    })
+});
+
+// маршрут на получение сеансов на сегодня
+app.post('/api/getSessions', (req, res) => {
+    const { frontData } = req.body;
+    sequelize.query(
+        `SELECT Sessions.*, Movies.ageRating, Movies.rusTitle, Movies.primaryPoster, Movies.movieID FROM Sessions JOIN Movies ON Movies.movieID = Sessions.movieID WHERE city = '${frontData}'`
+    ).then(([results, metadata]) => {
+        const reviews = results.map(item => item = {
+            movieID: item.movieID,
+            rusTitle: item.rusTitle,
+            primaryPoster: item.primaryPoster,
+            sessionID: item.sessionID,
+            time: item.time,
+            seatsPlan: item.seatsPlan,
+            ageRating: item.ageRating
+        })
+        res.send(reviews);
+    }).catch(e => console.log(`error: ${e}`));
+});
+
 // маршрут на создание записи о подписки на e-mail рассылку
 app.post('/api/newEmailSubscriber', async (req, res) => {
     const {frontData} = req.body;
