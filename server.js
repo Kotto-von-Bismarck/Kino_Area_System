@@ -549,6 +549,28 @@ Users.hasOne(Tickets, { foreignKey: 'userID'});
 //     movieID: "03b2e6dd-0f34-4c97-9748-7c2ea0a07ce6"
 // })
 
+// маршрут на получение билетов пользователя
+app.post('/api/getTickets', (req, res) => {
+    const { frontData } = req.body;
+
+    jwt.verify(frontData, "2315", async (err, decoded) => {
+        if (err) {
+            res.send( {res: 'Время сессии истекло!'} )
+        } else if (decoded) {
+            Tickets.findAll({
+                where: {userID: decoded.id}
+            })
+            .then(tickets => {
+                const results = tickets.map(item => item = {
+                    id: item.ticketID,
+                    seats: item.seats
+                })
+                res.send(results);
+            }).catch(e => console.log(`error: ${e}`));
+        }
+    })
+});
+
 // маршрут на бронирование мест в кинозале
 app.post('/api/bookingTickets', async (req, res) => {
     const {sessionID, userToken, seats, price, format} = req.body;
@@ -1177,13 +1199,10 @@ app.post('/regist', async (request, response) => {
     response.send( data )
 })
 
-
 sequelize.sync()
 app.listen(3000, () => {
     console.log('Сервер запущен')
 })
-
-
 
 // const [results, metadata] = await sequelize.query(
 //   `DROP TABLE User`

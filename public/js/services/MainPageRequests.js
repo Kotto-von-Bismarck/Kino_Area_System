@@ -82,6 +82,13 @@ const MainPageRequest = function(url, constructorOrArgument) {
             alert(data.res);
             location.reload();
         });
+    } else if (url == '/api/getTickets') {
+        const token = localStorage.getItem('token');
+        postJSON(url, token).then(data => {
+            data.forEach(item => {
+                new constructorOrArgument(item).render();
+            });
+        });
     }
 }
 

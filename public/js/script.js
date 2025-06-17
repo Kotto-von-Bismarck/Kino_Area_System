@@ -12,6 +12,7 @@ import postFormData from './modules/forms';
 import tokenVerification from './modules/tokenVerification';
 import profileGenerator from './modules/profileGenerator';
 import sessionListGenerator from './modules/sessionListGenerator';
+import ticketsListGenerator from './modules/userTickets';
 import searchItems from './modules/searchItemsConstructor';
 import search from './modules/search';
 import mobileMenu from './modules/mobileMenu';
@@ -64,6 +65,7 @@ window.addEventListener('DOMContentLoaded', () => {
         profileGenerator();
         reviews();
         sessionListGenerator();
+        ticketsListGenerator();
         tabs();
     } else if (document.querySelector('.body').classList.contains('404-page')) {
         mobileMenu();
