@@ -16,6 +16,14 @@ function profileGenerator() {
             this.parent = document.querySelector('.profileContentBox');
         }
         render() {
+            if (this.usercity != 'virtualCity') {
+                document.querySelector('#userCity').innerHTML=`в городе ${this.usercity}`;
+                localStorage.setItem('city', this.usercity)
+            } else {
+                const DIV = document.createElement('div');
+                document.querySelector('.profileTicketsBox').replaceWith(DIV);
+                document.querySelector('#userCity').innerHTML=`станут доступны после указания в профиле города из списка`;
+            }
 
             let birthday = this.userbirthday ? this.userbirthday.slice(5,7) : null;
 
@@ -116,7 +124,7 @@ function profileGenerator() {
                         </div>
                     </div>
                 </div>
-                <div class="profileContentBox__footer">
+                <div class="profileContentBox__footer" style="display: none">
                     <div class="countItem">
                         <span class="countItem__quantity">0</span>
                         <span class="countItem__title">Друзья</span>

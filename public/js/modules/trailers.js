@@ -117,13 +117,13 @@ function videoPlayer() {
                         </div>
                     </div>
                     <div class="secondFlex">
-                        <div class="markBorder">
+                        <div class="markBorder" onclick="this.firstElementChild.classList.toggle('activeLike'); this.parentElement.lastElementChild.firstElementChild.classList.remove('activeDis')">
                             <i class="fa-solid fa-thumbs-up"></i>
-                            <div class="points">${this.likeVolume}</div>
+                            <div style="display: none" class="points">${this.likeVolume}</div>
                         </div>
-                        <div class="markBorder">
+                        <div class="markBorder" onclick="this.firstElementChild.classList.toggle('activeDis'); this.parentElement.firstElementChild.firstElementChild.classList.remove('activeLike')">
                             <i class="fa-solid fa-thumbs-down fa-flip-horizontal"></i>
-                            <div class="points">${this.disVolume}</div>
+                            <div style="display: none" class="points">${this.disVolume}</div>
                         </div>
                     </div>
                 </div>

@@ -54,6 +54,10 @@ const MainPageRequest = function(url, constructorOrArgument) {
                 new myConstructor(item).ReviewCards();
             });
         });
+    } else if (url == '/api/newEmailSubscriber') {
+        postJSON(url, constructorOrArgument).then(data => {
+            alert(data.res);
+        });
     }
 }
 

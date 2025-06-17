@@ -112,20 +112,20 @@ function moviePageContent () {
                 <div class="movieDescription__firstFlexBox">
                     <div class="first-con">
                         <img class="NONEMOB" src=${this.movieCardItem}>
-                        <div class="third-con">
-                            <div class="markBorder">
+                        <div class="third-con" style="width: 100%">
+                            <div style="display: none" class="markBorder">
                                 <i class="fa-solid fa-thumbs-up"></i>
                             </div>
-                            <div class="markBorder">
+                            <div style="display: none" class="markBorder">
                                 <i class="fa-solid fa-thumbs-down fa-flip-horizontal"></i>
                             </div>
-                            <div class="markBorder markBorder-procent">
+                            <div style="width: 100%" class="markBorder markBorder-procent">
                                 <div class="procentBAR" style="width: ${this.procentBAR}%; background: ${this.procentBG};"></div>
                                 <span class="procent">
                                     Рейтинг ожиданий ${this.expectationsRating}%
                                 </span>
                             </div>
-                            <div class="markBorder">
+                            <div class="markBorder" style="display: none">
                                 <i class="fa-solid fa-heart"></i>
                             </div>
                         </div>

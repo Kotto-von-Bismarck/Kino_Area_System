@@ -14,6 +14,7 @@ function reviews(){
             this.reviewclass = data.reviewclass;
             this.reviewtext = data.reviewtext;
             this.parent = data.parentSelector;
+            this.moviePoster = data.avatar;
         }
         ReviewCards() {
             const element = document.createElement('div');
@@ -21,6 +22,9 @@ function reviews(){
                 this.avatar = "images/users-avatars/universal-avatar-mini.svg"
             } else {
                 this.avatar = `uploadedAvatars/${this.avatar}`
+            }
+            if (this.parent == '.profileReviewBox') {
+                this.avatar = this.moviePoster;
             }
             let creationTime = (this.time.split(' '))[1];
                 creationTime = creationTime.slice(0,5) + ' UTC'
@@ -33,7 +37,7 @@ function reviews(){
                 <div class="ReviewElement ${this.reviewclass}">
                     <div class="ReviewElement__header">
                         <div class="UserData">
-                            <img src=${this.avatar} style="border-radius: 100%">
+                            <img src=${this.avatar} ${this.parent == '.profileReviewBox' ? 'style="border-radius: 5px"' : 'style="border-radius: 100%"'}>
                             <div class="NickName">${this.nickname}</div>
                         </div>
                         <div class="subheader__devider"></div>

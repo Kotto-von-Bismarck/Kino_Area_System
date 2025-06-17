@@ -11,6 +11,7 @@ import modalWindows from './modules/modalWindowsAndSearch';
 import postFormData from './modules/forms';
 import tokenVerification from './modules/tokenVerification';
 import profileGenerator from './modules/profileGenerator';
+import sessionListGenerator from './modules/sessionListGenerator';
 import searchItems from './modules/searchItemsConstructor';
 import search from './modules/search';
 import mobileMenu from './modules/mobileMenu';
@@ -23,6 +24,7 @@ import lastNews from './modules/newsTabs';
 import tabs from './modules/tabs';
 import sliders from './modules/sliders';
 import upElement from './modules/up';
+import postEmailSubscribe from './modules/emailSubscribeForm';
 
 window.addEventListener('DOMContentLoaded', () => {
     if (document.querySelector('.body').classList.contains('mainPageSelector')) {
@@ -37,6 +39,7 @@ window.addEventListener('DOMContentLoaded', () => {
         expectedMovie();
         videoPlayer();
         lastNews();
+        postEmailSubscribe();
         const firstAwaitInterwal = setInterval(() => {
             if (document.querySelector('.cinemaNow .cardItem')) {
                 filterTabs();
@@ -60,6 +63,7 @@ window.addEventListener('DOMContentLoaded', () => {
         upElement();
         profileGenerator();
         reviews();
+        sessionListGenerator();
         tabs();
     } else if (document.querySelector('.body').classList.contains('404-page')) {
         mobileMenu();

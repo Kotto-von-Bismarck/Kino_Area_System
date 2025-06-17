@@ -132,15 +132,15 @@
                         <div style="cursor: pointer" class="profileTabItem">
                             <img style="pointer-events: none" src="icons/profileIcons/homeRunVector.svg" alt="profile">
                         </div>
-                        <!-- <div class="profileTabItem">
+                        <!-- <div style="cursor: pointer" class="profileTabItem">
                             <img src="icons/profileIcons/friendVector.svg" alt="friends">
                         </div> -->
                         <div style="cursor: pointer" class="profileTabItem">
                             <img style="pointer-events: none" src="icons/profileIcons/filmVector.svg" alt="movies">
                         </div>
-                        <!-- <div class="profileTabItem">
-                            <img src="icons/profileIcons/marksVector.svg" alt="marks">
-                        </div> -->
+                        <div style="cursor: pointer" class="profileTabItem">
+                            <img style="pointer-events: none" src="icons/profileIcons/tiket.svg" alt="marks">
+                        </div>
                         <div style="cursor: pointer" class="profileTabItem">
                             <img style="pointer-events: none" src="icons/profileIcons/reviewVector.svg" alt="reviews">
                         </div>
@@ -161,18 +161,35 @@
                             <!-- данные модуля из js -->
                         </div>
                     </div>
-                    <div class="profileTabContent">
+                    <div class="profileTabContent" style="padding: 0">
                         <!-- раздел "Мои сеансы" -->
+                        <div class="profileContentBox__header" style="margin-top: 31px; justify-content: center; padding: 0 20px;">
+                            <h2 class="profileTitle">
+                                Сеансы кинотеатра "Movie Zone" <span id="userCity" style="font-family: 'magneto'; display: inline;"></span>
+                            </h2>
+                        </div>
                         <div class="profileTicketsBox fade">
-                            <div class="loading">
+                            <div class="loading" id="ticketsLoading">
                                 <img class="logobottom" src="icons/forLoading/loadingLogo.svg">
                                 <img class="logotop" src="icons/forLoading/loadingDots.svg">
                             </div>
                             <!-- данные модуля "Сеансы" из js -->
                         </div>
                     </div>   
-                    <div class="profileTabContent movieReview reviewsCON">
+                    <div class="profileTabContent">
+                        <div class="profileContentBox__header" style="justify-content: center;">
+                            <h2 class="profileTitle">
+                                Ваши билеты
+                            </h2>
+                        </div>
+                    </div>        
+                    <div class="profileTabContent movieReview reviewsCON"  style="padding: 5px">
                         <!-- раздел "Мои рецензии" -->
+                        <div class="profileContentBox__header" style="margin-top: 31px; justify-content: center;">
+                            <h2 class="profileTitle">
+                                Ваши рецензии
+                            </h2>
+                        </div>
                         <div class="profileReviewBox ReviewContent fade">
                             <div class="loading" id="reviewLoading">
                                 <img class="logobottom" src="icons/forLoading/loadingLogo.svg">

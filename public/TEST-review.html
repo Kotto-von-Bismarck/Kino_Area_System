@@ -1,205 +1,119 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Личный кабинет</title>
-    <link rel="icon" type="image/png" href="favicon/favicon-96x96.png" sizes="96x96" />
-    <link rel="icon" type="image/svg+xml" href="favicon/favicon.svg" />
-    <link rel="shortcut icon" href="favicon/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png" />
-    <meta name="apple-mobile-web-app-title" content="Movie zone" />
-    <link rel="manifest" href="favicon/site.webmanifest" />
+    <title>Movie Seat Booking</title>
     <link rel="stylesheet" href="css/style.min.css">
 </head>
-<body class="body profilePageSelector" unselectable="no">
-    <nav class="mobile__menu">
-        <div class="mobile__menu-item">
-            <a class="mobile__menu-link" href="index.html#cinemaNowHeaderID">
-                <div>
-                    Афиша
-                </div>
-            </a>
-        </div>
-        <div class="mobile__menu-item">
-            <a class="mobile__menu-link" href="index.html#trailerHeaderID">
-                <div>
-                    Трейлеры
-                </div>
-            </a>
-        </div>
-        <div class="mobile__menu-item">
-            <a class="mobile__menu-link" href="index.html#popularHeaderID">
-                <div>
-                    Популярные фильмы
-                </div>
-            </a>
-        </div>
-        <div class="mobile__menu-item">
-            <a class="mobile__menu-link" href="index.html#personsHeaderID">
-                <div>
-                    Персоны
-                </div>
-            </a>
-        </div>
-        <div class="mobile__menu-item">
-            <a class="mobile__menu-link" href="index.html#lastNewsHeaderID">
-                <div>
-                    Последние новости
-                </div>
-            </a>
-        </div>
-        <div class="mobile__menu-item">
-            <a class="mobile__menu-link" href="index.html#expectedHeaderID">
-                <div>
-                    Ожидаемые новинки
-                </div>
-            </a>
-        </div>
-    </nav>
-    <div class="profileWrapper">
-        <div class="container">
-            <header class="header">
-                <div class="searchElements MIDDLESCREEN">
-                    <button data-searchactive class="searchButton MIDDLESCREEN">
-                        <div>
-                            <img src="icons/searchVector.svg" alt="search">
-                            <div class="searchBTN">Поиск</div>
-                        </div>
-                    </button>
-                </div>
-                <div class="nav-container NONEMOB">
-                    <div class="logo">
-                        <a href="index.html"><img src="icons/logo.svg" alt="KinoArea"></a>
-                    </div>
-                    <nav class="navigation">
-                        <div>
-                            <a href="index.html#cinemaNowHeaderID">Афиша</a>
-                        </div>
-                        <div>
-                            <a href="index.html#trailerHeaderID">Трейлеры</a>
-                        </div>
-                        <div>
-                            <a href="index.html#popularHeaderID">Популярные фильмы</a>
-                        </div>
-                        <div>
-                            <a href="index.html#personsHeaderID">Персоны</a>
-                        </div>
-                        <div>
-                            <a href="index.html#lastNewsHeaderID">Последние новости</a>
-                        </div>
-                        <div>
-                            <a href="index.html#expectedHeaderID">Ожидаемые новинки</a>
-                        </div>
-                    </nav>
-                </div>
-                <div class="interactivElements NONEMOB">
-                    <button data-searchactive class="searchButton DESKTOP">
-                        <div><img src="icons/searchVector.svg" alt="search"></div>
-                    </button>
-                    <button data-modal class="autorisation forLogOut">
-                        <span>Выйти</span>
-                    </button>
-                </div>
-                <div class="headerMobile MOBILE">
-                    <div class="interactivElements">
-                        <button class="mobileMenuButton">
-                            <div class="hamburger">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
-                        </button>
-                        <button data-searchactive class="searchButton">
-                            <div><img src="icons/searchVector.svg" alt="search"></div>
-                        </button>
-                    </div>
-                    <div class="logo">
-                        <a id="headerLogo" href="index.html"><img src="icons/logo.svg" alt="KinoArea"></a>
-                    </div>
-                    <div class="interactivElements">
-                        <button data-modal class="forLogOut autorisation">
-                            <span>Выйти</span>
-                        </button>
-                    </div>
-                </div>
-            </header>
-        </div>
-        <section id="up" class="mainItem">
-            <div class="container">
-                <div class="ReviewContent myReview">
-                    <div class="ReviewElement">
-                        <div class="ReviewElement__header">
-                            <div class="UserData">
-                                <img src="uploadedAvatars/663b52d8-73eb-46a8-a80f-19bf58b5341f.png">
-                                <h2 class="NickName">L0rd_$ith</h2>
-                            </div>
-                        </div>
-                        <div class="ReviewElement__form">
-                            <form class="addReviewForm" name="requestForAddReview" method="post" enctype="multipart/form-data" action="/publicReview">
-                                <label class="title-label" for="title">Заголовок</label>
-                                <input maxlength="30" class="title-input" required placeholder="Заголовок рецензии" name="title" type="text">
+<body style="background-color: #132931;">
 
-                                <label class="reviewType-label" for="reviewType">Тип рецензии</label>
-                                <select class="reviewType-select" name="reviewType">
-                                    <option value="neutralReview">Нейтральная</option>
-                                    <option value="goodReview">Положительная</option>
-                                    <option value="badReview">Отрицательная</option>
-                                </select>
+    <div class="fakeWrapper" style="width: 50vw; height: 50vh; margin: 0 auto;">
+        <div class="seatsPlanWindow">
+            <div class="movie-container">
+                <label for="movie">Pick a movie:</label>
+                <select id="movie">
+                    <option value="190">Avengers: Endgame (190 р)</option>
+                    <option value="320">Joker (320 р)</option>
+                    <option value="170">Toy Story 4 (170 р)</option>
+                    <option value="200">The Lion King (200 р)</option>
+                </select>
+            </div>
 
-                                <textarea class="reviewBody" name="reviewBody" placeholder="Ваше мнение" type="text"></textarea>
+            <div class="seatsPlan-wrapper">
+                <div class="screen">
+                    <span>Экран</span>
+                </div>
 
-                                <input id="tokenInput" style="display: none" name="token" type="text">
-                                <input id="movieIdInput" style="display: none" name="movieId" type="text">
+                <div data-row="1" class="row">
+                    <div data-seat="1" class="seat"></div>
+                    <div data-seat="2" class="seat"></div>
+                    <div data-seat="3" class="seat occupied"></div>
+                    <div data-seat="4" class="seat occupied"></div>
+                    <div data-seat="5" class="seat"></div>
+                    <div data-seat="6" class="seat"></div>
+                </div>
 
-                                <input class="submitData" name="userSub" type="submit" value="Отправить">
-                            </form>
-                        </div>
-                    </div>
+                <div data-row="2" class="row">
+                    <div data-seat="1" class="seat"></div>
+                    <div data-seat="2" class="seat occupied"></div>
+                    <div data-seat="3" class="seat occupied"></div>
+                    <div data-seat="4" class="seat occupied"></div>
+                    <div data-seat="5" class="seat occupied"></div>
+                    <div data-seat="6" class="seat occupied"></div>
+                </div>
+
+                <div data-row="3" class="row">
+                    <div data-seat="1" class="seat"></div>
+                    <div data-seat="2" class="seat occupied"></div>
+                    <div data-seat="3" class="seat occupied"></div>
+                    <div data-seat="4" class="seat occupied"></div>
+                    <div data-seat="5" class="seat"></div>
+                    <div data-seat="6" class="seat"></div>
+                    <div data-seat="7" class="seat"></div>
+                </div>
+
+                <div data-row="4" class="row">
+                    <div data-seat="1" class="seat"></div>
+                    <div data-seat="2" class="seat occupied"></div>
+                    <div data-seat="3" class="seat"></div>
+                    <div data-seat="4" class="seat occupied"></div>
+                    <div data-seat="5" class="seat"></div>
+                    <div data-seat="6" class="seat"></div>
+                    <div data-seat="7" class="seat"></div>
+                </div>
+
+                <div data-row="5" class="row">
+                    <div data-seat="1" class="seat"></div>
+                    <div data-seat="2" class="seat occupied"></div>
+                    <div data-seat="3" class="seat"></div>
+                    <div data-seat="4" class="seat"></div>
+                    <div data-seat="5" class="seat occupied"></div>
+                    <div data-seat="6" class="seat occupied"></div>
+                    <div data-seat="7" class="seat"></div>
+                    <div data-seat="8" class="seat"></div>
                 </div>
             </div>
-        </section>
-        <footer class="footer">
-            <div class="container footer__con" id="socialID">
-                <div class="footer__social">
-                    <div><i class="fa-brands fa-vk"></i></div>
-                    <div><i class="fa-brands fa-instagram"></i></div>
-                    <div><i class="fa-brands fa-facebook-f"></i></div>
-                    <div><i class="fa-brands fa-twitter"></i></div>
-                    <div><i class="fa-brands fa-youtube"></i></div>
-                </div>
-                <nav class="footer__navigation">
-                    <div>
-                        <a href="index.html#cinemaNowHeaderID">Афиша</a>
-                    </div>
-                    <div>
-                        <a href="index.html#trailerHeaderID">Трейлеры</a>
-                    </div>
-                    <div>
-                        <a href="index.html#popularHeaderID">Популярные фильмы</a>
-                    </div>
-                    <div>
-                        <a href="index.html#personsHeaderID">Персоны</a>
-                    </div>
-                    <div>
-                        <a href="index.html#lastNewsHeaderID">Последние новости</a>
-                    </div>
-                    <div>
-                        <a href="index.html#expectedHeaderID">Ожидаемые новинки</a>
-                    </div>
-                </nav>
-                <div class="footer__rightsProtect">
-                    2025 © Movie zone.  Все права защищены
-                </div>
-                <div>
-                    <a class="footer__politic" href="#">Политика конфиденциальности</a>
-                </div>
-            </div>
-        </footer>
+
+            <p class="text">Количество мест: <span id="count">0</span> к оплате <span id="total">0</span> рублей</p>
+        </div>
     </div>
 
-    <script type="module" src="https://kit.fontawesome.com/66e8b232e1.js" crossorigin="anonymous"></script>
-    <script type="module" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script>
+    const container = document.querySelector('.seatsPlan-wrapper');
+    const seats = document.querySelectorAll('.row .seat:not(.occupied)');
+    const count = document.getElementById('count');
+    const total = document.getElementById('total');
+    const movieSelect = document.getElementById('movie');
 
+    let ticketPrice = +movieSelect.value;
+
+    // Update total and count
+    function updateSelectedCount() {
+        const selectedSeats = document.querySelectorAll('.row .seat.selected');
+        
+        const selectedSeatsCount = selectedSeats.length;
+        
+        count.innerText = selectedSeatsCount;
+        total.innerText = selectedSeatsCount * ticketPrice;
+    }
+
+    // Movie select event
+    movieSelect.addEventListener('change', e => {
+        ticketPrice = +e.target.value;
+        updateSelectedCount();
+    });
+
+    // Seat click event
+    container.addEventListener('click', e => {
+        if (e.target.classList.contains('seat') && !e.target.classList.contains('occupied')) {
+            e.target.classList.toggle('selected');
+            
+            updateSelectedCount();
+        }
+    });
+
+    </script>
+    
 </body>
-</html> 
+</html>

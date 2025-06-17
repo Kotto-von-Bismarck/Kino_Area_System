@@ -55,14 +55,14 @@ button {
 
 .activeLike {
     text-shadow: 0 0 10px rgba(72, 188, 255, 0.8);
-    font-size: 22px;
-    color: #fff;
+    font-size: 22px !important;
+    color: #fff !important;
     transition: 0.3s all;
 }
 .activeDis {
     text-shadow: 0 0 10px rgba(255,72,72,.8);
-    font-size: 22px;
-    color: #fff;
+    font-size: 22px !important;
+    color: #fff !important;
     transition: 0.3s all;
 }
 
@@ -85,5 +85,95 @@ button {
     to {
         transform: translateX(-50%) translateY(-50%) rotate(-360deg);
         animation-timing-function: linear;
+    }
+}
+.seatsPlanWindow {
+    background: rgba(11, 74, 90, .5);
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.seatsPlan-wrapper {
+    margin: 20px auto;
+    width: 300px;
+}
+
+.screen {
+    background-color: #fff;
+    border-radius: 10px;
+    height: 70px;
+    width: 100%;
+    margin-bottom: 15px;
+    box-shadow: 0 0 15px 0 rgba(255, 255, 255, .7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span {
+        font-family: 'Magneto';
+        font-size: 30px;
+    }
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+}
+
+.seat {
+    background-color: #1d7f91;
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.seat.selected {
+    background-color: #fff;
+}
+
+.seat.occupied {
+    background-color: #0c232b;
+    cursor: not-allowed;
+}
+
+.movie-container {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.text {
+    color: #fff;
+    margin-top: 30px;
+    font-size: 18px;
+    span {
+        font-family: 'Magneto';
+    }
+}
+
+#movie {
+    font-size: 16px;
+    padding: 5px;
+}
+
+@media (max-width: 700px) {
+    .screen {
+        border-radius: 5px;
+        height: 50px;
+        width: 100%;
+        span {
+            font-size: 20px;
+        }
+    }
+    .seatsPlan-wrapper {
+        margin: 10px auto;
+        width: 100%;
+    }
+    .seat {
+        height: 16px;
+        width: 16px;
+        margin: 2px;
+        border-radius: 2px;
+        cursor: pointer;
     }
 }

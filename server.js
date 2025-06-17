@@ -471,6 +471,39 @@ const Reviews = sequelize.define(
 Users.hasMany(Reviews, { foreignKey: 'authorID' });
 Movies.hasMany(Reviews, { foreignKey: 'movieID' });
 
+const Subscribes = sequelize.define(
+    'Subscribes',
+    {
+        subscribeID: { 
+            allowNull: false,
+            primaryKey: true,
+            type: DataTypes.UUID,
+            defaultValue: Sequelize.UUIDV4
+        },
+        email: {
+            type: DataTypes.STRING,
+            allowNull: false
+        },
+    }
+)
+
+// маршрут на создание записи о подписки на e-mail рассылку
+app.post('/api/newEmailSubscriber', async (req, res) => {
+    const {frontData} = req.body;
+
+    await Subscribes.findOne({where: {email: frontData}})
+    .then((subscriber) => {
+        if (subscriber) {
+            return res.send({ res: 'Вы уже подписаны' });
+        } else {
+            Subscribes.create( { email: frontData } )
+            .then(()=> {
+                return res.send({ res: 'Подписка оформлена' });
+            })
+        }
+    }).catch(e => console.log(`error: ${e}`));
+});
+
 // маршрут на публикацию рецензии к фильму
 app.post( "/publicReview", upload.single("file"), async (req, res) => {
     const {token, title, movieId, reviewBody, reviewType} = req.body;
@@ -564,11 +597,11 @@ app.post('/api/getUserReviews', (req, res) => {
             res.send( {res: 'Время сессии истекло!'} )
         } else if (decoded) {
             sequelize.query(
-                `SELECT Reviews.*, Users.nickname, Users.avatar FROM Reviews JOIN Users ON Users.userID = Reviews.authorID WHERE authorID = '${decoded.id}'`
+                `SELECT Reviews.*, Movies.rusTitle, Movies.primaryPoster FROM Reviews JOIN Movies ON Movies.movieID = Reviews.movieID WHERE authorID = '${decoded.id}'`
             ).then(([results, metadata]) => {
                 const reviews = results.map(item => item = {
-                    avatar: item.avatar,
-                    nickname: item.nickname,
+                    avatar: item.primaryPoster,
+                    nickname: item.rusTitle,
                     reviewtitle: item.title,
                     time: item.updatedAt,
                     reviewclass: item.reviewType,
@@ -577,7 +610,6 @@ app.post('/api/getUserReviews', (req, res) => {
                     dislikesQuantity: item.dislikesQuantity,
                     parentSelector: '.profileReviewBox'
                 })
-                // console.log(reviews);
                 res.send(reviews);
             }).catch(e => console.log(`error: ${e}`));
         }

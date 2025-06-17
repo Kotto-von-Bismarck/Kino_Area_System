@@ -101,6 +101,12 @@
                 gap: 10px
                 input
                     width: 100%
+    .promocodeItem
+        gap: 25px
+        img
+            max-height: 200px
+        h2
+            font-size: 35px
 @media (max-width: 767px)
     .alterButtonOnP
         font-size: 11px
@@ -204,4 +210,42 @@
                     background: url('../icons/profileIcons/saveCheck.svg') left 35% bottom 50% no-repeat $bodyColor
     .reviewsCON
         padding: 0 !important
+    .profileTicketsBox
+        .search__item
+            flex-wrap: wrap
+            max-height: 320px
+            min-height: 320px
+            .search__movieDescr
+                max-width: 50%
+            .dtn-special-section
+                width: 100%
+    .promocodeItem
+        margin-bottom: 20px
+        width: 95%
+        display: flex
+        flex-direction: column
+        gap: 20px
+        img
+            max-height: 800px
+        .promocodeForm
+            width: 100%
+            p
+                height: 44px
+                margin-bottom: 10px
+                border-radius: 5px
+                font-size: 15px
+                padding: 13px
+            .search__movieDescr
+                width: 100%
+                margin-bottom: 15px
+        .selectCinema
+            padding: 0 13px
+            font-size: 15px
+            border-radius: 5px
+            height: 44px
+            background: url('../icons/profileIcons/selectArrow.svg') right 26px bottom 50% no-repeat $bodyColor
+            margin-bottom: 10px
+        h2
+            font-size: 25px
+            margin-bottom: 10px
 // @media (max-width: 375px)
